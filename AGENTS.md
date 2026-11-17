@@ -29,6 +29,7 @@ Own kid-friendly look in style.css: sky blue background, white paper board with 
 - Stroke order follows ball-and-stick style (top to bottom, left to right; C/O/a start at the top right and go counterclockwise).
 - Animals use emoji so the app loads fast with no images.
 - Tab bar at the bottom on phones; on tablets in landscape the tabs become a side rail and the tools sit beside the board.
+- Public source: https://github.com/kdaravuth/letter-zoo (branch main). Keep KOOMPI and GitHub in step: push changes made here to GitHub, and pull merged contributions back before changing the app.
 - Open source under the MIT license (LICENSE), with README.md and CONTRIBUTING.md for contributors. Secrets live only in the service's environment (.env.example lists the names).
 
 ## Still placeholders
