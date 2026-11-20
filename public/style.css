@@ -508,6 +508,10 @@ html.dark .c-chase { color: #8DB6FF; }
 .np-first:focus { outline: 3px solid var(--ocean); outline-offset: 2px; }
 .np-error { min-height: 20px; margin-top: 4px; color: #D62A63; font-size: 15px; font-weight: 700; }
 html.dark .np-error { color: #FF8FB0; }
+.np-suggest { display: flex; flex-wrap: wrap; gap: 8px; }
+.np-suggest:empty { display: none; }
+.np-sugg { min-height: 44px; padding: 6px 14px; border-radius: 999px; background: var(--leaf); color: #10301F; box-shadow: 0 3px 0 #22AE70; font-family: var(--font-display); font-size: 16px; font-weight: 800; }
+.np-sugg:active { transform: translateY(2px); box-shadow: 0 1px 0 #22AE70; }
 .np-preview { display: grid; justify-items: center; gap: 8px; padding: 10px 0 6px; }
 .np-name { font-family: var(--font-display); font-size: 28px; font-weight: 800; text-align: center; line-height: 1.1; }
 .np-label { margin-top: 10px; }

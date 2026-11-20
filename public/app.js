@@ -1246,7 +1246,11 @@
     if (!p) return '';
     return p.first ? p.first + ' the ' + BUDDY[p.animal] : WORDS[p.adj] + ' ' + BUDDY[p.animal] + ' ' + p.num;
   }
-  function tidyFirst(s) { var t = String(s || '').trim().replace(/\s+/g, ' '); return t ? t.charAt(0).toUpperCase() + t.slice(1) : ''; }
+  function tidyFirst(s) {
+    var t = String(s || '').trim().replace(/\s+/g, ' ');
+    if (t === t.toUpperCase() && t !== t.toLowerCase()) t = t.toLowerCase(); // ALL CAPS -> Capitalized
+    return t ? t.charAt(0).toUpperCase() + t.slice(1) : '';
+  }
   function avatar(animal, cls) {
     var i = Math.max(0, ALPHA.indexOf(animal)), t = TILES[i % TILES.length], a = ANIMALS[animal] || { emoji: '' };
     return '<span class="' + (cls || 'av') + '" style="background:' + t.bg + '" aria-hidden="true">' + a.emoji + '</span>';
@@ -1335,7 +1339,7 @@
   function openNamePicker() {
     draft = save.player ? { adj: save.player.adj, animal: save.player.animal, num: save.player.num, first: save.player.first || '' } : { adj: rnd(WORDS.length), animal: ALPHA[rnd(26)], num: 10 + rnd(90), first: '' };
     $('#npFirst').value = draft.first;
-    $('#npError').textContent = '';
+    clearNameError();
     $('#npGrid').innerHTML = ALPHA.map(function (L) {
       return '<button type="button" class="np-pick" role="radio" data-l="' + L + '" aria-label="' + esc(BUDDY[L] || L) + '">' + (ANIMALS[L] ? ANIMALS[L].emoji : L) + '</button>';
     }).join('');
@@ -1344,11 +1348,23 @@
   }
   $('#npGrid').addEventListener('click', function (e) {
     var b = e.target.closest('.np-pick'); if (!b) return;
-    draft.animal = b.dataset.l; pop(); renderDraft();
+    draft.animal = b.dataset.l; pop(); clearNameError(); renderDraft();
+  });
+  function clearNameError() { $('#npError').textContent = ''; $('#npSuggest').textContent = ''; }
+  function showNameTaken(msg, suggestions) {
+    $('#npError').textContent = msg;
+    $('#npSuggest').innerHTML = (suggestions || []).map(function (s) {
+      return '<button type="button" class="np-sugg" data-l="' + s.animal + '">' + (ANIMALS[s.animal] ? ANIMALS[s.animal].emoji + ' ' : '') + esc(s.name) + '</button>';
+    }).join('');
+    boop();
+  }
+  $('#npSuggest').addEventListener('click', function (e) {
+    var b = e.target.closest('.np-sugg'); if (!b) return;
+    draft.animal = b.dataset.l; pop(); clearNameError(); renderDraft();
   });
   $('#npFirst').addEventListener('input', function (e) {
     draft.first = tidyFirst(e.target.value);
-    $('#npError').textContent = '';
+    clearNameError();
     renderDraft();
   });
   $('#npShuffle').addEventListener('click', function () {
@@ -1365,18 +1381,21 @@
     }
     fetch('/api/player', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ visitor: vid, adj: draft.adj, animal: draft.animal, num: draft.num, first: draft.first }) })
       .then(function (r) {
-        if (r.status === 422) return r.json().then(function (j) { var e = new Error(j.error || 'name'); e.user = true; throw e; });
+        if (r.status === 422 || r.status === 409) return r.json().then(function (j) { var e = new Error(j.error || 'name'); e.user = true; e.taken = r.status === 409; e.suggestions = j.suggestions; throw e; });
         if (!r.ok) throw new Error('name');
         return r.json();
       })
       .then(function (d) {
-        save.player = { adj: draft.adj, animal: draft.animal, num: draft.num, first: d.first || '' }; persist();
+        save.player = { adj: typeof d.adj === 'number' ? d.adj : draft.adj, animal: d.animal || draft.animal, num: typeof d.num === 'number' ? d.num : draft.num, first: d.first || '' }; persist();
         if (nameSheet.close) nameSheet.close();
         fanfare();
         say('Hello, ' + d.name + '!');
         champData = null; champSig = ''; loadChamps();
       })
-      .catch(function (e) { $('#npError').textContent = e && e.user ? 'Please choose another name: ' + e.message : 'Could not save. Check the internet and try again.'; })
+      .catch(function (e) {
+        if (e && e.taken) { showNameTaken(e.message, e.suggestions); return; }
+        $('#npError').textContent = e && e.user ? 'Please choose another name: ' + e.message : 'Could not save. Check the internet and try again.';
+      })
       .then(function () { btn.disabled = false; });
   });
 

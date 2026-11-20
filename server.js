@@ -80,7 +80,10 @@ function init() {
       ['CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, week TEXT NOT NULL, visitor TEXT NOT NULL, points INTEGER NOT NULL, reason TEXT NOT NULL)'],
       ['CREATE INDEX IF NOT EXISTS scores_week ON scores(week, visitor)'],
       ['CREATE INDEX IF NOT EXISTS scores_visitor ON scores(visitor)'],
-      ['CREATE TABLE IF NOT EXISTS player_names (visitor TEXT PRIMARY KEY, first TEXT NOT NULL)']
+      ['CREATE TABLE IF NOT EXISTS player_names (visitor TEXT PRIMARY KEY, first TEXT NOT NULL)'],
+      // One row per name shown on the board, so no two players share a name.
+      ['CREATE TABLE IF NOT EXISTS player_keys (key TEXT PRIMARY KEY, visitor TEXT NOT NULL UNIQUE)'],
+      ["INSERT OR IGNORE INTO player_keys (key, visitor) SELECT CASE WHEN n.first IS NOT NULL THEN 'n|' || lower(n.first) || '|' || p.animal ELSE 'f|' || p.adj || '|' || p.animal || '|' || p.num END, p.visitor FROM players p LEFT JOIN player_names n ON n.visitor = p.visitor WHERE p.visitor NOT LIKE 'testrunner%' ORDER BY p.ts"]
     ]).catch((e) => { ready = null; throw e; });
   }
   return ready;
@@ -123,7 +126,9 @@ function cleanFirst(s) {
   if (!t) return '';
   if (!/^[\p{L}\p{M}][\p{L}\p{M}'-]{1,11}$/u.test(t)) return null;
   if (RUDE.test(t)) return null;
-  return t.charAt(0).toLocaleUpperCase('en') + t.slice(1);
+  // ALL CAPS typing ("MINA") becomes "Mina"; otherwise keep the child's own spelling.
+  const base = t === t.toLocaleUpperCase('en') && t !== t.toLocaleLowerCase('en') ? t.toLocaleLowerCase('en') : t;
+  return base.charAt(0).toLocaleUpperCase('en') + base.slice(1);
 }
 function weekOf(ts) { // the Monday the week starts on, Cambodia time
   const d = new Date(ts + 7 * 3600e3);
@@ -152,11 +157,43 @@ async function onPlayer(req, res) {
   if (first === null) return json(res, 422, { error: 'Use only your first name: letters, up to 12.' });
   if (!allowed(visitor)) return json(res, 429, { error: 'slow down' });
   await init();
+  // Names are unique. Test ids get their own space, so tests never take a real child's name.
+  const scope = isTestId(visitor) ? 't|' : '';
+  const firstKey = first ? first.toLowerCase() : '';
+  const keyOf = (n) => scope + (first ? 'n|' + firstKey + '|' + animal : 'f|' + adj + '|' + animal + '|' + n);
+  let num2 = num;
+  const [owner] = await db([['SELECT visitor FROM player_keys WHERE key = ?', [keyOf(num2)]]]);
+  if (owner.length && owner[0].visitor !== visitor) {
+    if (first) {
+      // Same first name and buddy taken: suggest buddies that are still free for this name.
+      const [taken] = await db([['SELECT key FROM player_keys WHERE key LIKE ? AND visitor <> ?', [scope + 'n|' + firstKey + '|%', visitor]]]);
+      const used = new Set(taken.map((r) => r.key.slice(-1)));
+      const free = Object.keys(BUDDY).filter((L) => !used.has(L)).sort(() => Math.random() - 0.5).slice(0, 4);
+      return json(res, 409, {
+        error: 'Someone already plays as ' + nick({ first, animal }) + '. Pick another buddy!',
+        suggestions: free.map((L) => ({ animal: L, name: nick({ first, animal: L }) }))
+      });
+    }
+    // A fun name that is taken just gets a free number.
+    const [nums] = await db([['SELECT key FROM player_keys WHERE key LIKE ?', [scope + 'f|' + adj + '|' + animal + '|%']]]);
+    const usedN = new Set(nums.map((r) => Number(r.key.split('|').pop())));
+    const freeN = [];
+    for (let n = 10; n <= 99; n++) if (!usedN.has(n)) freeN.push(n);
+    if (!freeN.length) return json(res, 409, { error: 'That fun name is full. Tap New name!', suggestions: [] });
+    num2 = freeN[Math.floor(Math.random() * freeN.length)];
+  }
+  try {
+    // Claim the name first, in one statement: it fails (and changes nothing) if another player owns it.
+    await db([['INSERT INTO player_keys (key, visitor) VALUES (?, ?) ON CONFLICT(visitor) DO UPDATE SET key = excluded.key', [keyOf(num2), visitor]]]);
+  } catch (e) {
+    if (/UNIQUE|constraint/i.test(e.message)) return json(res, 409, { error: 'Someone just took that name. Try again!', suggestions: [] });
+    throw e;
+  }
   await db([
-    ['INSERT OR REPLACE INTO players (visitor, adj, animal, num, ts) VALUES (?, ?, ?, ?, ?)', [visitor, adj, animal, num, Date.now()]],
+    ['INSERT OR REPLACE INTO players (visitor, adj, animal, num, ts) VALUES (?, ?, ?, ?, ?)', [visitor, adj, animal, num2, Date.now()]],
     first ? ['INSERT OR REPLACE INTO player_names (visitor, first) VALUES (?, ?)', [visitor, first]] : ['DELETE FROM player_names WHERE visitor = ?', [visitor]]
   ]);
-  json(res, 200, { name: nick({ adj, animal, num, first }), animal, first });
+  json(res, 200, { name: nick({ adj, animal, num: num2, first }), animal, first, adj, num: num2 });
 }
 
 async function onLeaderboard(req, res, url) {
