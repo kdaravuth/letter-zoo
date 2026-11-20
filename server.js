@@ -75,7 +75,12 @@ function init() {
       ['CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, day TEXT NOT NULL, type TEXT NOT NULL, visitor TEXT NOT NULL, letter TEXT, place TEXT, country TEXT)'],
       ['CREATE INDEX IF NOT EXISTS events_day ON events(day)'],
       ['CREATE INDEX IF NOT EXISTS events_type ON events(type)'],
-      ['CREATE TABLE IF NOT EXISTS clips (key TEXT PRIMARY KEY, mime TEXT NOT NULL, data TEXT NOT NULL, updated INTEGER NOT NULL)']
+      ['CREATE TABLE IF NOT EXISTS clips (key TEXT PRIMARY KEY, mime TEXT NOT NULL, data TEXT NOT NULL, updated INTEGER NOT NULL)'],
+      ['CREATE TABLE IF NOT EXISTS players (visitor TEXT PRIMARY KEY, adj INTEGER NOT NULL, animal TEXT NOT NULL, num INTEGER NOT NULL, ts INTEGER NOT NULL)'],
+      ['CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, week TEXT NOT NULL, visitor TEXT NOT NULL, points INTEGER NOT NULL, reason TEXT NOT NULL)'],
+      ['CREATE INDEX IF NOT EXISTS scores_week ON scores(week, visitor)'],
+      ['CREATE INDEX IF NOT EXISTS scores_visitor ON scores(visitor)'],
+      ['CREATE TABLE IF NOT EXISTS player_names (visitor TEXT PRIMARY KEY, first TEXT NOT NULL)']
     ]).catch((e) => { ready = null; throw e; });
   }
   return ready;
@@ -103,15 +108,105 @@ setInterval(() => {
   for (const [k, b] of limits) if (now - b.start > 120000) limits.delete(k);
 }, 60000).unref();
 
+/* ---------- points and the Champions board ----------
+   Points are worked out here from what happened, never sent by the app:
+   10 per star on a traced letter, 20 for hatching a new friend, 5 for a treat, 25 for a crown. */
+const POINTS = { hatch: 20, feed: 5, crown: 25 };
+const ADJ = ['Sunny', 'Happy', 'Brave', 'Speedy', 'Sparkly', 'Jolly', 'Clever', 'Bouncy', 'Cozy', 'Lucky', 'Giggly', 'Mighty'];
+const BUDDY = { A: 'Alligator', B: 'Bear', C: 'Cat', D: 'Dog', E: 'Elephant', F: 'Frog', G: 'Giraffe', H: 'Horse', I: 'Inchworm', J: 'Jaguar', K: 'Kangaroo', L: 'Lion', M: 'Monkey', N: 'Newt', O: 'Octopus', P: 'Penguin', Q: 'Bee', R: 'Rabbit', S: 'Sloth', T: 'Tiger', U: 'Unicorn', V: 'Vole', W: 'Whale', X: 'Fish', Y: 'Yak', Z: 'Zebra' };
+function nick(p) { return p.first ? p.first + ' the ' + BUDDY[p.animal] : ADJ[p.adj] + ' ' + BUDDY[p.animal] + ' ' + p.num; }
+// A child's first name, if they give one: letters only (any language), 2-12 long, one word, nothing rude.
+const RUDE = /(fuck|shit|bitch|dick|cock|pussy|porn|cunt|nigg|fag|slut|whore|penis|vagina|sexy|^sex$|^ass$|^butt$|^poop$|^kill$)/i;
+function cleanFirst(s) {
+  if (typeof s !== 'string') return '';
+  const t = s.normalize('NFC').trim().replace(/\s+/g, ' ');
+  if (!t) return '';
+  if (!/^[\p{L}\p{M}][\p{L}\p{M}'-]{1,11}$/u.test(t)) return null;
+  if (RUDE.test(t)) return null;
+  return t.charAt(0).toLocaleUpperCase('en') + t.slice(1);
+}
+function weekOf(ts) { // the Monday the week starts on, Cambodia time
+  const d = new Date(ts + 7 * 3600e3);
+  const back = (d.getUTCDay() + 6) % 7;
+  return new Date(d.getTime() - back * 864e5).toISOString().slice(0, 10);
+}
+const scoreLimits = new Map();
+function scoreAllowed(visitor) {
+  const now = Date.now();
+  const b = scoreLimits.get(visitor);
+  if (!b || now - b.start > 60000) { scoreLimits.set(visitor, { start: now, n: 1 }); return true; }
+  b.n++;
+  return b.n <= 15;
+}
+const isTestId = (v) => v.indexOf('testrunner') === 0;
+
+async function onPlayer(req, res) {
+  let b;
+  try { b = JSON.parse(await readBody(req, 1024)); } catch (e) { return json(res, 400, { error: 'bad request' }); }
+  const visitor = typeof b.visitor === 'string' && /^[a-z0-9]{10,40}$/.test(b.visitor) ? b.visitor : null;
+  const adj = Number.isInteger(b.adj) && b.adj >= 0 && b.adj < ADJ.length ? b.adj : null;
+  const animal = typeof b.animal === 'string' && BUDDY[b.animal] ? b.animal : null;
+  const num = Number.isInteger(b.num) && b.num >= 10 && b.num <= 99 ? b.num : null;
+  if (!visitor || adj === null || !animal || num === null) return json(res, 400, { error: 'bad request' });
+  const first = cleanFirst(b.first);
+  if (first === null) return json(res, 422, { error: 'Use only your first name: letters, up to 12.' });
+  if (!allowed(visitor)) return json(res, 429, { error: 'slow down' });
+  await init();
+  await db([
+    ['INSERT OR REPLACE INTO players (visitor, adj, animal, num, ts) VALUES (?, ?, ?, ?, ?)', [visitor, adj, animal, num, Date.now()]],
+    first ? ['INSERT OR REPLACE INTO player_names (visitor, first) VALUES (?, ?)', [visitor, first]] : ['DELETE FROM player_names WHERE visitor = ?', [visitor]]
+  ]);
+  json(res, 200, { name: nick({ adj, animal, num, first }), animal, first });
+}
+
+async function onLeaderboard(req, res, url) {
+  const scope = url.searchParams.get('scope') === 'all' ? 'all' : 'week';
+  const me = /^[a-z0-9]{10,40}$/.test(url.searchParams.get('v') || '') ? url.searchParams.get('v') : '';
+  const test = url.searchParams.get('test') === '1';
+  const week = weekOf(Date.now());
+  const conds = [];
+  const args = [];
+  if (scope === 'week') { conds.push('s.week = ?'); args.push(week); }
+  if (!test) conds.push("s.visitor NOT LIKE 'testrunner%'");
+  const where = conds.length ? ' WHERE ' + conds.join(' AND ') : '';
+  const board = 'SELECT s.visitor AS visitor, SUM(s.points) AS points, MAX(s.ts) AS last FROM scores s JOIN players p ON p.visitor = s.visitor' + where + ' GROUP BY s.visitor';
+  const myArgs = scope === 'week' ? [me, week] : [me];
+  await init();
+  const [top, mine, player, count] = await db([
+    ['SELECT b.visitor, b.points, p.adj, p.animal, p.num, n.first FROM (' + board + ') b JOIN players p ON p.visitor = b.visitor LEFT JOIN player_names n ON n.visitor = b.visitor ORDER BY b.points DESC, b.last ASC LIMIT 10', args],
+    ['SELECT COALESCE(SUM(points), 0) AS points, MAX(ts) AS last FROM scores WHERE visitor = ?' + (scope === 'week' ? ' AND week = ?' : ''), myArgs],
+    ['SELECT p.adj, p.animal, p.num, n.first FROM players p LEFT JOIN player_names n ON n.visitor = p.visitor WHERE p.visitor = ?', [me]],
+    ['SELECT COUNT(*) AS n FROM (' + board + ')', args]
+  ]);
+  const you = { name: null, animal: null, points: mine[0].points, rank: null };
+  if (player.length) {
+    you.name = nick(player[0]); you.animal = player[0].animal;
+    if (you.points > 0) {
+      const [above] = await db([['SELECT COUNT(*) AS n FROM (' + board + ') WHERE points > ? OR (points = ? AND last < ?)', args.concat([you.points, you.points, mine[0].last || 0])]]);
+      you.rank = above[0].n + 1;
+    }
+  }
+  json(res, 200, {
+    scope, week, players: count[0].n, you,
+    top: top.map((r, i) => ({ rank: i + 1, name: nick(r), animal: r.animal, points: r.points, you: !!me && r.visitor === me }))
+  });
+}
+
 async function onEvent(req, res) {
   let b;
   try { b = JSON.parse(await readBody(req, 2048)); } catch (e) { return json(res, 400, { error: 'bad request' }); }
   const visitor = typeof b.visitor === 'string' && /^[a-z0-9]{10,40}$/.test(b.visitor) ? b.visitor : null;
-  const type = ['visit', 'ping', 'trace', 'hatch'].includes(b.type) ? b.type : null;
+  const type = ['visit', 'ping', 'trace', 'hatch', 'feed', 'crown'].includes(b.type) ? b.type : null;
   if (!visitor || !type) return json(res, 400, { error: 'bad request' });
   if (!allowed(visitor)) return json(res, 429, { error: 'slow down' });
-  // Test runs (ids starting with "testrunner") are answered but never counted.
-  if (visitor.indexOf('testrunner') === 0) { res.writeHead(204); return res.end(); }
+  const pts = type === 'trace' ? 10 * (Number.isInteger(b.stars) && b.stars >= 1 && b.stars <= 3 ? b.stars : 1) : (POINTS[type] || 0);
+  if (pts && scoreAllowed(visitor)) {
+    const now0 = Date.now();
+    await init();
+    await db([['INSERT INTO scores (ts, week, visitor, points, reason) VALUES (?, ?, ?, ?, ?)', [now0, weekOf(now0), visitor, pts, type]]]);
+  }
+  // Test runs (ids starting with "testrunner") never count in the stats, and stay off the public board.
+  if (isTestId(visitor)) { res.writeHead(204); return res.end(); }
   live.set(visitor, Date.now());
   if (type === 'ping') { res.writeHead(204); return res.end(); }
   const tz = typeof b.tz === 'string' && /^[A-Za-z_]+(\/[A-Za-z_+-]+){1,2}$/.test(b.tz) ? b.tz : null;
@@ -260,6 +355,8 @@ http.createServer(async (req, res) => {
     if (url.startsWith('/api/event') && req.method === 'POST') return await onEvent(req, res);
     if (url.startsWith('/api/stats') && req.method === 'GET') return await onStats(req, res);
     if (url.startsWith('/api/voice/')) return await onVoice(req, res, new URL(url, 'http://local'));
+    if (url.startsWith('/api/player') && req.method === 'POST') return await onPlayer(req, res);
+    if (url.startsWith('/api/leaderboard') && req.method === 'GET') return await onLeaderboard(req, res, new URL(url, 'http://local'));
     if (url.startsWith('/api/')) return json(res, 404, { error: 'not found' });
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405); return res.end(); }
     serveStatic(req, res);

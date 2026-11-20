@@ -7,6 +7,7 @@
   var LETTERS = window.LETTERS;
   var ANIMALS = window.ANIMALS;
   var EXTRA = window.ANIMAL_EXTRA || {};
+  var TREATS = window.ANIMAL_TREATS || {};
   var REDUCE = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   // Paint for each letter (cycles): the road fills with it as the child traces.
@@ -65,12 +66,12 @@
   })();
   var TZ = '';
   try { TZ = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-  function logEvent(type, letter) {
+  function logEvent(type, letter, stars) {
     try {
-      fetch('/api/event', {
+      return fetch('/api/event', {
         method: 'POST', keepalive: true,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: type, visitor: vid, letter: letter || null, tz: TZ })
+        body: JSON.stringify({ type: type, visitor: vid, letter: letter || null, tz: TZ, stars: stars || undefined })
       }).catch(function () {});
     } catch (e) {}
   }
@@ -561,8 +562,10 @@
       save.newFriends = (save.newFriends || 0) + 1;
       save.fresh = (save.fresh || []).concat(L);
     }
-    logEvent('trace', ch);
-    if (isNew) logEvent('hatch', L);
+    var earned = stars * 10 + (isNew ? 20 : 0);
+    lastEarned = earned;
+    addPoints(earned);
+    Promise.all([logEvent('trace', ch, stars), isNew ? logEvent('hatch', L) : null]).then(champCheckSoon, champCheckSoon);
     persist();
     updateBadge();
     svg.classList.add('is-done');
@@ -585,7 +588,7 @@
 
   function showReward(stars, isNew) {
     var L = ALPHA[save.index], ch = currentChar(), a = ANIMALS[L];
-    $('#rewardAnimal').textContent = a.emoji;
+    setupFeed(L);
     $('#rewardTitle').innerHTML = '<span class="big">' + ch + '</span> is for ' + a.name + '!';
     var html = '';
     for (var i = 0; i < 3; i++) {
@@ -595,8 +598,164 @@
     $('#rewardStars').setAttribute('aria-label', stars + ' of 3 stars');
     $('#rewardStars').setAttribute('role', 'img');
     $('#rewardNew').hidden = !isNew;
+    var rp = $('#rewardPoints');
+    rp.innerHTML = '<svg class="icon solid" aria-hidden="true"><use href="#i-star"/></svg>+' + lastEarned + ' points';
+    rp.classList.remove('pop'); void rp.offsetWidth; rp.classList.add('pop');
     reward.hidden = false;
     setTimeout(function () { var nb = $('#nextBtn'); if (nb && !reward.hidden) nb.focus({ preventScroll: true }); }, 50);
+  }
+
+  /* ---------- Treat Time: feed the animal, grow a friendship, earn a crown ---------- */
+  var treatEl = $('#treat');
+  var rewardAnimal = $('#rewardAnimal');
+  var feedState = null, drag = null;
+  function fedCount(L) { return (save.fed && save.fed[L]) || 0; }
+  function heartsHTML(n) {
+    var h = '';
+    for (var i = 0; i < 3; i++) h += '<span class="fh' + (i < n ? ' on' : '') + '">♥</span>';
+    return h;
+  }
+  function setupFeed(L) {
+    var a = ANIMALS[L], t = TREATS[L] || ['🍎', 'an apple'], n = Math.min(3, fedCount(L));
+    rewardAnimal.className = 'reward-animal';
+    rewardAnimal.innerHTML = '<span class="ra-crown' + (n >= 3 ? ' on' : '') + '" aria-hidden="true">👑</span><span class="ra-emo">' + a.emoji + '</span>';
+    treatEl.textContent = t[0];
+    treatEl.className = 'treat';
+    treatEl.style.transform = '';
+    treatEl.setAttribute('aria-label', 'Give ' + a.name + ' ' + t[1]);
+    $('#feed').classList.remove('fed');
+    $('#feedAsk').textContent = 'Feed me!';
+    var fh = $('#friendHearts');
+    fh.innerHTML = heartsHTML(n);
+    fh.setAttribute('aria-label', 'Friendship ' + n + ' of 3');
+    var state = feedState = { L: L, done: false, build: T.build };
+    setTimeout(function () {
+      if (feedState === state && !state.done && !reward.hidden) say('Can you feed me ' + t[1] + '?');
+    }, 2600);
+  }
+  function overAnimal(x, y) {
+    var r = rewardAnimal.getBoundingClientRect(), px = r.width * 0.25, py = r.height * 0.25;
+    return x > r.left - px && x < r.right + px && y > r.top - py && y < r.bottom + py;
+  }
+  function toMouth() {
+    var r = rewardAnimal.getBoundingClientRect(), tr = treatEl.getBoundingClientRect();
+    var cur = new DOMMatrixReadOnly(getComputedStyle(treatEl).transform === 'none' ? undefined : getComputedStyle(treatEl).transform);
+    return { x: cur.m41 + (r.left + r.width / 2) - (tr.left + tr.width / 2), y: cur.m42 + (r.top + r.height * 0.6) - (tr.top + tr.height / 2) };
+  }
+  function flyToAnimal() {
+    if (!feedState || feedState.done) return;
+    var m = toMouth();
+    treatEl.classList.add('flying');
+    treatEl.style.transform = 'translate(' + m.x + 'px,' + m.y + 'px) scale(.9)';
+    setTimeout(feed, 430);
+  }
+  treatEl.addEventListener('pointerdown', function (e) {
+    if (!feedState || feedState.done) return;
+    e.preventDefault(); e.stopPropagation();
+    unlockAudio();
+    try { treatEl.setPointerCapture(e.pointerId); } catch (x) {}
+    drag = { id: e.pointerId, x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
+    treatEl.classList.add('dragging');
+  });
+  treatEl.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 8) drag.moved = true;
+    treatEl.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(1.15)';
+    rewardAnimal.classList.toggle('open', overAnimal(e.clientX, e.clientY));
+  });
+  function endDrag(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var tap = !drag.moved && Date.now() - drag.t < 450;
+    var hit = e.type === 'pointerup' && drag.moved && overAnimal(e.clientX, e.clientY);
+    drag = null;
+    treatEl.classList.remove('dragging');
+    rewardAnimal.classList.remove('open');
+    if (hit) feed();
+    else if (tap) flyToAnimal();
+    else { treatEl.style.transform = ''; boop(); setBubble('Bring the treat to your friend!'); }
+  }
+  treatEl.addEventListener('pointerup', endDrag);
+  treatEl.addEventListener('pointercancel', endDrag);
+  treatEl.addEventListener('click', function (e) { if (e.detail === 0) { unlockAudio(); flyToAnimal(); } }); // keyboard
+  function munch() { [0, 0.16, 0.32].forEach(function (w) { tone(196, 0.08, 'square', 0.05, w); tone(147, 0.1, 'sine', 0.1, w + 0.03); }); }
+  function crumbs() {
+    var br = board.getBoundingClientRect(), r = rewardAnimal.getBoundingClientRect();
+    var cx = r.left + r.width / 2 - br.left, cy = r.top + r.height * 0.65 - br.top;
+    for (var i = 0; i < 10; i++) {
+      var c = document.createElement('b');
+      c.className = 'crumb';
+      var ang = Math.random() * Math.PI * 2, d = 30 + Math.random() * 40;
+      c.style.left = cx + 'px'; c.style.top = cy + 'px';
+      c.style.setProperty('--dx', Math.cos(ang) * d + 'px');
+      c.style.setProperty('--dy', (Math.sin(ang) * d + 20) + 'px');
+      c.style.setProperty('--c', PARTY[i % PARTY.length]);
+      confettiEl.appendChild(c);
+      setTimeout((function (n) { return function () { n.remove(); }; })(c), 800);
+    }
+  }
+  function feed() {
+    if (!feedState || feedState.done) return;
+    feedState.done = true;
+    var L = feedState.L, a = ANIMALS[L], build = feedState.build;
+    var m = toMouth();
+    treatEl.classList.remove('flying');
+    treatEl.classList.add('eaten');
+    treatEl.style.transform = 'translate(' + m.x + 'px,' + m.y + 'px) scale(.1)';
+    rewardAnimal.classList.remove('chomp'); void rewardAnimal.offsetWidth; rewardAnimal.classList.add('chomp');
+    munch();
+    crumbs();
+    save.fed = save.fed || {};
+    var before = save.fed[L] || 0;
+    save.fed[L] = before + 1;
+    persist();
+    var n = Math.min(3, save.fed[L]);
+    var crownNow = before < 3 && n === 3;
+    addPoints(crownNow ? 30 : 5);
+    floatPoints(crownNow ? '+30' : '+5');
+    Promise.all([logEvent('feed', L), crownNow ? logEvent('crown', L) : null]).then(champCheckSoon, champCheckSoon);
+    setTimeout(function () {
+      if (build !== T.build) return;
+      var fh = $('#friendHearts');
+      fh.innerHTML = heartsHTML(n);
+      fh.setAttribute('aria-label', 'Friendship ' + n + ' of 3');
+      if (before < 3 && fh.children[n - 1]) fh.children[n - 1].classList.add('pop');
+      $('#feed').classList.add('fed');
+      if (before < 3 && n === 3) {
+        var crown = rewardAnimal.querySelector('.ra-crown');
+        if (crown) crown.classList.add('on', 'drop');
+        $('#feedAsk').textContent = 'Best friends!';
+        fanfare(); confetti();
+        setBubble(a.name + ' is your best friend! Here is a crown!');
+        say('Yay! We are best friends! I got a crown!');
+      } else {
+        $('#feedAsk').textContent = 'Yum!';
+        pop();
+        setBubble('Yum! ' + a.name + ' loves you!');
+        say(n >= 3 ? 'Yum yum! Best friends forever!' : 'Yum yum! Thank you! Feed me again next time!');
+      }
+    }, 650);
+  }
+
+  /* ---------- points ---------- */
+  var lastEarned = 0;
+  function updatePointsPill(bump) {
+    var n = save.points || 0;
+    $('#pointsNum').textContent = fmtN(n);
+    $('#pointsPill').setAttribute('aria-label', 'Your points: ' + n + '. Open Champions');
+    if (bump) { var p = $('#pointsPill'); p.classList.remove('bump'); void p.offsetWidth; p.classList.add('bump'); }
+  }
+  function fmtN(n) { return Number(n || 0).toLocaleString('en-US'); }
+  function addPoints(n) { save.points = (save.points || 0) + n; persist(); updatePointsPill(true); }
+  function floatPoints(text) {
+    var br = board.getBoundingClientRect(), r = rewardAnimal.getBoundingClientRect();
+    var f = document.createElement('b');
+    f.className = 'float-points';
+    f.textContent = text;
+    f.style.left = (r.left + r.width / 2 - br.left) + 'px';
+    f.style.top = (r.top - br.top) + 'px';
+    confettiEl.appendChild(f);
+    setTimeout(function () { f.remove(); }, 1400);
   }
 
   /* ---------- egg ---------- */
@@ -755,6 +914,7 @@
     if (name !== 'trace') stopDemo();
     if (name !== 'zoo') stopZooLife();
     if (name === 'world') startStats(); else stopStats();
+    if (name === 'champions') startChamps(); else stopChamps();
     if (name === 'letters') { renderGrid(); var cur = letterGrid.querySelector('.is-current'); if (cur) cur.scrollIntoView({ block: 'nearest' }); }
     if (name === 'zoo') {
       var fresh = (save.fresh || []).slice();
@@ -804,7 +964,10 @@
         count++;
         html += '<button type="button" class="zcard" data-i="' + i + '" aria-label="' + a.name + ', letter ' + L + '">' +
           (up && lo ? '<span class="zsuper" title="Capital and small letters done">Aa</span>' : '') +
-          '<span class="emo">' + a.emoji + '</span><span class="zname">' + a.name + '</span><span class="zletter">' + L + L.toLowerCase() + '</span></button>';
+          (fedCount(L) >= 3 ? '<span class="zcrown" title="Best friends">👑</span>' : '') +
+          '<span class="emo">' + a.emoji + '</span><span class="zname">' + a.name + '</span>' +
+          '<span class="zhearts" aria-label="Friendship ' + Math.min(3, fedCount(L)) + ' of 3">' + heartsHTML(Math.min(3, fedCount(L))) + '</span>' +
+          '<span class="zletter">' + L + L.toLowerCase() + '</span></button>';
       } else {
         html += '<button type="button" class="zcard locked" data-i="' + i + '" aria-label="Egg for letter ' + L + '. Trace ' + L + ' to hatch it.">' +
           '<span class="emo">' + eggMini(i) + '</span><span class="zname">Trace ' + L + '</span><span class="zletter">' + L + L.toLowerCase() + '</span></button>';
@@ -859,7 +1022,8 @@
       b.className = 'critter home-' + ex.home + (ex.hop ? ' hopper' : '');
       b.dataset.l = L;
       b.setAttribute('aria-label', a.name + '. Tap to say hello.');
-      b.innerHTML = '<span class="cr-jump"><span class="cr-bob"><span class="cr-emo">' + a.emoji + '</span></span></span><span class="cr-say" aria-hidden="true"></span>';
+      b.innerHTML = '<span class="cr-jump">' + (fedCount(L) >= 3 ? '<span class="cr-crown" aria-hidden="true">👑</span>' : '') +
+        '<span class="cr-bob"><span class="cr-emo">' + a.emoji + '</span></span></span><span class="cr-say" aria-hidden="true"></span>';
       place(b, spot(ex.home));
       if (fresh && fresh.indexOf(L) >= 0) b.classList.add('arrive');
       critters.appendChild(b);
@@ -1071,6 +1235,191 @@
       if (!was) col.classList.add('on');
     }
   });
+
+  /* ---------- Champions: points board, player names, champion party ---------- */
+  var WORDS = window.PLAYER_WORDS || ['Happy'];
+  var BUDDY = window.PLAYER_BUDDY || {};
+  var champBody = $('#champBody');
+  var champTimer = null, champScope = 'week', champData = null, champSig = '';
+  var MEDALS = ['🥇', '🥈', '🥉'];
+  function playerName(p) {
+    if (!p) return '';
+    return p.first ? p.first + ' the ' + BUDDY[p.animal] : WORDS[p.adj] + ' ' + BUDDY[p.animal] + ' ' + p.num;
+  }
+  function tidyFirst(s) { var t = String(s || '').trim().replace(/\s+/g, ' '); return t ? t.charAt(0).toUpperCase() + t.slice(1) : ''; }
+  function avatar(animal, cls) {
+    var i = Math.max(0, ALPHA.indexOf(animal)), t = TILES[i % TILES.length], a = ANIMALS[animal] || { emoji: '' };
+    return '<span class="' + (cls || 'av') + '" style="background:' + t.bg + '" aria-hidden="true">' + a.emoji + '</span>';
+  }
+  function startChamps() { loadChamps(); clearInterval(champTimer); champTimer = setInterval(loadChamps, 20000); }
+  function stopChamps() { clearInterval(champTimer); champTimer = null; }
+  function fetchBoard(scope) {
+    // Test devices (id starting with "testrunner") see the test board; real players never see test players.
+    return fetch('/api/leaderboard?scope=' + scope + '&v=' + encodeURIComponent(vid) + (vid.indexOf('testrunner') === 0 ? '&test=1' : ''), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('board'); return r.json(); });
+  }
+  function loadChamps() {
+    if (!champData) champBody.innerHTML = '<div class="w-skel w-skel-live"></div><div class="w-skel w-skel-big"></div>';
+    return fetchBoard(champScope).then(function (d) { champData = d; renderChamps(d); }).catch(function () {
+      if (!champData) champBody.innerHTML = '<div class="w-card w-error"><p class="w-h">The champions are taking a nap</p><p class="w-sub">We could not load the board. Check the internet connection, then try again.</p><button type="button" class="btn btn-sun" data-champ-retry>Try again</button></div>';
+    });
+  }
+  function rowHTML(r) {
+    return '<li class="c-row' + (r.you ? ' is-you' : '') + '"><span class="c-rank">' + r.rank + '</span>' + avatar(r.animal) +
+      '<span class="c-name">' + esc(r.name) + (r.you ? ' <b class="c-you">You</b>' : '') + '</span><span class="c-pts">' + fmtN(r.points) + '<small>pts</small></span></li>';
+  }
+  function renderChamps(d) {
+    var sig = JSON.stringify([d.scope, d.top, d.you, d.players]);
+    if (sig === champSig && champBody.querySelector('.c-profile')) return;
+    champSig = sig;
+    var y = d.you || {};
+    var html = '';
+    // You
+    if (!y.name) {
+      html += '<div class="c-profile c-join"><span class="c-trophy" aria-hidden="true">🏆</span><div class="c-pmain"><p class="c-ptitle">Join the Champions board!</p>' +
+        '<p class="c-psub">Add your first name to see your rank. You have ' + fmtN(y.points) + ' points' + (d.scope === 'week' ? ' this week' : '') + '.</p></div>' +
+        '<button type="button" class="btn btn-sun" data-pick-name>Add my name</button></div>';
+    } else {
+      var champ = d.scope === 'week' && y.rank && y.rank <= 3;
+      html += '<div class="c-profile' + (champ ? ' is-champ' : '') + '">' + avatar(y.animal, 'av av-big') + '<div class="c-pmain">' +
+        '<p class="c-ptitle">' + esc(y.name) + (champ ? ' <span class="c-badge">' + MEDALS[y.rank - 1] + ' Champion</span>' : '') + '</p>' +
+        '<p class="c-psub">' + fmtN(y.points) + ' points ' + (d.scope === 'week' ? 'this week' : 'in all') +
+        (y.rank ? ' · number ' + y.rank + ' of ' + fmtN(d.players) : ' · trace a letter to get on the board') + '</p></div>' +
+        (y.rank ? '<span class="c-myrank"><small>Rank</small>#' + y.rank + '</span>' : '') +
+        '<button type="button" class="c-edit" data-pick-name aria-label="Change my player name"><svg class="icon" aria-hidden="true"><use href="#i-pencil"/></svg></button></div>';
+      if (y.rank && y.rank > 1) {
+        var ahead = (d.top || [])[y.rank - 2];
+        if (ahead && !ahead.you) html += '<p class="c-chase">Only ' + fmtN(ahead.points - y.points + 1) + ' more points to pass ' + esc(ahead.name) + '!</p>';
+      }
+    }
+    // How to earn
+    html += '<div class="c-earn" aria-label="How to earn points"><span>⭐ 10 per star</span><span>🥚 +20 new friend</span><span>🍌 +5 treat</span><span>👑 +25 crown</span></div>';
+    // Scope
+    html += '<div class="d-chips c-scope" role="group" aria-label="Which board"><button type="button" class="c-chip" data-scope="week" aria-pressed="' + (d.scope === 'week') + '">This week</button>' +
+      '<button type="button" class="c-chip" data-scope="all" aria-pressed="' + (d.scope === 'all') + '">All time</button></div>';
+    var top = d.top || [];
+    if (!top.length) {
+      html += '<div class="w-card c-empty"><span class="c-trophy" aria-hidden="true">🏆</span><p class="w-h">No champions yet' + (d.scope === 'week' ? ' this week' : '') + '</p><p class="w-sub">Trace a letter to be the very first!</p></div>';
+    } else {
+      // Podium: 2nd, 1st, 3rd
+      html += '<section class="w-card"><h2 class="w-h">' + (d.scope === 'week' ? 'This week’s champions' : 'All-time champions') + '</h2><div class="c-podium">' + [1, 0, 2].map(function (k) {
+        var r = top[k];
+        if (!r) return '<div class="cp cp-' + (k + 1) + ' is-empty"><div class="cp-block"><span class="cp-medal">' + MEDALS[k] + '</span><span class="cp-pts">Free spot!</span></div></div>';
+        return '<div class="cp cp-' + (k + 1) + (r.you ? ' is-you' : '') + '">' + (k === 0 ? '<span class="cp-crown" aria-hidden="true">👑</span>' : '') + avatar(r.animal, 'av av-pod') +
+          '<p class="cp-name">' + esc(r.name) + (r.you ? '<b class="c-you">You</b>' : '') + '</p><div class="cp-block"><span class="cp-medal">' + MEDALS[k] + '</span><span class="cp-pts">' + fmtN(r.points) + ' pts</span></div></div>';
+      }).join('') + '</div>';
+      if (top.length > 3) html += '<ol class="c-list">' + top.slice(3).map(rowHTML).join('') + '</ol>';
+      if (y.rank && y.rank > top.length) html += '<p class="c-gap" aria-hidden="true">• • •</p><ol class="c-list">' + rowHTML({ rank: y.rank, name: y.name, animal: y.animal, points: y.points, you: true }) + '</ol>';
+      html += '</section>';
+    }
+    html += '<p class="w-foot">' + fmtN(d.players) + ' ' + (d.players === 1 ? 'player' : 'players') + (d.scope === 'week' ? ' this week. A new week starts every Monday.' : ' so far.') + ' Only first names are shown.</p>';
+    champBody.innerHTML = html;
+  }
+  champBody.addEventListener('click', function (e) {
+    if (e.target.closest('[data-champ-retry]')) { champData = null; loadChamps(); return; }
+    if (e.target.closest('[data-pick-name]')) { openNamePicker(); return; }
+    var chip = e.target.closest('[data-scope]');
+    if (chip && chip.dataset.scope !== champScope) { champScope = chip.dataset.scope; champData = null; champSig = ''; pop(); loadChamps(); }
+  });
+  $('#pointsPill').addEventListener('click', function () { unlockAudio(); pop(); setTab('champions'); });
+
+  // Player name picker: fun words only, no typing, so no real names.
+  var nameSheet = $('#nameSheet');
+  var draft = null;
+  function rnd(n) { return Math.floor(Math.random() * n); }
+  function renderDraft() {
+    $('#npAvatar').innerHTML = avatar(draft.animal, 'av av-hero');
+    $('#npName').textContent = playerName(draft);
+    $('#npGrid').querySelectorAll('.np-pick').forEach(function (b) { b.setAttribute('aria-checked', b.dataset.l === draft.animal ? 'true' : 'false'); });
+  }
+  function openNamePicker() {
+    draft = save.player ? { adj: save.player.adj, animal: save.player.animal, num: save.player.num, first: save.player.first || '' } : { adj: rnd(WORDS.length), animal: ALPHA[rnd(26)], num: 10 + rnd(90), first: '' };
+    $('#npFirst').value = draft.first;
+    $('#npError').textContent = '';
+    $('#npGrid').innerHTML = ALPHA.map(function (L) {
+      return '<button type="button" class="np-pick" role="radio" data-l="' + L + '" aria-label="' + esc(BUDDY[L] || L) + '">' + (ANIMALS[L] ? ANIMALS[L].emoji : L) + '</button>';
+    }).join('');
+    renderDraft();
+    if (nameSheet.showModal) nameSheet.showModal(); else nameSheet.setAttribute('open', '');
+  }
+  $('#npGrid').addEventListener('click', function (e) {
+    var b = e.target.closest('.np-pick'); if (!b) return;
+    draft.animal = b.dataset.l; pop(); renderDraft();
+  });
+  $('#npFirst').addEventListener('input', function (e) {
+    draft.first = tidyFirst(e.target.value);
+    $('#npError').textContent = '';
+    renderDraft();
+  });
+  $('#npShuffle').addEventListener('click', function () {
+    draft.adj = (draft.adj + 1 + rnd(WORDS.length - 1)) % WORDS.length; draft.num = 10 + rnd(90);
+    pop(); renderDraft();
+  });
+  $('#npSave').addEventListener('click', function () {
+    var btn = $('#npSave');
+    btn.disabled = true;
+    if (draft.first && !/^[\p{L}\p{M}][\p{L}\p{M}'-]{1,11}$/u.test(draft.first)) {
+      $('#npError').textContent = 'Please use only your first name: letters, 2 to 12 long.';
+      btn.disabled = false;
+      return;
+    }
+    fetch('/api/player', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ visitor: vid, adj: draft.adj, animal: draft.animal, num: draft.num, first: draft.first }) })
+      .then(function (r) {
+        if (r.status === 422) return r.json().then(function (j) { var e = new Error(j.error || 'name'); e.user = true; throw e; });
+        if (!r.ok) throw new Error('name');
+        return r.json();
+      })
+      .then(function (d) {
+        save.player = { adj: draft.adj, animal: draft.animal, num: draft.num, first: d.first || '' }; persist();
+        if (nameSheet.close) nameSheet.close();
+        fanfare();
+        say('Hello, ' + d.name + '!');
+        champData = null; champSig = ''; loadChamps();
+      })
+      .catch(function (e) { $('#npError').textContent = e && e.user ? 'Please choose another name: ' + e.message : 'Could not save. Check the internet and try again.'; })
+      .then(function () { btn.disabled = false; });
+  });
+
+  // After points are earned: are you in this week's top 3? Celebrate once per better rank.
+  var champCheckTimer = null;
+  function champCheckSoon() { clearTimeout(champCheckTimer); champCheckTimer = setTimeout(checkChampion, 1200); }
+  function checkChampion() {
+    if (!save.player) return;
+    fetchBoard('week').then(function (d) {
+      var y = d.you || {};
+      if (!y.rank || y.rank > 3) return;
+      var best = save.champ && save.champ.week === d.week ? save.champ.best : 99;
+      if (y.rank >= best) return;
+      save.champ = { week: d.week, best: y.rank }; persist();
+      showChampParty(y);
+    }).catch(function () {});
+  }
+  var champParty = $('#champParty');
+  function showChampParty(y) {
+    var words = ['number one', 'number two', 'number three'];
+    $('#champMedal').innerHTML = '<span class="cm-medal">' + MEDALS[y.rank - 1] + '</span>' + avatar(y.animal, 'av av-hero');
+    $('#champPartyTitle').textContent = y.rank === 1 ? 'You’re the top champion!' : 'You’re a champion!';
+    $('#champPartySub').textContent = esc(y.name) + ' is number ' + y.rank + ' this week with ' + fmtN(y.points) + ' points!';
+    var conf = $('#champConfetti'); conf.textContent = '';
+    for (var i = 0; i < 60; i++) {
+      var s = document.createElement('i');
+      s.style.left = (Math.random() * 100) + '%';
+      s.style.background = PARTY[i % PARTY.length];
+      s.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+      s.style.setProperty('--r', (Math.random() * 360) + 'deg');
+      s.style.animationDuration = (2 + Math.random() * 2) + 's';
+      s.style.animationDelay = (Math.random() * 0.6) + 's';
+      conf.appendChild(s);
+    }
+    champParty.hidden = false;
+    fanfare(); setTimeout(fanfare, 700);
+    say('Hooray! You are ' + words[y.rank - 1] + ' this week! You are a champion!');
+    setTimeout(function () { $('#champSee').focus({ preventScroll: true }); }, 50);
+  }
+  function hideChampParty() { champParty.hidden = true; $('#champConfetti').textContent = ''; }
+  $('#champKeep').addEventListener('click', function () { pop(); hideChampParty(); });
+  $('#champSee').addEventListener('click', function () { pop(); hideChampParty(); champScope = 'week'; champData = null; champSig = ''; setTab('champions'); });
+  champParty.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideChampParty(); });
 
   /* ---------- voice picker (grown-ups) ---------- */
   function renderVoicePicker() {
@@ -1332,7 +1681,8 @@
   });
   $('#resetBtn').addEventListener('click', function () {
     if (!window.confirm('Start the zoo over? All stars and hatched animals on this device will be cleared.')) return;
-    save.done = {}; save.newFriends = 0; save.fresh = []; persist();
+    save.done = {}; save.newFriends = 0; save.fresh = []; save.fed = {}; save.points = 0; persist();
+    updatePointsPill();
     updateBadge(); renderGrid(); renderZoo(); renderHabitat(); buildLetter();
     if (dlg.close) dlg.close();
   });
@@ -1346,6 +1696,7 @@
   /* ---------- start ---------- */
   loadClips().then(function () { renderVoicePicker(); });
   loadShared();
+  updatePointsPill();
   logEvent('visit');
   setInterval(function () { if (document.visibilityState === 'visible') logEvent('ping'); }, 45000);
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') logEvent('ping'); });

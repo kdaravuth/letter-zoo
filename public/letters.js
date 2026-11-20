@@ -91,6 +91,22 @@ window.ANIMALS = {
   Z: { name: 'Zebra', emoji: '🦓' }
 };
 
+/* Champions board player names: a fun word + an animal buddy + a number, never a real name.
+   Keep these lists the same as ADJ and BUDDY in server.js. */
+window.PLAYER_WORDS = ['Sunny', 'Happy', 'Brave', 'Speedy', 'Sparkly', 'Jolly', 'Clever', 'Bouncy', 'Cozy', 'Lucky', 'Giggly', 'Mighty'];
+window.PLAYER_BUDDY = { A: 'Alligator', B: 'Bear', C: 'Cat', D: 'Dog', E: 'Elephant', F: 'Frog', G: 'Giraffe', H: 'Horse', I: 'Inchworm', J: 'Jaguar', K: 'Kangaroo', L: 'Lion', M: 'Monkey', N: 'Newt', O: 'Octopus', P: 'Penguin', Q: 'Bee', R: 'Rabbit', S: 'Sloth', T: 'Tiger', U: 'Unicorn', V: 'Vole', W: 'Whale', X: 'Fish', Y: 'Yak', Z: 'Zebra' };
+
+/* Treat Time: the treat each animal gets after its letter is traced (emoji, how it is said). */
+window.ANIMAL_TREATS = {
+  A: ['🍗', 'some chicken'], B: ['🍯', 'some honey'], C: ['🥛', 'some milk'], D: ['🦴', 'a bone'],
+  E: ['🥜', 'some peanuts'], F: ['🪰', 'a fly'], G: ['🌿', 'some leaves'], H: ['🍎', 'an apple'],
+  I: ['🍃', 'a leaf'], J: ['🍖', 'some meat'], K: ['🌱', 'some sprouts'], L: ['🥩', 'a steak'],
+  M: ['🍌', 'a banana'], N: ['🐜', 'an ant'], O: ['🦐', 'a shrimp'], P: ['🐟', 'a fish'],
+  Q: ['🌻', 'a sunflower'], R: ['🥕', 'a carrot'], S: ['🌺', 'a flower'], T: ['🍉', 'some watermelon'],
+  U: ['🍰', 'some cake'], V: ['🧀', 'some cheese'], W: ['🦑', 'a squid'], X: ['🍤', 'a shrimp'],
+  Y: ['🌾', 'some hay'], Z: ['🍏', 'a green apple']
+};
+
 /* Living zoo: where each animal lives in the park, what it says, and how fast it moves. */
 window.ANIMAL_EXTRA = {
   A: { home: 'water', sound: 'Snap snap!', speed: 0.7 },

@@ -35,6 +35,7 @@
       <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
       <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></symbol>
       <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7.5 4h9v5a4.5 4.5 0 01-9 0z"/><path d="M7.5 6H4.5a3 3 0 003 4M16.5 6h3a3 3 0 01-3 4M12 13.5V17M8.5 20h7M9.5 17h5v3h-5z"/></symbol>
       <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 3.6 5.4 3.6 8.5s-1 5.9-3.6 8.5M12 3.5C9.4 6.1 8.4 8.9 8.4 12s1 5.9 3.6 8.5"/></symbol>
       <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
       <symbol id="i-egg" viewBox="0 0 24 24"><path d="M12 3c-3.6 0-6.5 6-6.5 10.2A6.5 6.5 0 0012 20a6.5 6.5 0 006.5-6.8C18.5 9 15.6 3 12 3z"/><path d="M7 12.5l2.5 1.6 2.5-1.8 2.5 1.8 2.5-1.6"/></symbol>
@@ -66,6 +67,9 @@
             <span id="chipLetter">A</span>
             <svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg>
           </button>
+          <button type="button" class="points-pill" id="pointsPill" aria-label="Your points. Open Champions">
+            <svg class="icon solid" aria-hidden="true"><use href="#i-star"/></svg><span id="pointsNum">0</span>
+          </button>
           <div class="bubble" role="status" aria-live="polite">
             <svg class="bubble-bug" aria-hidden="true"><use href="#i-bug"/></svg>
             <span id="bubbleText">Who is inside the egg?</span>
@@ -96,10 +100,18 @@
             </div>
             <div class="confetti" id="confetti" aria-hidden="true"></div>
             <div class="reward" id="reward" hidden>
-              <div class="reward-animal" id="rewardAnimal"></div>
+              <div class="reward-stage">
+                <div class="reward-animal" id="rewardAnimal"></div>
+                <div class="feed" id="feed">
+                  <p class="feed-ask" id="feedAsk">Feed me!</p>
+                  <div class="plate"><button type="button" class="treat" id="treat" aria-label="Give the treat"></button></div>
+                  <div class="friend-hearts" id="friendHearts" role="img" aria-label="Friendship 0 of 3"></div>
+                </div>
+              </div>
               <p class="reward-title" id="rewardTitle"></p>
               <div class="reward-stars" id="rewardStars"></div>
               <p class="reward-new" id="rewardNew" hidden>New friend in your zoo!</p>
+              <p class="reward-points" id="rewardPoints"></p>
               <div class="reward-actions">
                 <button type="button" class="btn btn-soft" id="againBtn"><svg class="icon" aria-hidden="true"><use href="#i-redo"/></svg>Again</button>
                 <button type="button" class="btn btn-sun" id="nextBtn">Next letter<svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
@@ -132,6 +144,15 @@
           <p class="screen-sub" id="lettersSub">Tap any letter to trace it.</p>
         </div>
         <div class="letter-grid" id="letterGrid"></div>
+      </section>
+
+      <!-- CHAMPIONS (points board) -->
+      <section class="screen screen-champions" id="screen-champions" data-screen="champions" aria-label="Champions">
+        <div class="screen-head">
+          <h1 class="screen-title">Champions</h1>
+          <p class="screen-sub">Trace letters and feed your friends to earn points. The top 3 are this week's champions!</p>
+        </div>
+        <div id="champBody" aria-live="polite"></div>
       </section>
 
       <!-- OUR WORLD (stats) -->
@@ -178,6 +199,7 @@
       <button type="button" class="tab" data-tab="trace" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-pencil"/></svg><span>Trace</span></button>
       <button type="button" class="tab" data-tab="letters"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span>Letters</span></button>
       <button type="button" class="tab" data-tab="zoo"><svg class="icon solid" aria-hidden="true"><use href="#i-paw"/></svg><span>My zoo</span><b class="tab-badge" id="zooBadge" hidden></b></button>
+      <button type="button" class="tab" data-tab="champions"><svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg><span>Champions</span></button>
       <button type="button" class="tab" data-tab="world"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span>Our world</span></button>
     </nav>
   </div>
@@ -213,7 +235,9 @@
           <li>The child can lift a finger and carry on from where they stopped.</li>
           <li>Stars show how neatly they stayed on the path: every finished letter gets at least one.</li>
           <li>Finishing a letter hatches its animal. Doing both the capital and the small letter gives that friend a gold badge.</li>
+          <li>Treat Time: after each letter, the child drags a treat to the animal. Three treats make best friends and earn the animal a crown in the zoo.</li>
           <li>Progress is saved on this device only.</li>
+          <li>The Champions board is public. Kids may add a first name (letters only, no surname); it shows as “Dara the Lion”. Leave it empty for a fun name like “Sunny Lion 27”.</li>
           <li>The Our world tab counts visits anonymously: a random number made on this device, the time-zone city and the country. No names, photos, voices or IP addresses are kept.</li>
         </ul>
       </div>
@@ -240,6 +264,42 @@
       <div class="studio-list" id="studioList"></div>
     </form>
   </dialog>
+
+  <dialog class="sheet" id="nameSheet" aria-labelledby="nameTitle">
+    <form method="dialog" class="sheet-body">
+      <div class="sheet-head">
+        <h2 id="nameTitle">Pick your player name</h2>
+        <button class="icon-btn" value="close" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <label class="set-title np-label" for="npFirst">What is your first name?</label>
+      <input class="select np-first" id="npFirst" type="text" maxlength="12" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="First name only">
+      <p class="set-sub">Only your first name, never your full name. A grown-up can help. Leave it empty to get a fun name instead.</p>
+      <p class="np-error" id="npError" role="alert"></p>
+      <div class="np-preview">
+        <span class="np-avatar" id="npAvatar" aria-hidden="true"></span>
+        <p class="np-name" id="npName"></p>
+        <button type="button" class="btn btn-soft btn-sm" id="npShuffle"><svg class="icon" aria-hidden="true"><use href="#i-redo"/></svg>New name</button>
+      </div>
+      <p class="set-title np-label">Choose your animal buddy</p>
+      <div class="np-grid" id="npGrid" role="radiogroup" aria-label="Animal buddy"></div>
+      <p class="set-sub np-safe">Everyone can see the Champions board, so we only ever show a first name with your animal buddy.</p>
+      <button type="button" class="btn btn-sun np-save" id="npSave">That's me!</button>
+    </form>
+  </dialog>
+
+  <div class="champ-party" id="champParty" role="dialog" aria-modal="true" aria-labelledby="champPartyTitle" hidden>
+    <div class="champ-card">
+      <div class="champ-medal" id="champMedal" aria-hidden="true"></div>
+      <p class="champ-kicker">Hooray!</p>
+      <h2 class="champ-title" id="champPartyTitle">You're a champion!</h2>
+      <p class="champ-sub" id="champPartySub"></p>
+      <div class="champ-actions">
+        <button type="button" class="btn btn-soft" id="champKeep">Keep tracing</button>
+        <button type="button" class="btn btn-sun" id="champSee">See the board</button>
+      </div>
+    </div>
+    <div class="champ-confetti" id="champConfetti" aria-hidden="true"></div>
+  </div>
 
   <script src="/letters.js"></script>
   <script src="/app.js"></script>
