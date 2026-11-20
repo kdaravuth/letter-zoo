@@ -15,6 +15,16 @@ Thank you for helping kids learn to write! Every kind of help is welcome: bug re
 
 No build step and no packages: plain HTML, CSS and JavaScript on purpose, so anyone can open a file and change it.
 
+Run the checks any time with `npm test`: it checks every JavaScript file, makes sure all 52 letters have strokes, animals, sounds and treats, and starts the server to test it.
+
+## How changes reach the app
+
+1. Make your change on a **new branch** (in your fork), named for what it does, e.g. `fix/treat-drag` or `feature/khmer-voice`.
+2. Open a **pull request** into `main`. Fill in the checklist.
+3. GitHub runs the **Checks** automatically. They must pass.
+4. A maintainer reviews it. Nobody pushes straight to `main`, maintainers included.
+5. Once merged, KOOMPI Cloud rebuilds `main` automatically and it goes live at https://letter-zoo.public.koompi.cloud within a couple of minutes.
+
 ## Good first contributions
 
 - **Stroke paths** (`public/letters.js`): make a letter look nicer or follow a different handwriting style. Keep the grid: top line `y=20`, middle `y=60`, base `y=100`, tail `y=130`, and draw each stroke in the direction a child writes it.
@@ -31,7 +41,7 @@ No build step and no packages: plain HTML, CSS and JavaScript on purpose, so any
 
 ## Privacy rules
 
-Letter Zoo is used by young children. Contributions must not collect names, photos, exact locations, IP addresses or anything that could identify a child, and must not add advertising or third-party trackers.
+Letter Zoo is used by young children. Contributions must not collect photos, exact locations, IP addresses or anything else that could identify a child, and must not add advertising or third-party trackers. The only name ever kept is the optional first name on the Champions board (letters only, no surname, shown with an animal buddy, unique); don't widen it.
 
 ## Be kind
 
