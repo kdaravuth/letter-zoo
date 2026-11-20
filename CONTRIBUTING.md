@@ -23,7 +23,7 @@ Run the checks any time with `npm test`: it checks every JavaScript file, makes 
 2. Open a **pull request** into `main`. Fill in the checklist.
 3. GitHub runs the **Checks** automatically. They must pass.
 4. A maintainer reviews it. Nobody pushes straight to `main`, maintainers included.
-5. Once merged, `main` is what runs at https://letter-zoo.public.koompi.cloud.
+5. Once merged, KOOMPI Cloud rebuilds `main` automatically and it goes live at https://letter-zoo.public.koompi.cloud within a couple of minutes.
 
 ## Good first contributions
 
