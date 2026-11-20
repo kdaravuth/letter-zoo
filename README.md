@@ -1,5 +1,7 @@
 # Letter Zoo
 
+[![Checks](https://github.com/kdaravuth/letter-zoo/actions/workflows/ci.yml/badge.svg)](https://github.com/kdaravuth/letter-zoo/actions/workflows/ci.yml)
+
 A touch-screen app that teaches kids (about 3 to 7) to **write the English alphabet**.
 Every letter is a mystery egg: trace it with your finger in the right stroke order, and the egg hatches an animal friend that moves into your zoo.
 
@@ -27,7 +29,7 @@ You only need [Node.js](https://nodejs.org) 20 or newer. There are no packages t
 PORT=3000 node server.js
 ```
 
-Then open http://localhost:3000. Tracing, the zoo and voice recording on your own device all work without a database. The **Our world** stats and the **shared** kid voice need a [Turso](https://turso.tech) database (see below).
+Then open http://localhost:3000. Run the checks with `npm test`. Tracing, the zoo and voice recording on your own device all work without a database. The **Our world** stats and the **shared** kid voice need a [Turso](https://turso.tech) database (see below).
 
 On Windows PowerShell:
 
