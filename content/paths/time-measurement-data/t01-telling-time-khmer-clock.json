@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "id": "t01-telling-time-khmer-clock",
+  "pathId": "time-measurement-data",
+  "order": 1,
+  "moeysGradeRef": "G2",
+  "topicSlug": "time",
+  "titleKm": "មើលនាឡិកា និងកំណត់ម៉ោង",
+  "subtitleKm": "កំណត់ម៉ោងគត់ កន្លះម៉ោង និងភាគបួនម៉ោងលើនាឡិកាខ្មែរ",
+  "estimatedMinutes": 6,
+  "learningObjectiveKm": "សិស្សអាចអាន និងកំណត់ម៉ោងគត់ (:០០) កន្លះម៉ោង (:៣០) និង ១៥ នាទី (:១៥ / :៤៥) លើនាឡិកាទ្រនិច។",
+  "steps": [
+    {
+      "id": "t01-s1-seven-oclock",
+      "type": "clock-time",
+      "stage": "concrete",
+      "promptKm": "ម៉ោង ៧:០០ ព្រឹកដល់ពេលចូលរៀន — កំណត់នាឡិកាទៅម៉ោង ៧:០០!",
+      "config": {
+        "initialHour": 5,
+        "initialMinute": 0,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ពេលព្រឹក"
+      },
+      "solution": {
+        "expectedHour": 7,
+        "expectedMinute": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ទ្រនិចខ្លីចង្អុលម៉ោង (៧) និងទ្រនិចវែងចង្អុលលេខ ១២ (:០០ នាទី)។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បន្ថែម ២ ម៉ោងពីម៉ោង ៥ ដើម្បីដល់ម៉ោង ៧:០០!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១ ម៉ោង» ២ ដង ឱ្យម៉ោងបង្ហាញ ០៧:០០!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ម៉ោង ៧ គត់ ទ្រនិចខ្លីចង្អុល ៧ ហើយទ្រនិចវែងចង្អុល ១២!",
+      "audioUrl": "/audio/steps/t01-s1-seven-oclock.mp3"
+    },
+    {
+      "id": "t01-s2-nine-thirty",
+      "type": "clock-time",
+      "stage": "iconic",
+      "promptKm": "ម៉ោង ៩:៣០ ដល់ពេលសម្រាកលេងនៅសាលា — កំណត់នាឡិកាទៅម៉ោង ៩:៣០!",
+      "config": {
+        "initialHour": 9,
+        "initialMinute": 0,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ពេលព្រឹក"
+      },
+      "solution": {
+        "expectedHour": 9,
+        "expectedMinute": 30
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "៣០ នាទីគឺកន្លះម៉ោង — ទ្រនិចវែងចង្អុលចំលេខ ៦ ខាងក្រោម។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ទ្រនិចម៉ោងនៅលេខ ៩ រួចហើយ សូមបន្ថែមនាទីដល់ :៣០!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «:៣០» ឬចុច «+១៥ នាទី» ២ ដង នឹងបាន ០៩:៣០!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! មួយម៉ោងមាន ៦០ នាទី ដូច្នេះកន្លះម៉ោងស្មើ ៣០ នាទី!",
+      "audioUrl": "/audio/steps/t01-s2-nine-thirty.mp3"
+    },
+    {
+      "id": "t01-s3-twelve-fifteen",
+      "type": "clock-time",
+      "stage": "iconic",
+      "promptKm": "ម៉ោង ១២:១៥ ដល់ពេលញ៉ាំបាយថ្ងៃត្រង់ — កំណត់នាឡិកាទៅម៉ោង ១២:១៥!",
+      "config": {
+        "initialHour": 11,
+        "initialMinute": 0,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ថ្ងៃត្រង់"
+      },
+      "solution": {
+        "expectedHour": 12,
+        "expectedMinute": 15
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "១៥ នាទីគឺមួយភាគបួនម៉ោង — ទ្រនិចវែងចង្អុលលេខ ៣។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បង្កើនម៉ោងពី ១១ ទៅ ១២ រួចបន្ថែម ១៥ នាទី។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១ ម៉ោង» ម្ដង ហើយប៉ះ «:១៥» នឹងបាន ១២:១៥!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ១៥ នាទីគឺ ១/៤ នៃ ៦០ នាទី (ទ្រនិចវែងនៅលេខ ៣)!",
+      "audioUrl": "/audio/steps/t01-s3-twelve-fifteen.mp3"
+    },
+    {
+      "id": "t01-s4-four-forty-five",
+      "type": "clock-time",
+      "stage": "symbolic",
+      "promptKm": "ម៉ោង ៤:៤៥ ល្ងាចដល់ពេលស្រោចសួនស្វាយ — កំណត់នាឡិកាទៅម៉ោង ៤:៤៥!",
+      "config": {
+        "initialHour": 3,
+        "initialMinute": 30,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ពេលរសៀល"
+      },
+      "solution": {
+        "expectedHour": 4,
+        "expectedMinute": 45
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "៤៥ នាទីគឺ ៣/៤ នៃម៉ោង — ទ្រនិចវែងចង្អុលលេខ ៩។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បង្កើនម៉ោងទៅលេខ ៤ ហើយជ្រើសនាទី :៤៥!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១ ម៉ោង» ម្ដង ហើយប៉ះ «:៤៥» នឹងបាន ០៤:៤៥!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ម៉ោង ៤:៤៥ នៅសល់តែ ១៥ នាទីទៀតដល់ម៉ោង ៥:០០!",
+      "audioUrl": "/audio/steps/t01-s4-four-forty-five.mp3"
+    }
+  ]
+}

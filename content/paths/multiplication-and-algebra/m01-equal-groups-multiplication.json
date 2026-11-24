@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0",
+  "id": "m01-equal-groups-multiplication",
+  "pathId": "multiplication-and-algebra",
+  "order": 1,
+  "moeysGradeRef": "G2",
+  "topicSlug": "multiplication-division",
+  "titleKm": "វិធីគុណដោយក្រុមស្មើៗគ្នា",
+  "subtitleKm": "ភ្ជាប់ការបូកដដែលៗនៃកន្ត្រកផ្លែឈើ ទៅនឹងវិធីគុណដំបូង",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "បង្កើតក្រុមស្មើៗគ្នា និងតារាងជួរដើម្បីគណនាផលគុណងាយៗ",
+  "steps": [
+    {
+      "id": "m01-s1-baskets-3x4",
+      "type": "array-groups",
+      "stage": "concrete",
+      "promptKm": "រៀបចំផ្លែស្វាយជា ៣ ជួរ ក្នុងមួយជួរមាន ៤ ផ្លែ ដើម្បីរក ៣ × ៤!",
+      "config": {
+        "mode": "equal-groups",
+        "itemTheme": "mango",
+        "maxRows": 5,
+        "maxCols": 6,
+        "initialRows": 1,
+        "initialCols": 2,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 3,
+        "expectedCols": 4,
+        "expectedProduct": 12,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រើប៊ូតុង + ដើម្បីដាក់ «ចំនួនជួរ» ស្មើ ៣ និង «ក្នុង ១ ជួរ» ស្មើ ៤!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ ជួរ នៃ ៤ ស្មើ ៤ + ៤ + ៤ = ១២។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច + លើ «ចំនួនជួរ» ដល់ ៣ និង «ក្នុង ១ ជួរ» ដល់ ៤ នោះនឹងបាន ៣ × ៤ = ១២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៣ ជួរ ក្នុង ១ ជួរមាន ៤ ផ្លែ ស្មើ ៤ + ៤ + ៤ = ៣ × ៤ = ១២!",
+      "audioUrl": "/audio/steps/m01-s1-baskets-3x4.mp3"
+    },
+    {
+      "id": "m01-s2-skip-fives",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "រាប់លោតម្ដង ៥ ចំនួន ៣ ដង (៣ × ៥) លើបន្ទាត់ចំនួន ដោយចាប់ផ្ដើមពី ០!",
+      "config": {
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "startValue": 0,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "frog-lotus"
+      },
+      "solution": {
+        "expectedValue": 15,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចុច «+៥ ជំហាន» ចំនួន ៣ ដង៖ ៥ → ១០ → ១៥!",
+          "highlightTargetId": "tick-15"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៥ + ៥ + ៥ = ១៥ ដូច្នេះ ៣ × ៥ = ១៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ១៥ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! លោតម្ដង ៥ ចំនួន ៣ ដង ដល់ ១៥ (៣ × ៥ = ១៥)!",
+      "audioUrl": "/audio/steps/m01-s2-skip-fives.mp3"
+    },
+    {
+      "id": "m01-s3-commutative-mult",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "បើ ៤ × ៥ = ២០ តើ ៥ × ៤ ស្មើប៉ុន្មាន?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-20",
+            "labelKm": "២០ (ដូចគ្នា ព្រោះប្ដូរទីតាំងផលគុណនៅដដែល)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៤ × ៥ និង ៥ × ៤ សុទ្ធតែស្មើ ២០!"
+          },
+          {
+            "id": "opt-9",
+            "labelKm": "៩",
+            "diagnosticFeedbackKm": "៩ គឺជា ៥ + ៤ (វិធីបូក) មិនមែន ៥ × ៤ (វិធីគុណ) ទេណា៎!"
+          },
+          {
+            "id": "opt-25",
+            "labelKm": "២៥",
+            "diagnosticFeedbackKm": "២៥ គឺជា ៥ × ៥ លើស ១ ក្រុមនៃ ៥ ហើយ!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-20"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "គិតពីតារាង ៤ ជួរ × ៥ ជួរឈរ បើបង្វិលជា ៥ ជួរ × ៤ ជួរឈរ តើចំនួនសរុបប្ដូរទេ?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ក្នុងវិធីគុណ ៤ × ៥ = ៥ × ៤ = ២០។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «២០»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! វិធីគុណមានលក្ខណៈត្រឡប់ដូចវិធីបូកដែរ៖ ៤ × ៥ = ៥ × ៤ = ២០!",
+      "audioUrl": "/audio/steps/m01-s3-commutative-mult.mp3"
+    }
+  ]
+}

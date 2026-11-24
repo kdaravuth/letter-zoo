@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "1.0",
+  "id": "t02-elapsed-time-daily-schedule",
+  "pathId": "time-measurement-data",
+  "order": 2,
+  "moeysGradeRef": "G3",
+  "topicSlug": "time",
+  "titleKm": "គណនារយៈពេល និងកាលវិភាគប្រចាំថ្ងៃ",
+  "subtitleKm": "បូករយៈពេល ២ ម៉ោង បូក ៣០ នាទី និងលោតរាប់ម៉ោងលើបន្ទាត់ពេលវេលា",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចគណនាពេលវេលាបញ្ចប់ពេលដឹងពេលចាប់ផ្ដើម និងរយៈពេលជាម៉ោង និងនាទី។",
+  "steps": [
+    {
+      "id": "t02-s1-add-two-hours",
+      "type": "clock-time",
+      "stage": "concrete",
+      "promptKm": "សុខាចាប់ផ្ដើមរៀនគណិតនៅម៉ោង ៨:០០ អស់រយៈពេល ២ ម៉ោង — តើបញ្ចប់នៅម៉ោងប៉ុន្មាន?",
+      "config": {
+        "initialHour": 8,
+        "initialMinute": 0,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ពេលព្រឹក"
+      },
+      "solution": {
+        "expectedHour": 10,
+        "expectedMinute": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពីម៉ោង ៨:០០ រួចរាប់បន្តទៅមុខ ២ ម៉ោង។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៨ + ២ = ១០ — ដូច្នេះបញ្ចប់នៅម៉ោង ១០:០០!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១ ម៉ោង» ២ ដង ពី ០៨:០០ ទៅ ១០:០០!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ៨:០០ + ២ ម៉ោង = ១០:០០ ព្រឹក!",
+      "audioUrl": "/audio/steps/t02-s1-add-two-hours.mp3"
+    },
+    {
+      "id": "t02-s2-add-thirty-mins",
+      "type": "clock-time",
+      "stage": "iconic",
+      "promptKm": "ដារ៉ាអានសៀវភៅពីម៉ោង ២:១៥ អស់ ៣០ នាទី — តើគាត់អានចប់នៅម៉ោងប៉ុន្មាន?",
+      "config": {
+        "initialHour": 2,
+        "initialMinute": 15,
+        "minuteStep": 15,
+        "showDigitalReadout": true,
+        "periodLabelKm": "ពេលរសៀល"
+      },
+      "solution": {
+        "expectedHour": 2,
+        "expectedMinute": 45
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ១៥ នាទី រួចបូកថែម ៣០ នាទី។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១៥ + ៣០ = ៤៥ នាទី — ម៉ោងនៅដដែល (ម៉ោង ២)!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១៥ នាទី» ២ ដង ឬប៉ះ «:៤៥» ដើម្បីបាន ០២:៤៥!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ២:១៥ + ៣០ នាទី = ២:៤៥ រសៀល!",
+      "audioUrl": "/audio/steps/t02-s2-add-thirty-mins.mp3"
+    },
+    {
+      "id": "t02-s3-timeline-jump",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "ម៉ាលីជិះកង់ទៅសាលាចំណាយពេល ១២ នាទី និងជិះទៅផ្សារថែម ៥ នាទី — សរុបប៉ុន្មាននាទី (១២ + ៥)?",
+      "config": {
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "startValue": 12,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "frog-lotus"
+      },
+      "solution": {
+        "expectedValue": 17,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពីលេខ ១២ លើបន្ទាត់ចំនួន រួចលោតទៅស្ដាំ ៥ ជំហាន។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១២ + ៥ = ១៧ នាទី!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ១៧ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "១២ នាទី + ៥ នាទី = ១៧ នាទីសរុប!",
+      "audioUrl": "/audio/steps/t02-s3-timeline-jump.mp3"
+    },
+    {
+      "id": "t02-s4-hour-minutes-choice",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "១ ម៉ោង និង ១៥ នាទី ស្មើនឹងប៉ុន្មាននាទីសរុប?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-75",
+            "labelKm": "៧៥ នាទី (៦០ + ១៥)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវ! ១ ម៉ោង = ៦០ នាទី ដូច្នេះ ៦០ + ១៥ = ៧៥ នាទី!"
+          },
+          {
+            "id": "opt-115",
+            "labelKm": "១១៥ នាទី",
+            "diagnosticFeedbackKm": "ប្រយ័ត្នណា៎! ១ ម៉ោងមាន ៦០ នាទី មិនមែន ១០០ នាទីទេ!"
+          },
+          {
+            "id": "opt-45",
+            "labelKm": "៤៥ នាទី",
+            "diagnosticFeedbackKm": "៤៥ នាទីតិចជាង ១ ម៉ោង (៦០ នាទី) ទៀតណា៎!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-75"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាំថា ១ ម៉ោងពេញស្មើនឹង ៦០ នាទី។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បូក ៦០ នាទី និង ១៥ នាទីចូលគ្នា!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៦០ + ១៥ = ៧៥ នាទី — ជ្រើសរើស «៧៥ នាទី»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ១ ម៉ោង = ៦០ នាទី ដូច្នេះ ១ ម៉ោង ១៥ នាទី = ៧៥ នាទី!",
+      "audioUrl": "/audio/steps/t02-s4-hour-minutes-choice.mp3"
+    }
+  ]
+}

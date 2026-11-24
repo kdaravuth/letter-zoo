@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g04-symmetry-and-patterns",
+  "pathId": "geometry-foundations",
+  "order": 4,
+  "moeysGradeRef": "G4",
+  "topicSlug": "geometry",
+  "titleKm": "ស៊ីមេទ្រី និងលំនាំរីកធំ",
+  "subtitleKm": "ស្គាល់លំនាំក្រមា ៣ ពណ៌ និងលំនាំលេខកើនឡើងម្ដង ៣",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "បន្តលំនាំក្រមា ABC និងលំនាំចំនួនកើនឡើងម្ដង ៣ ដល់ ១២",
+  "steps": [
+    {
+      "id": "g04-s1-krama-abc",
+      "type": "pattern-sequence",
+      "stage": "concrete",
+      "promptKm": "បំពេញលំនាំក្រមា ៣ ពណ៌ (ABC)៖ ក្រហម, ខៀវ, លឿង, ក្រហម, ខៀវ, ...",
+      "config": {
+        "variant": "krama-tiles",
+        "sequence": [
+          "red",
+          "blue",
+          "gold",
+          "red",
+          "blue",
+          null
+        ],
+        "palette": [
+          {
+            "id": "red",
+            "labelKm": "ក្រហម",
+            "glyph": "stripe-red"
+          },
+          {
+            "id": "blue",
+            "labelKm": "ខៀវ",
+            "glyph": "stripe-blue"
+          },
+          {
+            "id": "gold",
+            "labelKm": "លឿង",
+            "glyph": "stripe-gold"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "gold"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលក្រុម ៣ ពណ៌ដំបូង៖ ក្រហម → ខៀវ → លឿង!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បន្ទាប់ពី «ក្រហម, ខៀវ» ត្រូវបំពេញពណ៌ទី ៣ គឺពណ៌លឿង។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះផ្ទាំង «លឿង» រួចប៉ះប្រឡោះ «?»!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! លំនាំក្រមា ៣ ពណ៌ (ABC) កើតឡើងដដែលៗ៖ ក្រហម, ខៀវ, លឿង!",
+      "audioUrl": "/audio/steps/g04-s1-krama-abc.mp3"
+    },
+    {
+      "id": "g04-s2-growing-threes",
+      "type": "pattern-sequence",
+      "stage": "iconic",
+      "promptKm": "រកលេខបន្ទាប់ក្នុងលំនាំរាប់បន្ថែមម្ដង ៣៖ ៣, ៦, ៩, ...",
+      "config": {
+        "variant": "number-skip",
+        "sequence": [
+          "3",
+          "6",
+          "9",
+          null
+        ],
+        "palette": [
+          {
+            "id": "3",
+            "labelKm": "៣",
+            "glyph": "number"
+          },
+          {
+            "id": "6",
+            "labelKm": "៦",
+            "glyph": "number"
+          },
+          {
+            "id": "9",
+            "labelKm": "៩",
+            "glyph": "number"
+          },
+          {
+            "id": "11",
+            "labelKm": "១១",
+            "glyph": "number"
+          },
+          {
+            "id": "12",
+            "labelKm": "១២",
+            "glyph": "number"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "12"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចន្លោះកើនឡើង៖ ៣ (+៣)→ ៦ (+៣)→ ៩!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យក ៩ បូកថែម ៣ ទៀត តើស្មើប៉ុន្មាន?"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៩ + ៣ = ១២! ប៉ះលេខ «១២» ដាក់ប្រឡោះ «?»!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៣, ៦, ៩, ១២ ជាលំនាំកើនឡើងម្ដង ៣ (មេលេខ ៣)!",
+      "audioUrl": "/audio/steps/g04-s2-growing-threes.mp3"
+    },
+    {
+      "id": "g04-s3-symmetry-check",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "បើបត់ក្រដាសរាងការ៉េពាក់កណ្តាល តើផ្នែកទាំងពីរត្រួតស៊ីគ្នាស្មើឥតខ្ចោះ (ស៊ីមេទ្រី) ដែរឬទេ?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-yes",
+            "labelKm": "បាទ/ចាស ត្រួតស៊ីគ្នាស្មើឥតខ្ចោះ — ការ៉េមានអ័ក្សស៊ីមេទ្រី ៤",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ការ៉េអាចបត់ស៊ីមេទ្រីបានដល់ទៅ ៤ របៀប (បញ្ឈរ ផ្ដេក និងអង្កត់ទ្រូង ២)!"
+          },
+          {
+            "id": "opt-no",
+            "labelKm": "ទេ ការ៉េគ្មានអ័ក្សស៊ីមេទ្រីទេ",
+            "diagnosticFeedbackKm": "សាកស្រមៃបត់ក្រដាសរាងការ៉េពាក់កណ្តាលមើល — ជ្រុងទាំងពីរស្មើគ្នាប៉ុនគ្នា!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-yes"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ការ៉េមាន ៤ ជ្រុងស្មើគ្នាទាំងអស់។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពេលបត់ការ៉េពាក់កណ្តាល ខាងឆ្វេង និងខាងស្ដាំត្រួតស៊ីគ្នាស្មើប៉ុនគ្នា។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយទី ១ ថា «បាទ/ចាស ត្រួតស៊ីគ្នាស្មើឥតខ្ចោះ»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ការ៉េមានអ័ក្សស៊ីមេទ្រី ៤ ដែលធ្វើឱ្យវាមានលំនឹងស្អាតគ្រប់ជ្រុង!",
+      "audioUrl": "/audio/steps/g04-s3-symmetry-check.mp3"
+    }
+  ]
+}

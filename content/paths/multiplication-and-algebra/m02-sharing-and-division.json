@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0",
+  "id": "m02-sharing-and-division",
+  "pathId": "multiplication-and-algebra",
+  "order": 2,
+  "moeysGradeRef": "G3",
+  "topicSlug": "multiplication-division",
+  "titleKm": "ការចែកស្មើៗគ្នា និងវិធីចែក",
+  "subtitleKm": "ចែកផ្លែឈើឱ្យមិត្តភក្ដិស្មើៗគ្នា និងយល់ទំនាក់ទំនងរវាងគុណ និងចែក",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "យល់វិធីចែកជាការចែកជាក្រុមស្មើៗគ្នា និងផ្ទៀងផ្ទាត់ដោយវិធីគុណ",
+  "steps": [
+    {
+      "id": "m02-s1-share-12",
+      "type": "array-groups",
+      "stage": "concrete",
+      "promptKm": "មានក្រូច ១២ ផ្លែ ចែកជា ៣ ជួរ (៣ ចាន) ស្មើៗគ្នា។ តើមួយចានបានប៉ុន្មានផ្លែ (១២ ÷ ៣)?",
+      "config": {
+        "mode": "equal-groups",
+        "itemTheme": "orange",
+        "maxRows": 4,
+        "maxCols": 6,
+        "initialRows": 3,
+        "initialCols": 1,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 3,
+        "expectedCols": 4,
+        "expectedProduct": 12,
+        "allowCommutative": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រក្សា «ចំនួនជួរ» ស្មើ ៣ ហើយចុច + លើ «ក្នុង ១ ជួរ» រហូតដល់សរុបស្មើ ១២!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ × ? = ១២។ ៣ × ៤ = ១២ ដូច្នេះមួយចានបាន ៤ ផ្លែ!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច + លើ «ក្នុង ១ ជួរ» ដល់ ៤ ដើម្បីបាន ៣ ជួរ × ៤ = ១២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ក្រូច ១២ ផ្លែ ចែកជា ៣ ចានស្មើគ្នា បានមួយចាន ៤ ផ្លែ (១២ ÷ ៣ = ៤)!",
+      "audioUrl": "/audio/steps/m02-s1-share-12.mp3"
+    },
+    {
+      "id": "m02-s2-jumps-back",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "មាននំ ១០ ដុំ ចែកដាក់ប្រអប់មួយ ២ ដុំ។ ចាប់ផ្ដើមពី ១០ លោតថយក្រោយម្ដង ២ ឱ្យដល់ ០!",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 2,
+        "startValue": 10,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 0,
+        "requiredIntermediateValue": 4,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចុច «−២ ជំហាន» ម្ដងៗពី ១០៖ ៨ → ៦ → ៤ → ២ → ០!",
+          "highlightTargetId": "tick-4"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "លោតឆ្លងកាត់លេខ ៤ សិន រួចបន្តទៅដល់ ០ ដើម្បីឃើញចំនួនប្រអប់ទាំង ៥!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ៤ សិន រួចប៉ះលេខ ០ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ពី ១០ ដកចេញម្ដង ២ បាន ៥ ដងដល់ ០ ដូច្នេះ ១០ ÷ ២ = ៥!",
+      "audioUrl": "/audio/steps/m02-s2-jumps-back.mp3"
+    },
+    {
+      "id": "m02-s3-check-division",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "មានស្វាយ ១៥ ផ្លែ ចែកឱ្យមិត្ត ៥ នាក់ស្មើៗគ្នា។ តើម្នាក់ៗទទួលបានប៉ុន្មានផ្លែ?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-3",
+            "labelKm": "៣ ផ្លែ (ព្រោះ ៥ × ៣ = ១៥)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ១៥ ÷ ៥ = ៣ ព្រោះ ៥ នាក់ × ៣ ផ្លែ = ១៥ ផ្លែ!"
+          },
+          {
+            "id": "opt-5",
+            "labelKm": "៥ ផ្លែ",
+            "diagnosticFeedbackKm": "បើម្នាក់បាន ៥ ផ្លែ នោះ ៥ × ៥ = ២៥ ផ្លែ លើសពី ១៥ ហើយ!"
+          },
+          {
+            "id": "opt-10",
+            "labelKm": "១០ ផ្លែ",
+            "diagnosticFeedbackKm": "១៥ − ៥ = ១០ ជាវិធីដក មិនមែនចែកស្មើគ្នាឱ្យ ៥ នាក់ទេណា៎!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-3"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "សួរខ្លួនឯង៖ ៥ គុណនឹងប៉ុន្មានទើបស្មើ ១៥?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៥ × ៣ = ១៥ ដូច្នេះ ១៥ ÷ ៥ = ៣។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «៣ ផ្លែ»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! វិធីចែកជាច្រាសនៃវិធីគុណ៖ ១៥ ÷ ៥ = ៣ ព្រោះ ៥ × ៣ = ១៥!",
+      "audioUrl": "/audio/steps/m02-s3-check-division.mp3"
+    }
+  ]
+}

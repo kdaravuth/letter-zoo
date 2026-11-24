@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l09-patterns-and-shapes",
+  "pathId": "early-foundations",
+  "order": 9,
+  "moeysGradeRef": "G1",
+  "topicSlug": "patterns-geometry",
+  "titleKm": "លំនាំគំរូ និងរូបធរណីមាត្រ",
+  "subtitleKm": "ស្វែងរកលំនាំក្រមា ស្គាល់រូបធរណីមាត្រ ២D និងរាប់បន្ថែមម្ដង ២",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "បន្តលំនាំដដែលៗ ស្គាល់ចំនួនជ្រុងរូបធរណីមាត្រ និងរាប់បន្ថែមម្ដង ២",
+  "steps": [
+    {
+      "id": "l09-s1-krama-pattern",
+      "type": "pattern-sequence",
+      "stage": "concrete",
+      "promptKm": "បំពេញលំនាំក្រមាខ្មែរ៖ ក្រហម, ខៀវ, ក្រហម, ខៀវ... តើពីរផ្ទាំងបន្ទាប់ពណ៌អ្វី?",
+      "config": {
+        "variant": "krama-tiles",
+        "sequence": [
+          "red",
+          "blue",
+          "red",
+          "blue",
+          null,
+          null
+        ],
+        "palette": [
+          {
+            "id": "red",
+            "labelKm": "ក្រហម",
+            "glyph": "stripe-red"
+          },
+          {
+            "id": "blue",
+            "labelKm": "ខៀវ",
+            "glyph": "stripe-blue"
+          },
+          {
+            "id": "gold",
+            "labelKm": "លឿង",
+            "glyph": "stripe-gold"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "red",
+          "blue"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលពណ៌ឆ្លាស់គ្នាពីឆ្វេងទៅស្ដាំ៖ ក្រហម → ខៀវ → ក្រហម → ខៀវ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បន្ទាប់ពីពណ៌ខៀវ ត្រូវត្រឡប់មកពណ៌ក្រហមវិញ ហើយបន្ទាប់មកពណ៌ខៀវ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះផ្ទាំង «ក្រហម» ដាក់ប្រឡោះទី ១ រួចប៉ះផ្ទាំង «ខៀវ» ដាក់ប្រឡោះទី ២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ក្រមានេះប្រើលំនាំឆ្លាស់ ក្រហម–ខៀវ ដដែលៗ៖ ក្រហម, ខៀវ, ក្រហម, ខៀវ, ក្រហម, ខៀវ!",
+      "audioUrl": "/audio/steps/l09-s1-krama-pattern.mp3"
+    },
+    {
+      "id": "l09-s2-triangle-shape",
+      "type": "fraction-bar-shape",
+      "stage": "iconic",
+      "promptKm": "តើរូបធរណីមាត្រមួយណាមាន ៣ ជ្រុង និង ៣ កំពូល (ត្រីកោណ)?",
+      "config": {
+        "mode": "shape-identify",
+        "visualShape": "polygon-sides",
+        "denominator": 1,
+        "initialShaded": 0,
+        "allowPartitionChange": false,
+        "showNumberLine": false,
+        "shapeOptions": [
+          {
+            "id": "shape-tri",
+            "shape": "triangle",
+            "labelKm": "ត្រីកោណ",
+            "sides": 3
+          },
+          {
+            "id": "shape-sq",
+            "shape": "square",
+            "labelKm": "ការ៉េ",
+            "sides": 4
+          },
+          {
+            "id": "shape-rect",
+            "shape": "rectangle",
+            "labelKm": "ចតុកោណកែង",
+            "sides": 4
+          },
+          {
+            "id": "shape-circ",
+            "shape": "circle",
+            "labelKm": "រង្វង់",
+            "sides": 0
+          }
+        ]
+      },
+      "solution": {
+        "expectedShapeId": "shape-tri"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រាប់ចំណុចកំពូល (ជ្រុង) របស់រូបនីមួយៗ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ការ៉េ និងចតុកោណកែងមាន ៤ ជ្រុង ចំណែករង្វង់គ្មានជ្រុងត្រង់ទេ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះរូប «ត្រីកោណ» ដែលមាន ៣ ជ្រុង និង ៣ កំពូល!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ត្រីកោណមាន ៣ ជ្រុង និង ៣ កំពូល ចំណែកការ៉េ និងចតុកោណកែងមាន ៤ ជ្រុង!",
+      "audioUrl": "/audio/steps/l09-s2-triangle-shape.mp3"
+    },
+    {
+      "id": "l09-s3-equal-groups",
+      "type": "array-groups",
+      "stage": "iconic",
+      "promptKm": "រៀបចំផ្លែក្រូចជា ២ ជួរ ដោយមួយជួរមាន ៣ ផ្លែ (២ × ៣ = ៦)!",
+      "config": {
+        "mode": "equal-groups",
+        "itemTheme": "orange",
+        "maxRows": 4,
+        "maxCols": 5,
+        "initialRows": 1,
+        "initialCols": 2,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 2,
+        "expectedCols": 3,
+        "expectedProduct": 6,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រើប៊ូតុង + ដើម្បីបង្កើនចំនួនជួរ និងចំនួនក្រូចក្នុងមួយជួរ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យើងត្រូវការ ២ ជួរ និង ៣ ផ្លែក្នុងមួយជួរ (៣ + ៣ = ៦)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច + លើ «ចំនួនជួរ» ឱ្យបាន ២ និងចុច + លើ «ក្នុង ១ ជួរ» ឱ្យបាន ៣!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ២ ជួរ ក្នុង ១ ជួរមាន ៣ ផ្លែ សរុបស្មើ ៦ ផ្លែ (២ × ៣ = ៦)!",
+      "audioUrl": "/audio/steps/l09-s3-equal-groups.mp3"
+    },
+    {
+      "id": "l09-s4-skip-counting-2",
+      "type": "pattern-sequence",
+      "stage": "symbolic",
+      "promptKm": "រាប់បន្ថែមម្ដង ២៖ ២, ៤, ៦, ... តើលេខបន្ទាប់គឺលេខប៉ុន្មាន?",
+      "config": {
+        "variant": "number-skip",
+        "sequence": [
+          "2",
+          "4",
+          "6",
+          null
+        ],
+        "palette": [
+          {
+            "id": "2",
+            "labelKm": "២",
+            "glyph": "number"
+          },
+          {
+            "id": "4",
+            "labelKm": "៤",
+            "glyph": "number"
+          },
+          {
+            "id": "6",
+            "labelKm": "៦",
+            "glyph": "number"
+          },
+          {
+            "id": "7",
+            "labelKm": "៧",
+            "glyph": "number"
+          },
+          {
+            "id": "8",
+            "labelKm": "៨",
+            "glyph": "number"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "8"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចន្លោះរវាងលេខនីមួយៗ៖ ២ → ៤ (+២), ៤ → ៦ (+២)!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យក ៦ បូកថែម ២ ទៀត តើស្មើប៉ុន្មាន?"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៦ + ២ = ៨! ប៉ះលេខ «៨» រួចប៉ះប្រឡោះ «?»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលរាប់បន្ថែមម្ដង ២ យើងបានលំនាំ ២, ៤, ៦, ៨!",
+      "audioUrl": "/audio/steps/l09-s4-skip-counting-2.mp3"
+    }
+  ]
+}

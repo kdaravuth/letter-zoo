@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0",
+  "id": "m05-skip-counting-and-mystery-puzzles",
+  "pathId": "multiplication-and-algebra",
+  "order": 5,
+  "moeysGradeRef": "G4",
+  "topicSlug": "multiplication-algebra",
+  "titleKm": "លំនាំគុណ លោតរាប់ និងល្បែងសមីការ",
+  "subtitleKm": "លោតរាប់ម្ដង ៥ រៀបក្រុម ៣×៥ ដោះស្រាយជញ្ជីង ៤+□=១១ និងលាបផ្ទៃ ១២",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចរកលេខបាត់ក្នុងលំនាំលោតរាប់ ៥ រៀបតារាងគុណ ៣×៥ ដោះស្រាយសមីការជញ្ជីង និងគូរផ្ទៃក្រឡា ១២។",
+  "steps": [
+    {
+      "id": "m05-s1-skip-count-fives",
+      "type": "pattern-sequence",
+      "stage": "concrete",
+      "promptKm": "កង្កែបលោតរាប់ម្ដង ៥ (៥, ១០, ?, ២០, ?, ៣០) — បំពេញលេខដែលបាត់!",
+      "config": {
+        "variant": "number-skip",
+        "sequence": [
+          "5",
+          "10",
+          null,
+          "20",
+          null,
+          "30"
+        ],
+        "palette": [
+          {
+            "id": "15",
+            "labelKm": "១៥",
+            "glyph": "number"
+          },
+          {
+            "id": "25",
+            "labelKm": "២៥",
+            "glyph": "number"
+          },
+          {
+            "id": "12",
+            "labelKm": "១២",
+            "glyph": "number"
+          },
+          {
+            "id": "22",
+            "labelKm": "២២",
+            "glyph": "number"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "15",
+          "25"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រាល់ជំហានលោតឡើងបូកថែម ៥ (៥ → ១០ → ...)!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១០ + ៥ = ១៥ និង ២០ + ៥ = ២៥!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ដាក់លេខ «១៥» ក្នុងប្រឡោះទំនេរទី ១ និង «២៥» ក្នុងប្រឡោះទំនេរទី ២!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! លោតរាប់ម្ដង ៥ គឺជាមេគុណ ៥៖ ៥, ១០, ១៥, ២០, ២៥, ៣០!",
+      "audioUrl": "/audio/steps/m05-s1-skip-count-fives.mp3"
+    },
+    {
+      "id": "m05-s2-lotus-array-3x5",
+      "type": "array-groups",
+      "stage": "iconic",
+      "promptKm": "រៀបស្វាយ ៣ ជួរ ក្នុងមួយជួរមាន ៥ ផ្លែ (៣ × ៥) ដើម្បីរកផលគុណ!",
+      "config": {
+        "mode": "equal-groups",
+        "itemTheme": "mango",
+        "maxRows": 5,
+        "maxCols": 6,
+        "initialRows": 1,
+        "initialCols": 5,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 3,
+        "expectedCols": 5,
+        "expectedProduct": 15,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ឥឡូវមាន ១ ជួរ × ៥ ផ្លែ = ៥ ផ្លែ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បន្ថែមចំនួនជួរឱ្យដល់ ៣ ជួរ នឹងបាន ៥ + ៥ + ៥ = ១៥!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច +១ ជួរ ចំនួន ២ ដង ដើម្បីបាន ៣ × ៥ = ១៥ ផ្លែ!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ៣ ក្រុមនៃ ៥ ស្មើនឹង ៣ × ៥ = ១៥!",
+      "audioUrl": "/audio/steps/m05-s2-lotus-array-3x5.mp3"
+    },
+    {
+      "id": "m05-s3-balance-mystery-11",
+      "type": "comparison-balance",
+      "stage": "iconic",
+      "promptKm": "ដោះស្រាយ ៤ + □ = ១១ លើជញ្ជីង៖ បន្ថែមទម្ងន់ខាងស្ដាំពី ៤ ឱ្យស្មើ ១១!",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 11,
+        "rightValue": 4,
+        "availableTiles": [
+          2,
+          5,
+          7
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 11
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ខាងឆ្វេងមាន ១១ ហើយខាងស្ដាំមាន ៤ — ខ្វះប៉ុន្មានទៀតទើបស្មើគ្នា?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១១ − ៤ = ៧ ដូច្នេះប្រអប់អាថ៌កំបាំង □ = ៧!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «+៧» ម្ដង ដើម្បីឱ្យជញ្ជីងស្មើគ្នា ១១ = ១១!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ៤ + ៧ = ១១ — ជញ្ជីងមានតុល្យភាពទាំងសងខាង!",
+      "audioUrl": "/audio/steps/m05-s3-balance-mystery-11.mp3"
+    },
+    {
+      "id": "m05-s4-draw-array-area-12",
+      "type": "geometry-draw",
+      "stage": "symbolic",
+      "promptKm": "បង្ហាញ ៣ × ៤ = ១២ ដោយលាបពណ៌ផ្ទៃក្រឡាចំនួន ១២ ប្រឡោះ!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#d97706"
+      },
+      "solution": {
+        "expectedArea": 12,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "៣ ជួរ × ៤ ប្រឡោះក្នុងមួយជួរ ស្មើនឹង ១២ ប្រឡោះ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ក្រឡាទាំងអស់មាន ១៦ ប្រឡោះ — លាប ៣ ជួរពេញ (ទុក ១ ជួរទំនេរ) នឹងបាន ១២!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបពណ៌ជួរទី ១, ២, និង ៣ ឱ្យពេញទាំង ៤ ប្រឡោះ (៤ + ៤ + ៤ = ១២)!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៣ × ៤ = ១២ — វិធីគុណ និងផ្ទៃក្រឡាជាមិត្តភក្តិជិតស្និទ្ធនឹងគ្នា!",
+      "audioUrl": "/audio/steps/m05-s4-draw-array-area-12.mp3"
+    }
+  ]
+}

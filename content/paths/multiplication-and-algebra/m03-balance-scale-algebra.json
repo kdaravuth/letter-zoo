@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0",
+  "id": "m03-balance-scale-algebra",
+  "pathId": "multiplication-and-algebra",
+  "order": 3,
+  "moeysGradeRef": "G5",
+  "topicSlug": "algebra",
+  "titleKm": "ជញ្ជីងស្មើ និងប្រអប់អាថ៌កំបាំង",
+  "subtitleKm": "ស្គាល់សញ្ញា «=» ជាតុល្យភាព និងរកលេខដែលបាត់ក្នុងសមីការដំបូង",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "ដោះស្រាយសមីការងាយៗដូច ៣ + □ = ៧ និង ៣ × □ = ១៨ ដោយប្រើគំរូជញ្ជីង",
+  "steps": [
+    {
+      "id": "m03-s1-balance-7",
+      "type": "comparison-balance",
+      "stage": "concrete",
+      "promptKm": "ដោះស្រាយ ៣ + □ = ៧ លើជញ្ជីង៖ បន្ថែមទម្ងន់ខាងស្ដាំពី ៣ ឱ្យស្មើ ៧!",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 7,
+        "rightValue": 3,
+        "availableTiles": [
+          1,
+          2,
+          4
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 7
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ខាងឆ្វេងមាន ៧ ហើយខាងស្ដាំមាន ៣ — ខាងស្ដាំខ្វះប៉ុន្មានទៀត?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ បូក ៤ ស្មើ ៧ ដូច្នេះប្រអប់ □ ស្មើ ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «+៤» ម្ដង ដើម្បីឱ្យជញ្ជីងស្មើគ្នា (៧ = ៧)!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! សញ្ញា «=» មានន័យថាខាងឆ្វេង និងខាងស្ដាំមានតម្លៃស្មើគ្នា៖ ៣ + ៤ = ៧!",
+      "audioUrl": "/audio/steps/m03-s1-balance-7.mp3"
+    },
+    {
+      "id": "m03-s2-balance-12",
+      "type": "comparison-balance",
+      "stage": "iconic",
+      "promptKm": "រកលេខក្នុងប្រអប់ □ នៃ □ + ៥ = ១២ ដោយធ្វើឱ្យជញ្ជីងស្មើ ១២!",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 12,
+        "rightValue": 5,
+        "availableTiles": [
+          2,
+          5,
+          7
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 12
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ខាងស្ដាំមាន ៥ រួចហើយ! តើត្រូវបន្ថែមប៉ុន្មានទៀតទើបដល់ ១២?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១២ − ៥ = ៧ ដូច្នេះ □ = ៧។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ «+៧» ម្ដង ដើម្បីបាន ៥ + ៧ = ១២!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៧ + ៥ = ១២ ដូច្នេះលេខអាថ៌កំបាំង □ = ៧!",
+      "audioUrl": "/audio/steps/m03-s2-balance-12.mp3"
+    },
+    {
+      "id": "m03-s3-letter-x",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "បើ ៣ × x = ១៨ តើអក្សរ x ជំនួសឱ្យលេខប៉ុន្មាន?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-6",
+            "labelKm": "x = ៦ (ព្រោះ ៣ × ៦ = ១៨)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៣ × ៦ = ១៨ ដូច្នេះ x = ៦!"
+          },
+          {
+            "id": "opt-15",
+            "labelKm": "x = ១៥",
+            "diagnosticFeedbackKm": "១៨ − ៣ = ១៥ សម្រាប់ ៣ + x = ១៨ ទេ ប៉ុន្តែនេះជាវិធីគុណ ៣ × x = ១៨!"
+          },
+          {
+            "id": "opt-5",
+            "labelKm": "x = ៥",
+            "diagnosticFeedbackKm": "ជិតត្រូវហើយ! ៣ × ៥ = ១៥ នៅខ្វះ ៣ ទៀតដល់ ១៨!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-6"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "អក្សរ x ដូចគ្នានឹងប្រអប់ទំនេរ □ ដែរ៖ ៣ × □ = ១៨!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យក ១៨ ÷ ៣ ដើម្បីរកតម្លៃ x។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៣ × ៦ = ១៨ ដូច្នេះសូមជ្រើសរើស «x = ៦»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ក្នុងពិជគណិត អក្សរ x តំណាងឱ្យលេខដែលត្រូវរក៖ ៣ × ៦ = ១៨!",
+      "audioUrl": "/audio/steps/m03-s3-letter-x.mp3"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0",
+  "id": "m04-ratios-and-percentages",
+  "pathId": "multiplication-and-algebra",
+  "order": 4,
+  "moeysGradeRef": "G6",
+  "topicSlug": "percentages-ratios",
+  "titleKm": "ភាគរយ និងការបញ្ចុះតម្លៃនៅផ្សារ",
+  "subtitleKm": "ភ្ជាប់ប្រភាគ ១/២ និង ១/៤ ទៅនឹង ៥០% និង ២៥% ក្នុងការទិញឥវ៉ាន់",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "បំប្លែងប្រភាគសាមញ្ញជាភាគរយ និងគណនាការបញ្ចុះតម្លៃ ៥០% ជាប្រាក់រៀល",
+  "steps": [
+    {
+      "id": "m04-s1-fifty-percent",
+      "type": "fraction-bar-shape",
+      "stage": "concrete",
+      "promptKm": "៥០% មានន័យថាពាក់កណ្តាល (១/២)។ លាបពណ៌ ៥០% នៃរបារ!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 0,
+        "allowPartitionChange": true,
+        "availableDenominators": [
+          2,
+          4
+        ],
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 1,
+        "expectedDenominator": 2,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "៥០% គឺពាក់កណ្តាលនៃ ១០០% — មើលចំណុចកណ្ដាលលើបន្ទាត់ចំនួន!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "លាបពណ៌ ២/៤ ឬប្ដូរជា ២ ផ្នែកហើយលាបពណ៌ ១/២។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ ២ ផ្នែកនៃរបារ ៤ ផ្នែក (២/៤ = ១/២ = ៥០%)!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៥០% = ៥០/១០០ = ១/២ = ២/៤!",
+      "audioUrl": "/audio/steps/m04-s1-fifty-percent.mp3"
+    },
+    {
+      "id": "m04-s2-discount-riel",
+      "type": "scenario-choice",
+      "stage": "iconic",
+      "promptKm": "សៀវភៅថ្លៃ ២,០០០៛ បញ្ចុះតម្លៃ ៥០% (ពាក់កណ្តាល)។ រៀបចំប្រាក់រៀលដែលត្រូវបង់!",
+      "config": {
+        "variant": "banknote-builder",
+        "availableNotesKhr": [
+          100,
+          500,
+          1000,
+          2000
+        ]
+      },
+      "solution": {
+        "expectedSumKhr": 1000
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "បញ្ចុះ ៥០% គឺបង់តែពាក់កណ្តាលនៃ ២,០០០៛ ប៉ុណ្ណោះ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពាក់កណ្តាលនៃ ២,០០០៛ គឺ ១,០០០៛។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ «+១,០០០៛» ១ ដង ឬ «+៥០០៛» ២ ដង!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៥០% នៃ ២,០០០៛ គឺ ១,០០០៛ ដូច្នេះត្រូវបង់តែ ១,០០០៛ ទេ!",
+      "audioUrl": "/audio/steps/m04-s2-discount-riel.mp3"
+    },
+    {
+      "id": "m04-s3-quarter-percent",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "តើប្រភាគ ១/៤ ស្មើនឹងប៉ុន្មានភាគរយ (%)?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-25",
+            "labelKm": "២៥% (ព្រោះ ២៥ × ៤ = ១០០)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ១/៤ នៃ ១០០% គឺ ២៥%!"
+          },
+          {
+            "id": "opt-40",
+            "labelKm": "៤០%",
+            "diagnosticFeedbackKm": "៤០% គឺ ៤/១០ (២/៥) មិនមែន ១/៤ ទេណា៎!"
+          },
+          {
+            "id": "opt-50",
+            "labelKm": "៥០%",
+            "diagnosticFeedbackKm": "៥០% គឺជាពាក់កណ្តាល (១/២) ចំណែក ១/៤ ជាពាក់កណ្តាលនៃ ៥០% គឺ ២៥%!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-25"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "១/៤ គឺជាពាក់កណ្តាលនៃ ១/២ (ពាក់កណ្តាលនៃ ៥០%)!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១០០ ÷ ៤ = ២៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «២៥%»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ១/៤ = ២៥%, ១/២ = ៥០%, ៣/៤ = ៧៥% និង ១ = ១០០%!",
+      "audioUrl": "/audio/steps/m04-s3-quarter-percent.mp3"
+    }
+  ]
+}

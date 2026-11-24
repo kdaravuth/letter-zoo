@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0",
+  "id": "t03-market-bar-charts",
+  "pathId": "time-measurement-data",
+  "order": 3,
+  "moeysGradeRef": "G3",
+  "topicSlug": "data-charts",
+  "titleKm": "ដ្យាក្រាមសសរផ្លែឈើនៅផ្សារ",
+  "subtitleKm": "សង់ដ្យាក្រាមសសរ អានតម្លៃខ្ពស់បំផុត និងប្រៀបធៀបទិន្នន័យផ្លែឈើ",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចសង់ដ្យាក្រាមសសរតាមទិន្នន័យ និងអានប្រៀបធៀបចំនួនច្រើនបំផុត ឬតិចបំផុត។",
+  "steps": [
+    {
+      "id": "t03-s1-build-fruit-chart",
+      "type": "data-chart",
+      "stage": "concrete",
+      "promptKm": "នៅហាងផ្លែឈើមាន ស្វាយ ៦ ផ្លែ និង ក្រូច ៤ ផ្លែ — សង់ដ្យាក្រាមសសរឱ្យត្រូវ!",
+      "config": {
+        "mode": "build-bars",
+        "maxValue": 8,
+        "unitLabelKm": "ផ្លែ",
+        "bars": [
+          {
+            "id": "mango",
+            "labelKm": "ស្វាយ",
+            "color": "#d97706",
+            "initialValue": 1
+          },
+          {
+            "id": "orange",
+            "labelKm": "ក្រូច",
+            "color": "#ea580c",
+            "initialValue": 1
+          }
+        ]
+      },
+      "solution": {
+        "expectedBarValues": {
+          "mango": 6,
+          "orange": 4
+        }
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលលេខលើក្បាលសសរនីមួយៗពេលអ្នកចុចប៊ូតុង +១។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ដំឡើងសសរ «ស្វាយ» ដល់ ៦ និងសសរ «ក្រូច» ដល់ ៤!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច +១ ស្វាយ ៥ ដង (ដល់ ៦) និង +១ ក្រូច ៣ ដង (ដល់ ៤)!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! សសរស្វាយកម្ពស់ ៦ ខ្ពស់ជាងសសរក្រូចកម្ពស់ ៤ ចំនួន ២ ផ្លែ!",
+      "audioUrl": "/audio/steps/t03-s1-build-fruit-chart.mp3"
+    },
+    {
+      "id": "t03-s2-read-tallest-bar",
+      "type": "data-chart",
+      "stage": "iconic",
+      "promptKm": "មើលដ្យាក្រាមផ្កានៅសួនគណិត — តើផ្កាណាដែលរីក «ច្រើនជាងគេ»?",
+      "config": {
+        "mode": "read-bar",
+        "maxValue": 10,
+        "unitLabelKm": "ទង",
+        "bars": [
+          {
+            "id": "lotus",
+            "labelKm": "ផ្កាឈូក",
+            "color": "#db2777",
+            "initialValue": 8
+          },
+          {
+            "id": "romduol",
+            "labelKm": "ផ្ការំដួល",
+            "color": "#d97706",
+            "initialValue": 5
+          },
+          {
+            "id": "jasmine",
+            "labelKm": "ផ្កាម្លិះ",
+            "color": "#2563eb",
+            "initialValue": 3
+          }
+        ]
+      },
+      "solution": {
+        "expectedBarId": "lotus"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "សសរដែលខ្ពស់ជាងគេបង្ហាញពីចំនួនដែលច្រើនជាងគេ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ប្រៀបធៀប៖ ផ្កាឈូក (៨) ផ្ការំដួល (៥) និងផ្កាម្លិះ (៣)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «ផ្កាឈូក» ព្រោះមានដល់ ៨ ទង!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ផ្កាឈូកមាន ៨ ទង ខ្ពស់ជាងគេលើដ្យាក្រាមសសរ!",
+      "audioUrl": "/audio/steps/t03-s2-read-tallest-bar.mp3"
+    },
+    {
+      "id": "t03-s3-build-three-bars",
+      "type": "data-chart",
+      "stage": "iconic",
+      "promptKm": "កុមារអានសៀវភៅ៖ ចន្ទ ៣ ក្បាល អង្គារ ៥ ក្បាល និងពុធ ២ ក្បាល — សង់ដ្យាក្រាម!",
+      "config": {
+        "mode": "build-bars",
+        "maxValue": 8,
+        "unitLabelKm": "ក្បាល",
+        "bars": [
+          {
+            "id": "mon",
+            "labelKm": "ចន្ទ",
+            "color": "#2563eb",
+            "initialValue": 0
+          },
+          {
+            "id": "tue",
+            "labelKm": "អង្គារ",
+            "color": "#15803d",
+            "initialValue": 0
+          },
+          {
+            "id": "wed",
+            "labelKm": "ពុធ",
+            "color": "#d97706",
+            "initialValue": 0
+          }
+        ]
+      },
+      "solution": {
+        "expectedBarValues": {
+          "mon": 3,
+          "tue": 5,
+          "wed": 2
+        }
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ដំឡើងសសរតាមថ្ងៃនីមួយៗ៖ ចន្ទ=៣ អង្គារ=៥ ពុធ=២។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ថ្ងៃអង្គារត្រូវខ្ពស់ជាងគេ (៥) ហើយថ្ងៃពុធទាបជាងគេ (២)!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច +១ ឱ្យចន្ទដល់ ៣ អង្គារដល់ ៥ និងពុធដល់ ២!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! សរុបទាំង ៣ ថ្ងៃកុមារអានបាន ៣ + ៥ + ២ = ១០ ក្បាល!",
+      "audioUrl": "/audio/steps/t03-s3-build-three-bars.mp3"
+    },
+    {
+      "id": "t03-s4-compare-chart-values",
+      "type": "comparison-balance",
+      "stage": "symbolic",
+      "promptKm": "ផ្កាឈូកមាន ៨ ទង និងផ្កាម្លិះមាន ៣ ទង — ផ្កាឈូកច្រើនជាងផ្កាម្លិះប៉ុន្មាន (៣ + □ = ៨)?",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 8,
+        "rightValue": 3,
+        "availableTiles": [
+          2,
+          3,
+          5
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 8
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រកផលសងរវាង ៨ និង ៣ (៨ − ៣)!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ បូក ៥ ស្មើ ៨ — ដូច្នេះផ្កាឈូកច្រើនជាង ៥ ទង!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «+៥» ម្ដង ដើម្បីឱ្យជញ្ជីងស្មើគ្នា ៨ = ៨!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ៨ − ៣ = ៥ — ផ្កាឈូកច្រើនជាងផ្កាម្លិះ ៥ ទង!",
+      "audioUrl": "/audio/steps/t03-s4-compare-chart-values.mp3"
+    }
+  ]
+}

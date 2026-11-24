@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l02-zero-and-ten-frame",
+  "pathId": "early-foundations",
+  "order": 2,
+  "moeysGradeRef": "G1",
+  "topicSlug": "number-sense",
+  "titleKm": "សូន្យ និងចំនួន ០ ដល់ ១០",
+  "subtitleKm": "ស្គាល់លេខ ០ ជាចានទទេ និងរៀបចំចំនួនដល់ ១០ លើប្រអប់ ១០",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "យល់ន័យនៃលេខ ០ និងប្រើប្រអប់ ១០ ដើម្បីមើលឃើញចំនួន ៥ ដល់ ១០",
+  "steps": [
+    {
+      "id": "l02-s1-zero",
+      "type": "scenario-choice",
+      "stage": "concrete",
+      "promptKm": "មើលចានទទេគ្មានផ្លែស្វាយសោះ។ តើលេខណាតំណាងឱ្យគ្មានវត្ថុសោះ?",
+      "config": {
+        "variant": "single-choice",
+        "visualCue": "empty-bowl-zero",
+        "options": [
+          {
+            "id": "opt-0",
+            "labelKm": "០ (សូន្យ)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! លេខ ០ មានន័យថាទទេ ឬគ្មានវត្ថុសោះ។"
+          },
+          {
+            "id": "opt-1",
+            "labelKm": "១ (មួយ)",
+            "diagnosticFeedbackKm": "លេខ ១ មានន័យថាមាន ១ ផ្លែ ប៉ុន្តែចាននេះទទេស្អាត!"
+          },
+          {
+            "id": "opt-10",
+            "labelKm": "១០ (ដប់)",
+            "diagnosticFeedbackKm": "លេខ ១០ មានច្រើនផ្លែណាស់ ចាននេះគ្មានសោះទេ។"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-0"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលក្នុងចានខាងលើ! តើមានផ្លែឈើប៉ុន្មានផ្លែ?",
+          "highlightTargetId": "visual-cue"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពេលគ្មានអ្វីសោះក្នុងចាន យើងហៅថាសូន្យ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «០ (សូន្យ)» ដើម្បីតំណាងឱ្យចានទទេ!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! លេខ ០ (សូន្យ) ប្រាប់យើងថាគ្មានវត្ថុសោះនៅក្នុងចាន។",
+      "audioUrl": "/audio/steps/l02-s1-zero.mp3"
+    },
+    {
+      "id": "l02-s2-seven-on-ten-frame",
+      "type": "counting-stage",
+      "stage": "iconic",
+      "promptKm": "ជួរខាងលើមានផ្កាឈូក ៥ ហើយ។ បន្ថែមឱ្យបាន ៧ នៅក្នុងប្រអប់ ១០!",
+      "config": {
+        "frameSize": 10,
+        "tokenTheme": "lotus",
+        "initialInFrame": 5,
+        "initialOutside": 5,
+        "allowFreeExplore": true,
+        "showLiveCount": true,
+        "requireFullTenBundle": false
+      },
+      "solution": {
+        "expectedInFrame": 7,
+        "expectedTotal": 10
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ជួរខាងលើពេញ ៥ ហើយ! មើលជួរខាងក្រោម យើងត្រូវបន្ថែមប៉ុន្មានទៀត?",
+          "highlightTargetId": "empty-slots"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៥ ទៅ ៧៖ ៦, ៧ ដូច្នេះត្រូវការ ២ ទៀត។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះផ្កាឈូក ២ ទងនៅខាងក្រៅ រួចដាក់ចូលប្រឡោះទំនេរជួរខាងក្រោម។"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៥ បូក ២ ស្មើ ៧។ ការមើលជួរ ៥ ជួយឱ្យស្គាល់លេខ ៧ បានលឿន!",
+      "audioUrl": "/audio/steps/l02-s2-seven-on-ten-frame.mp3"
+    },
+    {
+      "id": "l02-s3-bundle-ten",
+      "type": "place-value-blocks",
+      "stage": "symbolic",
+      "promptKm": "មានដុំរាយ ១០ ដុំ។ ចុច «ផ្ដុំ ១០» ដើម្បីប្ដូរជាដំបងខ្ទង់ដប់ ១!",
+      "config": {
+        "initialHundreds": 0,
+        "initialTens": 0,
+        "initialOnes": 10,
+        "allowHundreds": false,
+        "allowBundle": true,
+        "allowUnbundle": true,
+        "showLiveTotal": true
+      },
+      "solution": {
+        "expectedTotal": 10,
+        "requireCanonical": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលខ្ទង់រាយ មាន ១០ ដុំពេញហើយ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ដុំរាយ ១០ ដុំអាចផ្ដុំជាដំបងខ្ទង់ដប់ ១ បាន។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុចប៊ូតុង «ផ្ដុំ ១០» ខាងក្រោម នោះខ្ទង់ដប់នឹងមាន ១ ហើយខ្ទង់រាយមាន ០!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ដុំរាយ ១០ ស្មើនឹងដំបងខ្ទង់ដប់ ១ និងខ្ទង់រាយ ០ ដែលសរសេរថា ១០!",
+      "audioUrl": "/audio/steps/l02-s3-bundle-ten.mp3"
+    }
+  ]
+}

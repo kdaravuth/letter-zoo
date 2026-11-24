@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0",
+  "id": "f02-tenths-on-number-line",
+  "pathId": "fractions-and-decimals",
+  "order": 2,
+  "moeysGradeRef": "G4",
+  "topicSlug": "decimals",
+  "titleKm": "ចំនួនទសភាគភាគដប់ ០.១ ដល់ ១.០",
+  "subtitleKm": "ពង្រីកបន្ទាត់ចំនួន ០ ដល់ ១ ជា ១០ ភាគស្មើគ្នាដើម្បីស្គាល់ភាគដប់",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "កំណត់ទីតាំង និងបូកចំនួនទសភាគភាគដប់លើបន្ទាត់ចំនួនពី ០ ដល់ ១",
+  "steps": [
+    {
+      "id": "f02-s1-locate-0-5",
+      "type": "number-line",
+      "stage": "concrete",
+      "promptKm": "បន្ទាត់ចំនួន ០ ដល់ ១ ចែកជា ១០ ភាគស្មើគ្នា (ម្ដង ០.១)។ ប៉ះចំណុច ០.៥ (ពាក់កណ្តាល)!",
+      "config": {
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "startValue": 0,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 0.5,
+        "tolerance": 0.001
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រកចំណុចកណ្ដាលរវាង ០ និង ១ លើបន្ទាត់ចំនួន!",
+          "highlightTargetId": "tick-0.5"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់ម្ដង ០.១ ចំនួន ៥ ជំហាន៖ ០.១, ០.២, ០.៣, ០.៤, ០.៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ០.៥ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ០.៥ ស្មើនឹង ៥/១០ ឬពាក់កណ្តាល (១/២) នៃ ១!",
+      "audioUrl": "/audio/steps/f02-s1-locate-0-5.mp3"
+    },
+    {
+      "id": "f02-s2-add-tenths",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "គណនា ០.៣ + ០.៤ លើបន្ទាត់ចំនួន ដោយលោតទៅមុខ ៤ ជំហានពី ០.៣!",
+      "config": {
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "startValue": 0.3,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 0.7,
+        "tolerance": 0.001
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ០.៣ ហើយលោតទៅស្ដាំ ៤ ជំហាន (០.៤)!",
+          "highlightTargetId": "tick-0.7"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ ភាគដប់ + ៤ ភាគដប់ = ៧ ភាគដប់ (០.៧)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ០.៧ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ០.៣ + ០.៤ = ០.៧ ព្រោះ ៣ ភាគដប់ បូក ៤ ភាគដប់ ស្មើ ៧ ភាគដប់!",
+      "audioUrl": "/audio/steps/f02-s2-add-tenths.mp3"
+    },
+    {
+      "id": "f02-s3-decimal-fraction-link",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "តើចំនួនទសភាគ ០.៥ ស្មើនឹងប្រភាគមួយណា?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-half",
+            "labelKm": "៥/១០ ឬ ១/២",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ០.៥ មានន័យថា ៥ ភាគដប់ ដែលស្មើពាក់កណ្តាល (១/២)។"
+          },
+          {
+            "id": "opt-1-5",
+            "labelKm": "១/៥",
+            "diagnosticFeedbackKm": "១/៥ ស្មើ ២/១០ (០.២) ទេ មិនមែន ០.៥ ទេណា៎!"
+          },
+          {
+            "id": "opt-5-100",
+            "labelKm": "៥/១០០",
+            "diagnosticFeedbackKm": "៥/១០០ សរសេរជា ០.០៥ (៥ ភាគរយ) មិនមែន ០.៥ (៥ ភាគដប់) ទេ!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-half"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "លេខ ៥ នៅក្រោយចុចទសភាគ ១ ខ្ទង់ គឺខ្ទង់ភាគដប់!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៥ ភាគដប់ សរសេរជា ៥/១០ ដែលស្មើ ១/២។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «៥/១០ ឬ ១/២»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ០.៥ = ៥/១០ = ១/២!",
+      "audioUrl": "/audio/steps/f02-s3-decimal-fraction-link.mp3"
+    }
+  ]
+}

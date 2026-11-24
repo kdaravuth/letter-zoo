@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g05-drawing-shapes-and-symmetry",
+  "pathId": "geometry-foundations",
+  "order": 5,
+  "moeysGradeRef": "G4",
+  "topicSlug": "geometry",
+  "titleKm": "គូររូបធរណីមាត្រ និងស៊ីមេទ្រី",
+  "subtitleKm": "គូរត្រីកោណ ការ៉េ ស្លាបមេអំបៅស៊ីមេទ្រី និងលាបផ្ទៃក្រឡា",
+  "estimatedMinutes": 6,
+  "learningObjectiveKm": "សិស្សអាចគូររូបធរណីមាត្រលើក្ដារចំណុច គូររូបឆ្លុះស៊ីមេទ្រី និងលាបពណ៌ផ្ទៃក្រឡាតាមតម្លៃកំណត់។",
+  "steps": [
+    {
+      "id": "g05-s1-draw-triangle",
+      "type": "geometry-draw",
+      "stage": "concrete",
+      "promptKm": "ប៉ះចំណុចលើក្ដារ ដើម្បីគូររូប «ត្រីកោណ» បិទជិតមួយ (មាន ៣ ជ្រុង)។",
+      "config": {
+        "mode": "dot-connect",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#2563eb"
+      },
+      "solution": {
+        "expectedShape": "triangle",
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ត្រីកោណមានជ្រុង ៣ និងកំពូល ៣ ដែលភ្ជាប់ជុំវិញគ្នា។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "សាកប៉ះចំណុចទី ១ ទៅទី ២ រួចទៅទី ៣ ហើយត្រឡប់មកប៉ះចំណុចទី ១ វិញ ដើម្បីបិទរូប។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះជួរ ១ ជួរឈរ ១ → ជួរ ១ ជួរឈរ ៣ → ជួរ ៣ ជួរឈរ ២ → រួចត្រឡប់មកជួរ ១ ជួរឈរ ១ វិញ នឹងបានត្រីកោណ!"
+        }
+      ],
+      "explanationKm": "រូបបិទជិតដែលមាន ៣ ជ្រុង និង ៣ កំពូល គឺជាត្រីកោណ។",
+      "audioUrl": "/audio/steps/g05-s1-draw-triangle.mp3"
+    },
+    {
+      "id": "g05-s2-draw-square",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "គូររូប «ការ៉េ» បិទជិតមួយ ដែលមានជ្រុងទាំង ៤ ស្មើគ្នា និងមុំកែង។",
+      "config": {
+        "mode": "dot-connect",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#15803d"
+      },
+      "solution": {
+        "expectedShape": "square",
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ការ៉េមាន ៤ ជ្រុង ហើយជ្រុងឈរ និងជ្រុងដេកមានប្រវែងស្មើគ្នា។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "សាករាប់ចន្លោះចំណុច ២ ចន្លោះទៅស្ដាំ ២ ចន្លោះចុះក្រោម ២ ចន្លោះទៅឆ្វេង រួចឡើងលើបិទជិត។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ (១,១) → (១,៣) → (៣,៣) → (៣,១) → (១,១) នឹងបានការ៉េជ្រុង ២×២ យ៉ាងស្អាត!"
+        }
+      ],
+      "explanationKm": "ការ៉េជាចតុកោណកែងពិសេសដែលមានជ្រុងទាំង ៤ ប្រវែងស្មើគ្នា។",
+      "audioUrl": "/audio/steps/g05-s2-draw-square.mp3"
+    },
+    {
+      "id": "g05-s3-butterfly-symmetry",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "លាបពណ៌ស្លាបមេអំបៅខាងស្ដាំ ឱ្យឆ្លុះស៊ីមេទ្រីស្មើនឹងស្លាបខាងឆ្វេង!",
+      "config": {
+        "mode": "symmetry-mirror",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [
+          "0,0",
+          "1,0",
+          "1,1",
+          "2,0",
+          "2,1",
+          "3,0"
+        ],
+        "inkColor": "#db2777"
+      },
+      "solution": {
+        "requireSymmetryMirror": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលបន្ទាត់កញ្ចក់ពណ៌ក្រហមចំកណ្ដាល៖ ប្រឡោះខាងស្ដាំត្រូវស្ថិតនៅចម្ងាយស្មើគ្នាពីបន្ទាត់កណ្ដាល។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ជួរឈរទី ១ ខាងឆ្វេងឆ្លុះទៅជួរឈរទី ៤ ខាងស្ដាំ ហើយជួរឈរទី ២ ឆ្លុះទៅជួរឈរទី ៣។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបពណ៌ជួរឈរទី ៤ ទាំង ៤ ប្រឡោះ និងជួរឈរទី ៣ ត្រង់ជួរទី ២ និងជួរទី ៣ (សរុប ៦ ប្រឡោះ)!"
+        }
+      ],
+      "explanationKm": "ស្លាបមេអំបៅទាំងពីរឆ្លុះគ្នាដូចកញ្ចក់តាមអ័ក្សស៊ីមេទ្រីចំកណ្ដាល។",
+      "audioUrl": "/audio/steps/g05-s3-butterfly-symmetry.mp3"
+    },
+    {
+      "id": "g05-s4-area-six",
+      "type": "geometry-draw",
+      "stage": "symbolic",
+      "promptKm": "លាបពណ៌ប្រឡោះក្រឡាឱ្យបានផ្ទៃក្រឡាស្មើ ៦ ឯកតាការ៉េ (រាងអ្វីក៏បាន)!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#d97706"
+      },
+      "solution": {
+        "expectedArea": 6,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រឡោះការ៉េតូច ១ ស្មើនឹងផ្ទៃក្រឡា ១ ឯកតាការ៉េ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ប៉ះ ឬអូសលាបពណ៌ប្រឡោះណាក៏បាន រហូតដល់លេខរាប់ឡើងដល់ ៦។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "សាកលាបពណ៌ ២ ជួរ × ៣ ជួរឈរ = ៦ ប្រឡោះ នឹងបានផ្ទៃក្រឡា ៦ ឯកតាការ៉េ!"
+        }
+      ],
+      "explanationKm": "រូបរាងខុសគ្នាអាចមានផ្ទៃក្រឡា ៦ ឯកតាការ៉េដូចគ្នា ឱ្យតែគ្របដណ្ដប់លើ ៦ ប្រឡោះ។",
+      "audioUrl": "/audio/steps/g05-s4-area-six.mp3"
+    }
+  ]
+}

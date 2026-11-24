@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l01-counting-1-5",
+  "pathId": "early-foundations",
+  "order": 1,
+  "moeysGradeRef": "G1",
+  "topicSlug": "number-sense",
+  "titleKm": "រាប់ចំនួន ១ ដល់ ៥",
+  "subtitleKm": "ស្គាល់ និងរាប់ចំនួន ១ ដល់ ៥ តាមរយៈផ្លែស្វាយ និងប្រអប់ ៥",
+  "estimatedMinutes": 6,
+  "learningObjectiveKm": "រាប់ និងផ្គូផ្គងចំនួនវត្ថុពី ១ ដល់ ៥ ដោយប្រើប្រអប់ ៥ និងលេខខ្មែរ",
+  "steps": [
+    {
+      "id": "l01-s1-concrete",
+      "type": "counting-stage",
+      "stage": "concrete",
+      "promptKm": "ដាក់ផ្លែស្វាយ ៣ ផ្លែចូលក្នុងប្រអប់ ៥ ដើម្បីរៀបចំជូនលោកយាយ!",
+      "config": {
+        "frameSize": 5,
+        "tokenTheme": "mango",
+        "initialInFrame": 0,
+        "initialOutside": 5,
+        "allowFreeExplore": true,
+        "showLiveCount": true,
+        "requireFullTenBundle": false
+      },
+      "solution": {
+        "expectedInFrame": 3,
+        "expectedTotal": 5
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលប្រឡោះទំនេរទាំង ៥ ក្នុងថាស! យើងត្រូវការដាក់តែ ៣ ប្រឡោះប៉ុណ្ណោះ។",
+          "highlightTargetId": "empty-slots"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់ម្ដងមួយផ្លែពេលដាក់ចូល៖ ១, ២, ៣ ហើយឈប់ណា៎!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះស្វាយ ៣ ផ្លែខាងក្រៅ ម្ដងមួយៗ ហើយប៉ះប្រឡោះទំនេរ ៣ ក្នុងប្រអប់។"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ស្វាយ ៣ ផ្លែក្នុងប្រអប់ ៥ ងាយស្រួលមើលឃើញភ្លាមៗថាស្មើ ៣!",
+      "audioUrl": "/audio/steps/l01-s1-concrete.mp3"
+    },
+    {
+      "id": "l01-s2-iconic",
+      "type": "counting-stage",
+      "stage": "iconic",
+      "promptKm": "ប្រអប់មានចំណុច ២ រួចហើយ។ បន្ថែមចំណុចឱ្យពេញប្រអប់ ៥!",
+      "config": {
+        "frameSize": 5,
+        "tokenTheme": "dot",
+        "initialInFrame": 2,
+        "initialOutside": 3,
+        "allowFreeExplore": false,
+        "showLiveCount": true,
+        "requireFullTenBundle": false
+      },
+      "solution": {
+        "expectedInFrame": 5,
+        "expectedTotal": 5
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រាប់មើលប្រឡោះទំនេរដែលនៅសល់ក្នុងប្រអប់ ៥!",
+          "highlightTargetId": "empty-slots"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "មាន ២ ហើយ នៅសល់ ៣ ប្រឡោះទំនេរទៀតទើបពេញ ៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះចំណុចទាំង ៣ នៅខាងក្រៅដាក់ចូលប្រឡោះទំនេរឱ្យពេញប្រអប់ទាំង ៥!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ២ បូក ៣ ស្មើ ៥។ ពេលប្រអប់ ៥ ពេញ យើងដឹងភ្លាមថាមាន ៥!",
+      "audioUrl": "/audio/steps/l01-s2-iconic.mp3"
+    },
+    {
+      "id": "l01-s3-symbolic",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "សុខាបេះស្វាយបាន ២ ផ្លែ រួចបេះបាន ២ ផ្លែទៀត។ តើសុខាមានស្វាយសរុបប៉ុន្មានផ្លែ?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-3",
+            "labelKm": "៣ ផ្លែ",
+            "diagnosticFeedbackKm": "ជិតត្រូវហើយ! សាករាប់ ២ ហើយបន្ថែម ២ ទៀតណា៎៖ ៣, ៤។"
+          },
+          {
+            "id": "opt-4",
+            "labelKm": "៤ ផ្លែ",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ២ បូក ២ ស្មើ ៤ ផ្លែ។"
+          },
+          {
+            "id": "opt-5",
+            "labelKm": "៥ ផ្លែ",
+            "diagnosticFeedbackKm": "លើស ១ ផ្លែហើយ! ២ + ២ ស្មើ ៤ ទេណា៎។"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-4"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "លើកម្រាមដៃ ២ ខាងឆ្វេង និង ២ ខាងស្ដាំ រួចរាប់សរុប!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ២ ទៅមុខ ២ ដង៖ ៣ ហើយ ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "២ + ២ = ៤ ដូច្នេះសូមជ្រើសរើសចម្លើយ «៤ ផ្លែ»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ២ ផ្លែ និង ២ ផ្លែ បញ្ចូលគ្នាស្មើ ៤ ផ្លែ។",
+      "audioUrl": "/audio/steps/l01-s3-symbolic.mp3"
+    }
+  ]
+}

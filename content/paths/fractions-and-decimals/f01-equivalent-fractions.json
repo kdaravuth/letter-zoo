@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0",
+  "id": "f01-equivalent-fractions",
+  "pathId": "fractions-and-decimals",
+  "order": 1,
+  "moeysGradeRef": "G3",
+  "topicSlug": "fractions",
+  "titleKm": "ប្រភាគស្មើគ្នាលើរបារ និងបន្ទាត់ចំនួន",
+  "subtitleKm": "ស្វែងយល់ថា ១/២ ស្មើ ២/៤ និង ៣/៦ តាមរយៈរបារ និងបន្ទាត់ចំនួន ០ ដល់ ១",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "បង្កើត និងសម្គាល់ប្រភាគស្មើគ្នាលើរបារ និងបន្ទាត់ចំនួន ០ ដល់ ១",
+  "steps": [
+    {
+      "id": "f01-s1-equiv-bar",
+      "type": "fraction-bar-shape",
+      "stage": "concrete",
+      "promptKm": "ប្ដូរការចែកជា ៤ ផ្នែក ហើយលាបពណ៌ឱ្យស្មើនឹង ១/២ (២/៤)!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 0,
+        "allowPartitionChange": true,
+        "availableDenominators": [
+          2,
+          4
+        ],
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 1,
+        "expectedDenominator": 2,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចំណុចកណ្ដាលលើបន្ទាត់ចំនួន ០ ដល់ ១ ខាងក្រោម!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១/២ និង ២/៤ ស្ថិតនៅចំណុចកណ្ដាលដូចគ្នាលើបន្ទាត់ចំនួន។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ ២ ផ្នែកនៃរបារ ៤ ផ្នែក ដើម្បីលាបពណ៌ ២/៤ = ១/២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ២/៤ និង ១/២ ជាប្រភាគស្មើគ្នា ព្រោះលាបពណ៌បានពាក់កណ្តាលរបារដូចគ្នា!",
+      "audioUrl": "/audio/steps/f01-s1-equiv-bar.mp3"
+    },
+    {
+      "id": "f01-s2-three-quarters",
+      "type": "fraction-bar-shape",
+      "stage": "iconic",
+      "promptKm": "លាបពណ៌ ៣/៤ នៃរបារ ហើយសង្កេតទីតាំងរបស់វាលើបន្ទាត់ចំនួន ០ ដល់ ១!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 1,
+        "allowPartitionChange": false,
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 3,
+        "expectedDenominator": 4,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មានលាបពណ៌ ១/៤ រួចហើយ! ត្រូវលាបពណ៌បន្ថែមប៉ុន្មានផ្នែកទៀត?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១/៤ + ២/៤ = ៣/៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះបន្ថែម ២ ផ្នែកទៀត ឱ្យបានសរុប ៣ ផ្នែកក្នុងចំណោម ៤ (៣/៤)!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៣/៤ នៅជិតលេខ ១ ជាង ១/២ ព្រោះនៅខ្វះតែ ១/៤ ទៀតទេដល់ ១!",
+      "audioUrl": "/audio/steps/f01-s2-three-quarters.mp3"
+    },
+    {
+      "id": "f01-s3-explain-equiv",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "តើប្រភាគមួយណាស្មើនឹង ១/២?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-3-6",
+            "labelKm": "៣/៦ (ព្រោះ ៣ ជាពាក់កណ្តាលនៃ ៦)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៣/៦ = ១/២ ព្រោះ ៣ ជាពាក់កណ្តាលនៃ ៦។"
+          },
+          {
+            "id": "opt-2-6",
+            "labelKm": "២/៦",
+            "diagnosticFeedbackKm": "២/៦ តិចជាងពាក់កណ្តាលនៃ ៦ (ពាក់កណ្តាលនៃ ៦ គឺ ៣)!"
+          },
+          {
+            "id": "opt-3-4",
+            "labelKm": "៣/៤",
+            "diagnosticFeedbackKm": "៣/៤ ធំជាង ១/២ (ព្រោះ ២/៤ ទើបស្មើ ១/២)!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-3-6"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រកប្រភាគដែលភាគយក (លេខលើ) ជាពាក់កណ្តាលនៃភាគបែង (លេខក្រោម)!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពាក់កណ្តាលនៃ ៦ គឺ ៣ ដូច្នេះ ៣/៦ ស្មើ ១/២។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយ «៣/៦»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ១/២ = ២/៤ = ៣/៦ សុទ្ធតែតំណាងឱ្យពាក់កណ្តាលដូចគ្នា!",
+      "audioUrl": "/audio/steps/f01-s3-explain-equiv.mp3"
+    }
+  ]
+}

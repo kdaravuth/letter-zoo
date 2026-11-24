@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g06-rectangles-and-area-design",
+  "pathId": "geometry-foundations",
+  "order": 6,
+  "moeysGradeRef": "G4",
+  "topicSlug": "geometry",
+  "titleKm": "គូរចតុកោណកែង និងរចនាផ្ទៃក្រឡា",
+  "subtitleKm": "គូរចតុកោណកែង លាបសួន ៨ ប្រឡោះ ស៊ីមេទ្រីផ្កាឈូក និងតារាងគុណ ២×៤",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចគូរចតុកោណកែង រចនាផ្ទៃក្រឡា ៨ ឯកតាការ៉េ គូរស៊ីមេទ្រីផ្កាឈូក និងភ្ជាប់ផ្ទៃក្រឡាទៅនឹងវិធីគុណ។",
+  "steps": [
+    {
+      "id": "g06-s1-draw-rectangle",
+      "type": "geometry-draw",
+      "stage": "concrete",
+      "promptKm": "ប៉ះចំណុចលើក្ដារ ដើម្បីគូររូប «ចតុកោណកែង» ដែលមានបណ្ដោយវែងជាងទទឹង!",
+      "config": {
+        "mode": "dot-connect",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#2563eb"
+      },
+      "solution": {
+        "expectedShape": "rectangle",
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចតុកោណកែងមាន ៤ ជ្រុង និង ៤ មុំកែង ប៉ុន្តែបណ្ដោយវែងជាងទទឹង។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "សាកគូរបណ្ដោយ ៣ ចន្លោះ និងទទឹង ១ ឬ ២ ចន្លោះ រួចបិទជិតជុំវិញ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ (១,១) → (១,៤) → (៣,៤) → (៣,១) → (១,១) នឹងបានចតុកោណកែង ២×៣!"
+        }
+      ],
+      "explanationKm": "ចតុកោណកែងមានជ្រុងឈមស្មើគ្នា ២ គូ និងមុំកែងទាំង ៤។",
+      "audioUrl": "/audio/steps/g06-s1-draw-rectangle.mp3"
+    },
+    {
+      "id": "g06-s2-area-garden-eight",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "លាបពណ៌សួនបន្លែឱ្យបានផ្ទៃក្រឡាស្មើ ៨ ឯកតាការ៉េ!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#15803d"
+      },
+      "solution": {
+        "expectedArea": 8,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រឡោះការ៉េនីមួយៗស្មើនឹង ១ ឯកតាការ៉េ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "សាកលាបពណ៌ ២ ជួរពេញ (៤ + ៤ = ៨ ប្រឡោះ)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ ឬអូសលាបពណ៌ប្រឡោះទាំង ៤ នៃជួរទី ១ និងទាំង ៤ នៃជួរទី ២ នឹងបាន ៨!"
+        }
+      ],
+      "explanationKm": "សួន ២ ជួរ × ៤ ជួរឈរ ឬរូបណាដែលមាន ៨ ប្រឡោះ មានផ្ទៃក្រឡា ៨ ឯកតាការ៉េ។",
+      "audioUrl": "/audio/steps/g06-s2-area-garden-eight.mp3"
+    },
+    {
+      "id": "g06-s3-lotus-symmetry",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "លាបពណ៌ត្របកផ្កាឈូកខាងស្ដាំ ឱ្យឆ្លុះស៊ីមេទ្រីស្មើនឹងខាងឆ្វេង!",
+      "config": {
+        "mode": "symmetry-mirror",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [
+          "0,1",
+          "1,0",
+          "1,1",
+          "2,1",
+          "3,0",
+          "3,1"
+        ],
+        "inkColor": "#db2777"
+      },
+      "solution": {
+        "requireSymmetryMirror": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលបន្ទាត់កញ្ចក់ក្រហមចំកណ្ដាល៖ ប្រឡោះជាប់បន្ទាត់ឆ្លុះទៅជាប់បន្ទាត់ដូចគ្នា។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ជួរឈរទី ២ ឆ្លុះទៅជួរឈរទី ៣ ហើយជួរឈរទី ១ ឆ្លុះទៅជួរឈរទី ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបជួរឈរទី ៣ ទាំង ៤ ប្រឡោះ និងជួរឈរទី ៤ ត្រង់ជួរទី ២ និងជួរទី ៤!"
+        }
+      ],
+      "explanationKm": "ត្របកផ្កាឈូកទាំងសងខាងឆ្លុះស៊ីមេទ្រីគ្នាតាមអ័ក្សកណ្ដាលយ៉ាងស្អាត!",
+      "audioUrl": "/audio/steps/g06-s3-lotus-symmetry.mp3"
+    },
+    {
+      "id": "g06-s4-array-tile-eight",
+      "type": "array-groups",
+      "stage": "symbolic",
+      "promptKm": "រៀបឥដ្ឋការ៉ូជាតារាងចតុកោណកែង ២ ជួរ × ៤ ជួរឈរ ដើម្បីបង្ហាញផ្ទៃក្រឡា ៨!",
+      "config": {
+        "mode": "rectangular-grid",
+        "itemTheme": "tile",
+        "maxRows": 5,
+        "maxCols": 6,
+        "initialRows": 1,
+        "initialCols": 2,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 2,
+        "expectedCols": 4,
+        "expectedProduct": 8,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ផ្ទៃក្រឡាចតុកោណកែងស្មើនឹង ចំនួនជួរ × ចំនួនជួរឈរ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បង្កើនចំនួនជួរដល់ ២ និងចំនួនជួរឈរដល់ ៤ ដើម្បីបាន ២ × ៤ = ៨។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច +១ ជួរ (ដល់ ២) និង +១ ជួរឈរ ២ ដង (ដល់ ៤) នឹងបាន ២ × ៤ = ៨!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! តារាង ២ × ៤ = ៨ បង្ហាញថាផ្ទៃក្រឡាចតុកោណកែងគណនាដោយវិធីគុណ!",
+      "audioUrl": "/audio/steps/g06-s4-array-tile-eight.mp3"
+    }
+  ]
+}

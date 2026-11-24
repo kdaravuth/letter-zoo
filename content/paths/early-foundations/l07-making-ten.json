@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l07-making-ten",
+  "pathId": "early-foundations",
+  "order": 7,
+  "moeysGradeRef": "G1",
+  "topicSlug": "addition-subtraction",
+  "titleKm": "បង្គ្រប់ ១០ និងចំនួន ១១ ដល់ ២០",
+  "subtitleKm": "រៀនវិធីបង្គ្រប់ ១០ ដើម្បីបូកចំនួនបានលឿន និងងាយស្រួល",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "ប្រើលេខ ១០ ជាគោលដើម្បីគណនាផលបូកចំនួនពី ១១ ដល់ ២០",
+  "steps": [
+    {
+      "id": "l07-s1-concrete",
+      "type": "counting-stage",
+      "stage": "concrete",
+      "promptKm": "ដារ៉ាមានស្វាយ ៨ ផ្លែក្នុងថាស និង ៥ ផ្លែនៅខាងក្រៅ។ រំកិលស្វាយចូលថាសឱ្យពេញ ១០ សិន!",
+      "config": {
+        "frameSize": 10,
+        "tokenTheme": "mango",
+        "initialInFrame": 8,
+        "initialOutside": 5,
+        "allowFreeExplore": true,
+        "showLiveCount": true,
+        "requireFullTenBundle": true
+      },
+      "solution": {
+        "expectedInFrame": 10,
+        "expectedTotal": 13
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលប្រឡោះទំនេរក្នុងថាស! តើនៅសល់ប្រឡោះទំនេរប៉ុន្មានទៀតទើបពេញ ១០?",
+          "highlightTargetId": "empty-slots"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ថាសមានស្វាយ ៨ ផ្លែហើយ ដូច្នេះត្រូវការតែ ២ ផ្លែទៀតដើម្បីបង្គ្រប់ ១០។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះស្វាយ ២ ផ្លែនៅខាងក្រៅ រួចដាក់ចូលប្រឡោះទំនេរទាំង ២ ក្នុងថាស។ ខាងក្រៅនឹងសល់ ៣ ផ្លែ!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! យើងយក ២ ពី ៥ មកបង្គ្រប់ ៨ ឱ្យបាន ១០ ហើយសល់ ៣ ទៀត។ ១០ បូក ៣ ស្មើ ១៣!",
+      "audioUrl": "/audio/steps/l07-s1-concrete.mp3"
+    },
+    {
+      "id": "l07-s2-iconic-line",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "គណនា ៩ + ៦ លើបន្ទាត់ចំនួន៖ លោតទៅ ១០ សិន រួចលោតបន្ត ៥ ជំហានទៀត!",
+      "config": {
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "startValue": 9,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 15,
+        "requiredIntermediateValue": 10,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ៩ ហើយលោតទៅមុខ ១ ជំហានឱ្យដល់ ១០ សិនណា៎!",
+          "highlightTargetId": "tick-10"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យើងបានលោត ១ ជំហានក្នុងចំណោម ៦ ហើយ ដូច្នេះនៅសល់ ៥ ជំហានទៀតពី ១០។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "រាប់បន្តពី ១០ ទៅមុខ ៥ ជំហាន៖ ១១, ១២, ១៣, ១៤, ១៥។ ប៉ះលេខ ១៥!"
+        }
+      ],
+      "explanationKm": "៩ + ៦ គិតងាយៗជា ៩ + ១ + ៥ = ១០ + ៥ = ១៥។ ការឈប់នៅលេខ ១០ ជួយឱ្យគិតលេខក្នុងចិត្តបានលឿន!",
+      "audioUrl": "/audio/steps/l07-s2-iconic-line.mp3"
+    },
+    {
+      "id": "l07-s3-symbolic-explain",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "ដើម្បីគណនា ៧ + ៥ ដោយបង្គ្រប់ ១០ តើរបៀបបំបែកមួយណាត្រឹមត្រូវ?",
+      "config": {
+        "variant": "single-choice",
+        "visualCue": "ten-frame-mini-7-plus-5",
+        "options": [
+          {
+            "id": "opt-a",
+            "labelKm": "៧ + ៣ + ២ = ១០ + ២ = ១២",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៧ បូក ៣ ពេញ ១០ ហើយ ៣ + ២ ស្មើ ៥។"
+          },
+          {
+            "id": "opt-b",
+            "labelKm": "៧ + ២ + ២ = ៩ + ២ = ១១",
+            "diagnosticFeedbackKm": "ជិតត្រូវហើយ! ២ + ២ ស្មើតែ ៤ ប៉ុណ្ណោះ មិនមែន ៥ ទេ។"
+          },
+          {
+            "id": "opt-c",
+            "labelKm": "៧ + ៣ + ៣ = ១០ + ៣ = ១៣",
+            "diagnosticFeedbackKm": "ពិនិត្យម្ដងទៀតណា៎! ៣ + ៣ ស្មើ ៦ លើសពី ៥ ទៅហើយ។"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-a"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "សួរខ្លួនឯងសិន៖ ៧ បូកប៉ុន្មានទើបស្មើ ១០?",
+          "highlightTargetId": "visual-cue"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៧ ត្រូវការ ៣ ដើម្បីបាន ១០។ ដូច្នេះត្រូវបំបែក ៥ ជា ៣ និងប៉ុន្មានទៀត?"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៥ ស្មើ ៣ + ២។ ដូច្នេះ ៧ + ៥ = ៧ + ៣ + ២ = ១២!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលបំបែក ៥ ជា ៣ និង ២ យើងបង្គ្រប់ ៧ + ៣ = ១០ បានភ្លាម រួចបូក ២ ទៀតស្មើ ១២។",
+      "audioUrl": "/audio/steps/l07-s3-symbolic-explain.mp3"
+    }
+  ]
+}

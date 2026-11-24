@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g01-shapes-and-sides",
+  "pathId": "geometry-foundations",
+  "order": 1,
+  "moeysGradeRef": "G3",
+  "topicSlug": "geometry",
+  "titleKm": "លក្ខណៈរូបធរណីមាត្រ និងជ្រុង",
+  "subtitleKm": "ស្គាល់ចំនួនជ្រុង និងកំពូលនៃរូបការ៉េ ចតុកោណកែង និងត្រីកោណ",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "បែងចែករូបធរណីមាត្រ ២D តាមចំនួនជ្រុង និងប្រវែងជ្រុងស្មើគ្នា",
+  "steps": [
+    {
+      "id": "g01-s1-square",
+      "type": "fraction-bar-shape",
+      "stage": "concrete",
+      "promptKm": "តើរូបមួយណាជា «ការ៉េ» ដែលមាន ៤ ជ្រុងស្មើគ្នាទាំងអស់?",
+      "config": {
+        "mode": "shape-identify",
+        "visualShape": "polygon-sides",
+        "denominator": 1,
+        "initialShaded": 0,
+        "allowPartitionChange": false,
+        "showNumberLine": false,
+        "shapeOptions": [
+          {
+            "id": "sq",
+            "shape": "square",
+            "labelKm": "ការ៉េ",
+            "sides": 4
+          },
+          {
+            "id": "rect",
+            "shape": "rectangle",
+            "labelKm": "ចតុកោណកែង",
+            "sides": 4
+          },
+          {
+            "id": "tri",
+            "shape": "triangle",
+            "labelKm": "ត្រីកោណ",
+            "sides": 3
+          },
+          {
+            "id": "circ",
+            "shape": "circle",
+            "labelKm": "រង្វង់",
+            "sides": 0
+          }
+        ]
+      },
+      "solution": {
+        "expectedShapeId": "sq",
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលរូបដែលមាន ៤ ជ្រុង ហើយជ្រុងទាំង ៤ មានប្រវែងស្មើគ្នា!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ចតុកោណកែងមានជ្រុងវែង ២ និងខ្លី ២ ចំណែកការ៉េស្មើគ្នាទាំង ៤ ជ្រុង។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះរូប «ការ៉េ» ដែលមានជ្រុងស្មើគ្នាទាំង ៤!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ការ៉េមាន ៤ ជ្រុងស្មើគ្នា និង ៤ មុំកែង។",
+      "audioUrl": "/audio/steps/g01-s1-square.mp3"
+    },
+    {
+      "id": "g01-s2-compare-sides",
+      "type": "comparison-balance",
+      "stage": "iconic",
+      "promptKm": "ប្រៀបធៀបចំនួនជ្រុងនៃចតុកោណកែង (៤) និងត្រីកោណ (៣)!",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "bars",
+        "leftValue": 4,
+        "rightValue": 3,
+        "leftLabelKm": "ជ្រុងចតុកោណកែង៖ ៤",
+        "rightLabelKm": "ជ្រុងត្រីកោណ៖ ៣"
+      },
+      "solution": {
+        "expectedOperator": ">"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រៀបធៀបរបារជ្រុង ៤ និងជ្រុង ៣!",
+          "highlightTargetId": "op->"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៤ ច្រើនជាង ៣ ដូច្នេះជ្រុងចតុកោណកែងច្រើនជាងជ្រុងត្រីកោណ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «> (ធំជាង)» ដើម្បីបង្ហាញ ៤ > ៣!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ចតុកោណកែងមាន ៤ ជ្រុង ច្រើនជាងត្រីកោណដែលមាន ៣ ជ្រុង (៤ > ៣)។",
+      "audioUrl": "/audio/steps/g01-s2-compare-sides.mp3"
+    },
+    {
+      "id": "g01-s3-worked-error",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "សុខានិយាយថា «រង្វង់មាន ១ ជ្រុងត្រង់»។ តើការពន្យល់ណាមួយត្រឹមត្រូវ?",
+      "config": {
+        "variant": "worked-error-check",
+        "workedExampleKm": "សុខាគិតថា រង្វង់មានជ្រុងត្រង់ ១ ព្រោះវាជាខ្សែបិទជិតតែមួយ។",
+        "options": [
+          {
+            "id": "opt-a",
+            "labelKm": "មិនត្រឹមត្រូវទេ រង្វង់ជាខ្សែកោង និងមាន ០ ជ្រុងត្រង់",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! រង្វង់ជាខ្សែកោងបិទជិត គ្មានជ្រុងត្រង់ ឬកំពូលទេ។"
+          },
+          {
+            "id": "opt-b",
+            "labelKm": "ត្រឹមត្រូវហើយ រង្វង់មាន ១ ជ្រុងត្រង់ និង ១ កំពូល",
+            "diagnosticFeedbackKm": "សាកមើលរង្វង់ម្ដងទៀតណា៎! រង្វង់គ្មានបន្ទាត់ត្រង់ ឬជ្រុងស្រួចទេ។"
+          },
+          {
+            "id": "opt-c",
+            "labelKm": "មិនត្រឹមត្រូវទេ រង្វង់មាន ៤ ជ្រុងត្រង់",
+            "diagnosticFeedbackKm": "រូបដែលមាន ៤ ជ្រុងត្រង់គឺការ៉េ ឬចតុកោណកែង មិនមែនរង្វង់ទេ!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-a"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "នឹកឃើញរូបកង់ឡាន ឬរង្វង់៖ តើវាមានជ្រុងត្រង់ទេ?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រង្វង់មានតែខ្សែកោងជុំវិញ គ្មានជ្រុងត្រង់ (០ ជ្រុង) ទេ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយថា «រង្វង់ជាខ្សែកោង និងមាន ០ ជ្រុងត្រង់»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! រង្វង់ជាខ្សែកោងបិទជិតដែលមាន ០ ជ្រុងត្រង់ និង ០ កំពូល។",
+      "audioUrl": "/audio/steps/g01-s3-worked-error.mp3"
+    }
+  ]
+}

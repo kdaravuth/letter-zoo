@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "1.0",
+  "id": "f05-halves-quarters-and-draw-fractions",
+  "pathId": "fractions-and-decimals",
+  "order": 5,
+  "moeysGradeRef": "G4",
+  "topicSlug": "fractions",
+  "titleKm": "លាបពណ៌ប្រភាគ ពាក់កណ្ដាល និងមួយភាគបួន",
+  "subtitleKm": "លាបពណ៌ប្រភាគ ៣/៤ បង្កើត ១/២ និង ១/៤ លើក្រឡា ១៦ និងប្រភាគស្មើ ២/៣",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចតាងប្រភាគលើរបារ និងលាបពណ៌ផ្ទៃក្រឡាស្មើ ១/២ (៨/១៦) និង ១/៤ (៤/១៦) នៃការ៉េ ៤×៤។",
+  "steps": [
+    {
+      "id": "f05-s1-shade-three-quarters",
+      "type": "fraction-bar-shape",
+      "stage": "concrete",
+      "promptKm": "នំអន្សមមួយកាត់ជា ៤ ចំណែកស្មើគ្នា — សូមប៉ះលាបពណ៌ ៣/៤ នៃនំ!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 0,
+        "allowPartitionChange": false,
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 3,
+        "expectedDenominator": 4,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ភាគបែង ៤ មានន័យថានំចែកជា ៤ ចំណែកស្មើគ្នា។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ភាគយក ៣ មានន័យថាយើងត្រូវលាបពណ៌ ៣ ចំណែកក្នុងចំណោម ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលាបពណ៌ ៣ ចំណែកលើរបារនំ ដើម្បីបាន ៣/៤!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៣ ចំណែកក្នុងចំណោម ៤ ចំណែកស្មើគ្នា គឺជាប្រភាគ ៣/៤!",
+      "audioUrl": "/audio/steps/f05-s1-shade-three-quarters.mp3"
+    },
+    {
+      "id": "f05-s2-paint-half-grid",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "ក្រឡាការ៉េ ៤×៤ មានសរុប ១៦ ប្រឡោះ — លាបពណ៌ពាក់កណ្ដាល (១/២) នៃក្រឡាទាំងអស់!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#2563eb"
+      },
+      "solution": {
+        "expectedArea": 8,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ពាក់កណ្ដាលនៃ ១៦ ប្រឡោះ គឺ ១៦ ÷ ២ = ៨ ប្រឡោះ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "លាបពណ៌ ៨ ប្រឡោះ (រាងអ្វីក៏បាន) នឹងស្មើនឹង ៨/១៦ = ១/២!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបពណ៌ ២ ជួរពេញ (៤ + ៤ = ៨ ប្រឡោះ) នឹងបានពាក់កណ្ដាលក្រឡា!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ៨/១៦ ស្មើនឹង ១/២ — អ្នកអាចលាបពាក់កណ្ដាលជារាងណាក៏បានឱ្យតែគ្រប់ ៨ ប្រឡោះ!",
+      "audioUrl": "/audio/steps/f05-s2-paint-half-grid.mp3"
+    },
+    {
+      "id": "f05-s3-paint-quarter-grid",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "ឥឡូវលាបពណ៌ ១/៤ (មួយភាគបួន) នៃក្រឡា ១៦ ប្រឡោះនេះ!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#db2777"
+      },
+      "solution": {
+        "expectedArea": 4,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "១/៤ នៃ ១៦ គឺចែក ១៦ ជា ៤ ចំណែកស្មើគ្នា (១៦ ÷ ៤)។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១៦ ÷ ៤ = ៤ ដូច្នេះ ១/៤ ស្មើនឹង ៤ ប្រឡោះ!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលាបពណ៌ ៤ ប្រឡោះ (ឧ. ១ ជួរពេញ ឬការ៉េតូច ២×២) នឹងបាន ៤/១៦ = ១/៤!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៤/១៦ = ១/៤ ព្រោះ ៤ គុណ ៤ ស្មើ ១៦!",
+      "audioUrl": "/audio/steps/f05-s3-paint-quarter-grid.mp3"
+    },
+    {
+      "id": "f05-s4-equiv-two-thirds",
+      "type": "fraction-bar-shape",
+      "stage": "symbolic",
+      "promptKm": "របារចែកជា ៦ ចំណែក — លាបពណ៌ប្រភាគដែលស្មើនឹង ២/៣!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 6,
+        "initialShaded": 0,
+        "allowPartitionChange": true,
+        "availableDenominators": [
+          3,
+          6
+        ],
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 2,
+        "expectedDenominator": 3,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រាល់ ១/៣ ស្មើនឹង ២/៦ លើរបារ ៦ ចំណែក។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "២/៣ = (២×២)/(៣×២) = ៤/៦!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលាបពណ៌ ៤ ចំណែកក្នុងចំណោម ៦ ចំណែក ដើម្បីបាន ៤/៦ = ២/៣!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ៤/៦ និង ២/៣ គ្របដណ្ដប់ប្រវែងរបារស្មើគ្នាបេះបិទ!",
+      "audioUrl": "/audio/steps/f05-s4-equiv-two-thirds.mp3"
+    }
+  ]
+}
