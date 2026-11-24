@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g03-perimeter-and-area",
+  "pathId": "geometry-foundations",
+  "order": 3,
+  "moeysGradeRef": "G5",
+  "topicSlug": "geometry",
+  "titleKm": "បរិមាត្រ និងផ្ទៃក្រឡាចតុកោណ",
+  "subtitleKm": "បែងចែកឱ្យច្បាស់រវាងបរិមាត្រ (ជុំវិញ) និងផ្ទៃក្រឡា (ខាងក្នុង)",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "គណនាបរិមាត្រ និងផ្ទៃក្រឡាចតុកោណកែង និងរកកំហុសក្នុងការច្រឡំរូបមន្ត",
+  "steps": [
+    {
+      "id": "g03-s1-build-2x6",
+      "type": "array-groups",
+      "stage": "concrete",
+      "promptKm": "បង្កើតចតុកោណកែងទទឹង ២ និងបណ្ដោយ ៦ ដែលមានផ្ទៃក្រឡា ១២ ការ៉េ!",
+      "config": {
+        "mode": "rectangular-grid",
+        "itemTheme": "tile",
+        "maxRows": 4,
+        "maxCols": 6,
+        "initialRows": 1,
+        "initialCols": 3,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 2,
+        "expectedCols": 6,
+        "expectedProduct": 12,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "កំណត់ «ចំនួនជួរ» ស្មើ ២ និង «ក្នុង ១ ជួរ» ស្មើ ៦!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "២ × ៦ = ១២ ដូច ៣ × ៤ = ១២ ដែរ ប៉ុន្តែរាងវែងជាង!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច + លើ «ចំនួនជួរ» ដល់ ២ និង «ក្នុង ១ ជួរ» ដល់ ៦!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ចតុកោណកែង ២ × ៦ មានផ្ទៃក្រឡា ១២ ការ៉េ ប៉ុន្តែបរិមាត្ររបស់វាគឺ ២ + ៦ + ២ + ៦ = ១៦!",
+      "audioUrl": "/audio/steps/g03-s1-build-2x6.mp3"
+    },
+    {
+      "id": "g03-s2-perimeter-balance",
+      "type": "comparison-balance",
+      "stage": "iconic",
+      "promptKm": "ចតុកោណកែងមានទទឹង ៣ និងបណ្ដោយ ៥។ បូកជ្រុងទាំង ៤ រកបរិមាត្រ (៣+៥+៣+៥) ឱ្យស្មើ ១៦!",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 16,
+        "rightValue": 11,
+        "availableTiles": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 16
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ខាងស្ដាំមាន ៣ + ៥ + ៣ = ១១ ហើយ នៅខ្វះជ្រុងបណ្ដោយទី ២ ទៀត!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១១ បូកប៉ុន្មានទៀតទើបស្មើ ១៦?"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «+៥» ម្ដង ដើម្បីឱ្យបាន ១១ + ៥ = ១៦!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! បរិមាត្រចតុកោណកែង = (៣ + ៥) × ២ = ១៦!",
+      "audioUrl": "/audio/steps/g03-s2-perimeter-balance.mp3"
+    },
+    {
+      "id": "g03-s3-spot-perimeter-error",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "ដារ៉ាគណនាបរិមាត្រចតុកោណកែងទទឹង ៣ ម និងបណ្ដោយ ៥ ម ថា «៣ + ៥ = ៨ ម»។ តើដារ៉ាភ្លេចអ្វី?",
+      "config": {
+        "variant": "worked-error-check",
+        "workedExampleKm": "ដារ៉ាសរសេរ៖ បរិមាត្រ = ៣ + ៥ = ៨ ម៉ែត្រ។",
+        "options": [
+          {
+            "id": "opt-a",
+            "labelKm": "ដារ៉ាបូកតែ ២ ជ្រុង ភ្លេចបូក ២ ជ្រុងទៀត (ត្រូវជា ១៦ ម)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ចតុកោណកែងមាន ៤ ជ្រុង ដូច្នេះបរិមាត្រគឺ (៣ + ៥) × ២ = ១៦ ម។"
+          },
+          {
+            "id": "opt-b",
+            "labelKm": "ដារ៉ាគួរយក ៣ × ៥ = ១៥ ម",
+            "diagnosticFeedbackKm": "៣ × ៥ = ១៥ ជាផ្ទៃក្រឡា (ខាងក្នុង) មិនមែនបរិមាត្រ (ជុំវិញ) ទេ!"
+          },
+          {
+            "id": "opt-c",
+            "labelKm": "ដារ៉ាធ្វើត្រូវហើយ បរិមាត្រគឺ ៨ ម",
+            "diagnosticFeedbackKm": "៨ ម គ្រាន់តែជាពាក់កណ្តាលបរិមាត្រប៉ុណ្ណោះ ព្រោះចតុកោណកែងមាន ៤ ជ្រុង!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-a"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រាប់ចំនួនជ្រុងជុំវិញចតុកោណកែង៖ មាន ២ ជ្រុង ឬ ៤ ជ្រុង?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បរិមាត្រជាផលបូកជ្រុងទាំង ៤៖ ៣ + ៥ + ៣ + ៥ = ១៦ ម។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយថា «ដារ៉ាបូកតែ ២ ជ្រុង ភ្លេចបូក ២ ជ្រុងទៀត (ត្រូវជា ១៦ ម)»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ចងចាំជានិច្ច៖ បរិមាត្រ = បូកជ្រុងជុំវិញទាំង ៤ ចំណែកផ្ទៃក្រឡា = ទទឹង × បណ្ដោយ!",
+      "audioUrl": "/audio/steps/g03-s3-spot-perimeter-error.mp3"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l11-khmer-market-change-and-place-value",
+  "pathId": "early-foundations",
+  "order": 11,
+  "moeysGradeRef": "G2",
+  "topicSlug": "money-and-place-value",
+  "titleKm": "ទិញឥវ៉ាន់នៅផ្សារ និងរាប់ប្រាក់អាប់",
+  "subtitleKm": "រៀបក្រដាសប្រាក់ ៣,៥០០៛ ខ្ទង់ដប់ ៤៥ លោតរកប្រាក់អាប់ និងប្រៀបធៀបកន្ត្រកផ្លែឈើ",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចផ្សំក្រដាសប្រាក់រៀល រៀបចំនួនតាមខ្ទង់ដប់ខ្ទង់រាយ ដកលេខលើបន្ទាត់ចំនួន និងប្រៀបធៀបបរិមាណ។",
+  "steps": [
+    {
+      "id": "l11-s1-riel-3500",
+      "type": "scenario-choice",
+      "stage": "concrete",
+      "promptKm": "ទិញស្វាយ និងផ្កាឈូកសរុប ៣,៥០០៛ — សូមជ្រើសក្រដាសប្រាក់រៀលឱ្យគ្រប់ ៣,៥០០៛!",
+      "config": {
+        "variant": "banknote-builder",
+        "availableNotesKhr": [
+          500,
+          1000,
+          2000
+        ]
+      },
+      "solution": {
+        "expectedSumKhr": 3500
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "៣,៥០០៛ អាចបំបែកជា ២,០០០៛ + ១,០០០៛ + ៥០០៛ ឬ ១,០០០៛ បីសន្លឹក និង ៥០០៛។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ចាប់ផ្ដើមពីក្រដាសប្រាក់ធំ ២,០០០៛ រួចបូកបន្តដល់ ៣,៥០០៛។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ +២,០០០៛ ម្ដង +១,០០០៛ ម្ដង និង +៥០០៛ ម្ដង នឹងបានសរុប ៣,៥០០៛!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ២,០០០៛ + ១,០០០៛ + ៥០០៛ = ៣,៥០០៛!",
+      "audioUrl": "/audio/steps/l11-s1-riel-3500.mp3"
+    },
+    {
+      "id": "l11-s2-place-value-45",
+      "type": "place-value-blocks",
+      "stage": "iconic",
+      "promptKm": "នៅផ្សារមានក្រូច ៤៥ ផ្លែ — បន្ថែមដំបងដប់ឱ្យបាន ៤៥ (៤ ដប់ និង ៥ រាយ)!",
+      "config": {
+        "initialHundreds": 0,
+        "initialTens": 2,
+        "initialOnes": 5,
+        "allowHundreds": false,
+        "allowBundle": true,
+        "allowUnbundle": true,
+        "showLiveTotal": true
+      },
+      "solution": {
+        "expectedTotal": 45,
+        "requireCanonical": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ឥឡូវមាន ២ ដប់ និង ៥ រាយ (ស្មើ ២៥) — តើខ្វះប៉ុន្មានដប់ទៀតដល់ ៤៥?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពី ២៥ ទៅ ៤៥ ត្រូវថែម ២០ គឺ ២ ដំបងដប់!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ «+១ ដប់» ចំនួន ២ ដង ដើម្បីបាន ៤ ដប់ និង ៥ រាយ = ៤៥!"
+        }
+      ],
+      "explanationKm": "៤៥ ផ្សំឡើងពី ៤ ដប់ (៤០) និង ៥ រាយ (៥)!",
+      "audioUrl": "/audio/steps/l11-s2-place-value-45.mp3"
+    },
+    {
+      "id": "l11-s3-change-number-line",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "មានកាក់ ២០ ហើយចាយអស់ ៦ — នាំកង្កែបលោតថយក្រោយពី ២០ ចំនួន ៦ ជំហាន (២០ − ៦)!",
+      "config": {
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "startValue": 20,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "frog-lotus"
+      },
+      "solution": {
+        "expectedValue": 14,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "វិធីដកគឺលោតថយក្រោយទៅខាងឆ្វេងលើបន្ទាត់ចំនួន។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់ថយពី ២០៖ ១៩, ១៨, ១៧, ១៦, ១៥, ១៤!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលើចំណុចលេខ ១៤ លើបន្ទាត់ចំនួន (ព្រោះ ២០ − ៦ = ១៤)!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ២០ − ៦ = ១៤ — នៅសល់កាក់ ១៤!",
+      "audioUrl": "/audio/steps/l11-s3-change-number-line.mp3"
+    },
+    {
+      "id": "l11-s4-compare-baskets",
+      "type": "comparison-balance",
+      "stage": "symbolic",
+      "promptKm": "កន្ត្រកឆ្វេងមានក្រូច ១២ ផ្លែ និងកន្ត្រកស្ដាំមាន ៩ ផ្លែ — ជ្រើសសញ្ញាប្រៀបធៀបត្រឹមត្រូវ!",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "scale-oranges",
+        "leftValue": 12,
+        "rightValue": 9,
+        "leftLabelKm": "កន្ត្រកឆ្វេង",
+        "rightLabelKm": "កន្ត្រកស្ដាំ"
+      },
+      "solution": {
+        "expectedOperator": ">"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលជញ្ជីង៖ ខាងឆ្វេង (១២) ធ្ងន់ជាងខាងស្ដាំ (៩)។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "មាត់ធំរបស់សញ្ញា «>» បើកទៅរកចំនួនដែលធំជាង (១២)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «>» ដើម្បីបង្ហាញថា ១២ > ៩!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ១២ ធំជាង ៩ សរសេរថា ១២ > ៩!",
+      "audioUrl": "/audio/steps/l11-s4-compare-baskets.mp3"
+    }
+  ]
+}

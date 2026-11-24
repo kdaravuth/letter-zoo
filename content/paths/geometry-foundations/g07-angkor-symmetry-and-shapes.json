@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g07-angkor-symmetry-and-shapes",
+  "pathId": "geometry-foundations",
+  "order": 7,
+  "moeysGradeRef": "G5",
+  "topicSlug": "geometry",
+  "titleKm": "ស៊ីមេទ្រីប្រាសាទខ្មែរ និងរាងធរណីមាត្រ",
+  "subtitleKm": "គូរកំពូលប្រាសាទស៊ីមេទ្រី រចនាទីធ្លា ៩ ប្រឡោះ និងលំនាំក្បាច់ប្រាសាទ",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចអនុវត្តស៊ីមេទ្រីឆ្លុះ ផ្ទៃក្រឡាការ៉េ ៣×៣ និងលំនាំដដែលៗតាមរចនាបថប្រាសាទខ្មែរ។",
+  "steps": [
+    {
+      "id": "g07-s1-angkor-symmetry",
+      "type": "geometry-draw",
+      "stage": "concrete",
+      "promptKm": "លាបពណ៌ជ្រុងកំពូលប្រាសាទខាងស្ដាំ ឱ្យឆ្លុះស៊ីមេទ្រីស្មើនឹងខាងឆ្វេង!",
+      "config": {
+        "mode": "symmetry-mirror",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [
+          "0,1",
+          "1,1",
+          "2,0",
+          "2,1",
+          "3,0",
+          "3,1"
+        ],
+        "inkColor": "#d97706"
+      },
+      "solution": {
+        "requireSymmetryMirror": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "កំពូលប្រាសាទខាងលើតូចស្លាប ហើយជើងប្រាសាទខាងក្រោមធំទូលាយ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ឆ្លុះជួរទី ១ និង ២ ត្រង់ជួរឈរទី ៣ រួចឆ្លុះជួរទី ៣ និង ៤ ទាំងជួរឈរទី ៣ និង ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបជួរឈរទី ៣ ទាំង ៤ ប្រឡោះ និងជួរឈរទី ៤ ត្រង់ជួរទី ៣ និងជួរទី ៤!"
+        }
+      ],
+      "explanationKm": "ស្ថាបត្យកម្មប្រាសាទខ្មែរប្រើស៊ីមេទ្រីឆ្លុះ ដើម្បីឱ្យមានតុល្យភាព និងភាពស្រស់ស្អាត!",
+      "audioUrl": "/audio/steps/g07-s1-angkor-symmetry.mp3"
+    },
+    {
+      "id": "g07-s2-courtyard-nine",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "លាបពណ៌ទីធ្លាប្រាសាទឱ្យបានផ្ទៃក្រឡាស្មើ ៩ ឯកតាការ៉េ (ឧ. ការ៉េ ៣×៣)!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#15803d"
+      },
+      "solution": {
+        "expectedArea": 9,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ការ៉េ ៣ ជួរ × ៣ ជួរឈរ មានផ្ទៃក្រឡាស្មើ ៩ ឯកតាការ៉េ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ប៉ះ ឬអូសលាបពណ៌ប្រឡោះក្រឡា រហូតដល់លេខរាប់ឡើងដល់ ៩។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាប ៣ ប្រឡោះក្នុង ៣ ជួរដំបូង (៣ + ៣ + ៣ = ៩ ប្រឡោះ)!"
+        }
+      ],
+      "explanationKm": "៣ × ៣ = ៩ — លេខ ៩ ជាចំនួនការ៉េព្រោះអាចរៀបជាការ៉េជ្រុង ៣ ស្មើគ្នា!",
+      "audioUrl": "/audio/steps/g07-s2-courtyard-nine.mp3"
+    },
+    {
+      "id": "g07-s3-square-foundation",
+      "type": "geometry-draw",
+      "stage": "iconic",
+      "promptKm": "គូរគ្រឹះប្រាសាទរាង «ការ៉េ» បិទជិតមួយលើក្ដារចំណុច!",
+      "config": {
+        "mode": "dot-connect",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#2563eb"
+      },
+      "solution": {
+        "expectedShape": "square",
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ការ៉េមាន ៤ ជ្រុងប្រវែងស្មើគ្នាទាំងអស់ និងមានមុំកែង។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "គូរជ្រុងប្រវែង ២ ឬ ៣ ចន្លោះស្មើគ្នាទាំង ៤ ជ្រុង ហើយបិទជិត។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ (១,១) → (១,៤) → (៤,៤) → (៤,១) → (១,១) នឹងបានការ៉េធំ ៣×៣!"
+        }
+      ],
+      "explanationKm": "គ្រឹះការ៉េមានជ្រុងទាំង ៤ ស្មើគ្នា និងអ័ក្សស៊ីមេទ្រីដល់ទៅ ៤!",
+      "audioUrl": "/audio/steps/g07-s3-square-foundation.mp3"
+    },
+    {
+      "id": "g07-s4-temple-border-pattern",
+      "type": "pattern-sequence",
+      "stage": "symbolic",
+      "promptKm": "បំពេញក្បាច់ជញ្ជាំងប្រាសាទតាមលំនាំ AABB (ក្រហម ក្រហម មាស មាស ...)!",
+      "config": {
+        "variant": "krama-tiles",
+        "sequence": [
+          "red",
+          "red",
+          "gold",
+          "gold",
+          "red",
+          null,
+          "gold",
+          null
+        ],
+        "palette": [
+          {
+            "id": "red",
+            "labelKm": "ក្រហម",
+            "glyph": "stripe-red"
+          },
+          {
+            "id": "gold",
+            "labelKm": "មាស",
+            "glyph": "stripe-gold"
+          },
+          {
+            "id": "blue",
+            "labelKm": "ខៀវ",
+            "glyph": "stripe-blue"
+          }
+        ]
+      },
+      "solution": {
+        "expectedSlotValues": [
+          "red",
+          "gold"
+        ]
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលពណ៌ដំបូងទាំង ៤៖ ក្រហម ក្រហម មាស មាស — ពណ៌នីមួយៗមកជាគូ ២ ដង!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "បន្ទាប់ពីក្រហមទី ១ ត្រូវដាក់ក្រហមទី ២ ហើយបន្ទាប់ពីមាសទី ១ ត្រូវដាក់មាសទី ២។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ដាក់ «ក្រហម» ក្នុងប្រឡោះទំនេរទី ១ និង «មាស» ក្នុងប្រឡោះទំនេរទី ២!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! លំនាំ AABB ធ្វើឱ្យក្បាច់ជញ្ជាំងប្រាសាទមានសណ្ដាប់ធ្នាប់ និងស៊ីមេទ្រី!",
+      "audioUrl": "/audio/steps/g07-s4-temple-border-pattern.mp3"
+    }
+  ]
+}

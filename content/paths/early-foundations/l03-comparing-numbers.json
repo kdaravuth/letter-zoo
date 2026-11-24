@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l03-comparing-numbers",
+  "pathId": "early-foundations",
+  "order": 3,
+  "moeysGradeRef": "G1",
+  "topicSlug": "number-sense",
+  "titleKm": "ប្រៀបធៀបចំនួន៖ ធំជាង តូចជាង ស្មើ",
+  "subtitleKm": "ប្រើជញ្ជីងក្រូច និងរបារដើម្បីប្រៀបធៀបចំនួនដោយសញ្ញា <, >, =",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "ប្រៀបធៀបចំនួនពី ០ ដល់ ១០ ដោយប្រើសញ្ញា ធំជាង (>) តូចជាង (<) និងស្មើ (=)",
+  "steps": [
+    {
+      "id": "l03-s1-oranges-gt",
+      "type": "comparison-balance",
+      "stage": "concrete",
+      "promptKm": "ថាសខាងឆ្វេងមានក្រូច ៧ ផ្លែ និងខាងស្ដាំមាន ៤ ផ្លែ។ ជ្រើសរើសសញ្ញាប្រៀបធៀប ៧ និង ៤!",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "scale-oranges",
+        "leftValue": 7,
+        "rightValue": 4
+      },
+      "solution": {
+        "expectedOperator": ">"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលជញ្ជីង! តើខាងណាធ្ងន់ជាង ព្រោះមានផ្លែក្រូចច្រើនជាង?",
+          "highlightTargetId": "op->"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៧ ច្រើនជាង ៤ ដូច្នេះមាត់សញ្ញាត្រូវបើកទៅរកលេខ ៧ (ខាងឆ្វេង)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «> (ធំជាង)» ដើម្បីបង្ហាញថា ៧ > ៤!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ក្រូច ៧ ផ្លែច្រើនជាង ៤ ផ្លែ ដូច្នេះយើងសរសេរ ៧ > ៤។",
+      "audioUrl": "/audio/steps/l03-s1-oranges-gt.mp3"
+    },
+    {
+      "id": "l03-s2-bars-lt",
+      "type": "comparison-balance",
+      "stage": "iconic",
+      "promptKm": "ប្រៀបធៀបប្រវែងរបារ ៣ និងរបារ ៨។ តើ ៣ ធំជាង តូចជាង ឬស្មើ ៨?",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "bars",
+        "leftValue": 3,
+        "rightValue": 8,
+        "leftLabelKm": "របារខាងលើ៖ ៣",
+        "rightLabelKm": "របារខាងក្រោម៖ ៨"
+      },
+      "solution": {
+        "expectedOperator": "<"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រៀបធៀបប្រវែងរបារពណ៌ខៀវ (៣) និងរបារពណ៌ទឹកក្រូច (៨)!",
+          "highlightTargetId": "op-<"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "របារ ៣ ខ្លីជាងរបារ ៨ ដូច្នេះ ៣ តូចជាង ៨។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «< (តូចជាង)» ដើម្បីបង្ហាញថា ៣ < ៨!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៣ តូចជាង ៨ យើងសរសេរ ៣ < ៨។",
+      "audioUrl": "/audio/steps/l03-s2-bars-lt.mp3"
+    },
+    {
+      "id": "l03-s3-balance-equal",
+      "type": "comparison-balance",
+      "stage": "symbolic",
+      "promptKm": "ខាងឆ្វេងមាន ៦ ហើយខាងស្ដាំមាន ៤។ បន្ថែមទម្ងន់ខាងស្ដាំឱ្យជញ្ជីងស្មើគ្នា (៦ = ៦)!",
+      "config": {
+        "mode": "balance-equation",
+        "visualStyle": "scale-oranges",
+        "leftValue": 6,
+        "rightValue": 4,
+        "availableTiles": [
+          1,
+          2,
+          3
+        ]
+      },
+      "solution": {
+        "expectedRightTotal": 6
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចំនួនខាងឆ្វេង (៦) និងខាងស្ដាំ (៤) — ខាងស្ដាំខ្វះប៉ុន្មានទៀត?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៤ ទៅ ៦៖ ៥, ៦។ ត្រូវបន្ថែម ២ ទៀត!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះប៊ូតុង «+២» ម្ដង ដើម្បីឱ្យខាងស្ដាំបាន ៤ + ២ = ៦ ស្មើខាងឆ្វេង!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលខាងឆ្វេង ៦ និងខាងស្ដាំ ៦ ជញ្ជីងស្មើគ្នា (៦ = ៦)!",
+      "audioUrl": "/audio/steps/l03-s3-balance-equal.mp3"
+    }
+  ]
+}

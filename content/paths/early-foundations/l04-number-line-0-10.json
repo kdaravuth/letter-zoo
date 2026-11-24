@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l04-number-line-0-10",
+  "pathId": "early-foundations",
+  "order": 4,
+  "moeysGradeRef": "G1",
+  "topicSlug": "number-sense",
+  "titleKm": "បន្ទាត់ចំនួន ០ ដល់ ១០",
+  "subtitleKm": "នាំកង្កែបលោតទៅមុខ និងថយក្រោយលើស្លឹកឈូកតាមបន្ទាត់ចំនួន",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "កំណត់ទីតាំងលេខ ០ ដល់ ១០ និងលោតបូក ១ ឬដក ១ លើបន្ទាត់ចំនួន",
+  "steps": [
+    {
+      "id": "l04-s1-frog-forward",
+      "type": "number-line",
+      "stage": "concrete",
+      "promptKm": "កង្កែបនៅលើស្លឹកឈូកលេខ ៤។ លោតទៅមុខ ១ ជំហាន តើដល់លេខប៉ុន្មាន?",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 4,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "frog-lotus"
+      },
+      "solution": {
+        "expectedValue": 5,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលស្លឹកឈូកបន្ទាប់នៅខាងស្ដាំលេខ ៤!",
+          "highlightTargetId": "tick-5"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "លោតទៅខាងស្ដាំ ១ ជំហានគឺបូកថែម ១ (៤ + ១)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ៥ ឬចុចប៊ូតុង «+១ ជំហាន» ម្ដង ដើម្បីនាំកង្កែបទៅលេខ ៥!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ចាប់ផ្ដើមពី ៤ លោតទៅស្ដាំ ១ ជំហានបាន ៥ (៤ + ១ = ៥)។",
+      "audioUrl": "/audio/steps/l04-s1-frog-forward.mp3"
+    },
+    {
+      "id": "l04-s2-frog-back",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "កង្កែបនៅលើលេខ ៨។ លោតថយក្រោយ ១ ជំហាន តើដល់លេខប៉ុន្មាន?",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 8,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "frog-lotus"
+      },
+      "solution": {
+        "expectedValue": 7,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលលេខដែលនៅខាងឆ្វេងជាប់លេខ ៨!",
+          "highlightTargetId": "tick-7"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "លោតថយក្រោយទៅឆ្វេង ១ ជំហានគឺដកចេញ ១ (៨ − ១)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ៧ ឬចុច «−១ ជំហាន» ម្ដង!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៨ ថយក្រោយ ១ ជំហានស្មើ ៧ (៨ − ១ = ៧)។",
+      "audioUrl": "/audio/steps/l04-s2-frog-back.mp3"
+    },
+    {
+      "id": "l04-s3-missing-tick",
+      "type": "number-line",
+      "stage": "symbolic",
+      "promptKm": "រកទីតាំងលេខ ៦ ដែលបាត់លើបន្ទាត់ចំនួន ដោយលោតពីលេខ ៣!",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 3,
+        "showJumps": true,
+        "hiddenTickValues": [
+          6
+        ],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 6,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "រកសញ្ញា ? ដែលនៅចន្លោះលេខ ៥ និងលេខ ៧!",
+          "highlightTargetId": "tick-6"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៣៖ ៤, ៥, ៦ (លោតទៅស្ដាំ ៣ ជំហាន)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះចំណុចសញ្ញា ? រវាងលេខ ៥ និង ៧ នោះគឺជាលេខ ៦!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! លេខ ៦ ស្ថិតនៅចន្លោះលេខ ៥ និងលេខ ៧ ជានិច្ចលើបន្ទាត់ចំនួន។",
+      "audioUrl": "/audio/steps/l04-s3-missing-tick.mp3"
+    }
+  ]
+}

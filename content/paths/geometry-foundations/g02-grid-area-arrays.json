@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0",
+  "id": "g02-grid-area-arrays",
+  "pathId": "geometry-foundations",
+  "order": 2,
+  "moeysGradeRef": "G4",
+  "topicSlug": "geometry",
+  "titleKm": "ផ្ទៃក្រឡាលើក្រឡាចត្រង្គ និងការគុណ",
+  "subtitleKm": "ភ្ជាប់ចំនួនការ៉េក្រឡាជាជួរ និងជួរឈរ ទៅនឹងរូបមន្តផ្ទៃក្រឡាចតុកោណ",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "គណនាផ្ទៃក្រឡាចតុកោណកែងដោយរៀបចំការ៉េឯកតាជាជួរ × ជួរឈរ",
+  "steps": [
+    {
+      "id": "g02-s1-grid-3x4",
+      "type": "array-groups",
+      "stage": "concrete",
+      "promptKm": "ក្រាលការ៉ូក្នុងបន្ទប់ជារាងចតុកោណកែង ៣ ជួរ × ៤ ជួរឈរ (ផ្ទៃក្រឡា ១២ ការ៉េ)!",
+      "config": {
+        "mode": "rectangular-grid",
+        "itemTheme": "tile",
+        "maxRows": 5,
+        "maxCols": 6,
+        "initialRows": 1,
+        "initialCols": 2,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 3,
+        "expectedCols": 4,
+        "expectedProduct": 12,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រើប៊ូតុង + ដើម្បីកំណត់ចំនួនជួរ និងចំនួនការ៉ូក្នុង ១ ជួរ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣ ជួរ ក្នុង ១ ជួរមាន ៤ ការ៉ូ ស្មើ ៤ + ៤ + ៤ = ១២ ការ៉េ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "បង្កើន «ចំនួនជួរ» ដល់ ៣ និង «ក្នុង ១ ជួរ» ដល់ ៤ ដើម្បីបាន ១២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ចតុកោណកែង ៣ × ៤ មានផ្ទៃក្រឡា ១២ ការ៉េឯកតា!",
+      "audioUrl": "/audio/steps/g02-s1-grid-3x4.mp3"
+    },
+    {
+      "id": "g02-s2-grid-4x5",
+      "type": "array-groups",
+      "stage": "iconic",
+      "promptKm": "បង្កើតសួនបន្លែរាងចតុកោណកែងដែលមានទទឹង ៤ ម៉ែត្រ និងបណ្ដោយ ៥ ម៉ែត្រ (ផ្ទៃក្រឡា ២០)!",
+      "config": {
+        "mode": "rectangular-grid",
+        "itemTheme": "tile",
+        "maxRows": 5,
+        "maxCols": 6,
+        "initialRows": 2,
+        "initialCols": 2,
+        "showProduct": true
+      },
+      "solution": {
+        "expectedRows": 4,
+        "expectedCols": 5,
+        "expectedProduct": 20,
+        "allowCommutative": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ដាក់ចំនួនជួរស្មើ ៤ និងចំនួនក្នុង ១ ជួរស្មើ ៥!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៤ ជួរ × ៥ = ៥ + ៥ + ៥ + ៥ = ២០។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច + លើ «ចំនួនជួរ» ដល់ ៤ និង «ក្នុង ១ ជួរ» ដល់ ៥!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ផ្ទៃក្រឡាសួន = ៤ × ៥ = ២០ ម៉ែត្រការ៉េ!",
+      "audioUrl": "/audio/steps/g02-s2-grid-4x5.mp3"
+    },
+    {
+      "id": "g02-s3-area-compare",
+      "type": "comparison-balance",
+      "stage": "symbolic",
+      "promptKm": "ប្រៀបធៀបផ្ទៃក្រឡា៖ កន្ទេល ក (៣ × ៥ = ១៥) និងកន្ទេល ខ (៤ × ៤ = ១៦)!",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "symbolic",
+        "leftValue": 15,
+        "rightValue": 16
+      },
+      "solution": {
+        "expectedOperator": "<"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រៀបធៀបលេខ ១៥ និង ១៦!",
+          "highlightTargetId": "op-<"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១៥ តូចជាង ១៦ ដូច្នេះកន្ទេល ក មានផ្ទៃក្រឡាតូចជាងកន្ទេល ខ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «< (តូចជាង)» ដើម្បីបង្ហាញ ១៥ < ១៦!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ៣ × ៥ = ១៥ តូចជាង ៤ × ៤ = ១៦ (១៥ < ១៦)!",
+      "audioUrl": "/audio/steps/g02-s3-area-compare.mp3"
+    }
+  ]
+}

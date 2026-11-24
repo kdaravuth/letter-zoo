@@ -1,0 +1,20 @@
+schema: spec-driven
+context: |
+  Project: Konleuh Kanit (គន្លឹះគណិត) — Khmer-first interactive math web platform for Cambodian children (ages 6-12).
+  Stack: Next.js 16 (App Router), React 19, TypeScript (strict), Tailwind CSS v4, PostgreSQL, Drizzle ORM, inline SVG manipulatives, Serwist PWA (v9.4+ config mode), idb (IndexedDB), Zod, Vitest, Playwright + @axe-core/playwright.
+  Non-negotiable rules:
+  - Khmer-first natural pedagogical copy aligned with MoEYS primary terminology; zero machine-translated phrasing.
+  - Primary font Kantumruy Pro (variable WOFF2) with Noto Sans Khmer fallback; html[lang="km"], line-height 1.7 (1.65-1.8), letter-spacing 0.
+  - Default Khmer numerals (០-៩) with Arabic (0-9) display toggle; accept both in input; strip U+200B (ZWSP) before matching/grading.
+  - Every interactive drag task MUST offer a single-pointer tap-to-place alternative (WCAG 2.2 SC 2.5.7) and >=56px targets for math tokens.
+  - No SVG <foreignObject> (Safari/iOS WebKit scaling bug). No countdown timers, global leaderboards, or loot boxes.
+  - Decouple lesson content (Zod-validated JSON) from frontend components.
+  Test commands:
+  - Unit: npm run test:unit
+  - Content validation: npm run validate:content
+  - E2E + WCAG 2.2 AA: npm run test:e2e
+rules:
+  specs:
+    - Focus strictly on externally observable behavior, interfaces, and error states; keep library/code mechanics in design.md.
+    - Keep every Requirement header descriptive and strictly under 50 characters.
+    - Every Scenario MUST be verifiable via Vitest, Playwright, or documented device QA.

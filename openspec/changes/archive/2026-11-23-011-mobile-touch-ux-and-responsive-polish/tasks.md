@@ -1,0 +1,30 @@
+# Tasks
+
+## 1. Global Mobile Touch Mechanics & Viewport Safe Areas
+
+- [x] 1.1 Update `src/app/globals.css` to set `touch-action: manipulation` and `-webkit-tap-highlight-color: transparent` on `button`, `a`, `[role="button"]`, `.khmer-chip`, and `.manipulative-target`, add `.touch-drag-surface` (`touch-action: none; user-select: none;`), add subtle `:active` press feedback respecting `prefers-reduced-motion`, set `overflow-x: clip` on `html, body`, and update `scroll-margin-top: 6rem`; verify CSS compiles cleanly with `npm run build` or typecheck and inspect computed `touch-action` values in Playwright.
+- [x] 1.2 Update `src/app/layout.tsx` (`viewportFit: "cover"` in `viewport`) and `src/components/ui/AppNavigation.tsx` (bottom safe-area inset padding `pb-[calc(0.375rem+env(safe-area-inset-bottom))]`, matching spacer height, and `max-h-[70dvh] overflow-y-auto` on the More Menu sheet), and replace `min-h-screen` with `min-h-dvh` across page wrappers (`page.tsx`, `onboarding/page.tsx`, `LearningPathClient.tsx`, `LessonPlayer.tsx`, `PlayStudioClient.tsx`, `GardenClient.tsx`, `DailyPuzzleClient.tsx`, `ReviewQueueClient.tsx`, `ParentDashboardClient.tsx`, `AdminStudioClient.tsx`); verify zero horizontal overflow and bottom nav accessibility at `360x800` in Playwright.
+
+## 2. Mobile-Reliable Touch Manipulatives & Primitive Layouts
+
+- [x] 2.1 Extract pure SVG touch coordinate hit-testing helpers (e.g., `clientPointToGridCell` in `src/lib/math/geometryDraw.ts`) and add unit tests in `src/__tests__/geometry-draw.test.ts` covering boundary clamping, left-locked symmetry cells, and high-column grids; verify `npm run test:unit` passes.
+- [x] 2.2 Refactor `src/components/activities/GeometryDraw.tsx` (`symmetry-mirror` and `area-paint`) to paint cells via `<svg>`-level `onPointerDown` / `onPointerMove` / `onPointerUp` / `onPointerCancel` with `.touch-drag-surface` instead of `onPointerEnter`, and size grid `viewBox` dynamically inside an `overflow-x-auto` wrapper when `gridCols >= 6` so cells stay `>= 56x56 px` without overlapping; verify continuous single-finger drag painting and `>= 56px` targets via Playwright touch pointer tests.
+- [x] 2.3 Update `src/components/activities/CountingStage.tsx` to remove `min-w-[320px]` overflow (fit cleanly in `310` SVG units with `58px` cells), raise the tap-vs-drag threshold to `14` SVG units, apply `.touch-drag-surface` strictly on draggable token `<g>` elements, add `onPointerCancel` recovery, and eliminate the drop dead zone between frame and tray; verify slight finger-drift tap selection, `pointercancel` recovery, zero overflow, and `>= 56px` targets in Playwright.
+- [x] 2.4 Update `src/components/activities/NumberLine.tsx` to apply `touch-pan-x` to tick `<g>` elements, apply `.touch-drag-surface` and `onPointerCancel` to `number-line-marker`, and scroll the active marker smoothly into view when stepping via `−`/`+` buttons; verify horizontal scrolling and button stepping on `360x800` in Playwright.
+- [x] 2.5 Update `src/components/activities/FractionBarShape.tsx` to remove `min-w-[320px]` overflow and use a horizontally scrollable expanded SVG (`denominator * 60 + 8`) when `denominator >= 6` so segments never overlap while staying `>= 56x56 px`, and update `src/components/activities/PatternSequence.tsx` to remove the competing `onPointerUp` `elementFromPoint` call in favor of clean tap-to-select / tap-to-place; verify non-overlapping bounding boxes and tap completion in Playwright.
+- [x] 2.6 Update `src/components/activities/PlaceValueBlocks.tsx`, `src/components/activities/ArrayGroups.tsx`, and `src/components/admin/AdminStudioClient.tsx` so paired `−`/`+` stepper grids stack cleanly below `390px` (`grid-cols-1 min-[390px]:grid-cols-2`) and `<select>` controls constrain to `w-full sm:w-auto max-w-full`; verify zero button overlap and `scrollWidth <= clientWidth` at `360x800` in Playwright.
+
+## 3. Mobile Lesson Header, Controls & Gesture-Safe Audio
+
+- [x] 3.1 Update `src/components/lesson/LessonPlayer.tsx`, `src/components/ui/AudioReadButton.tsx`, and `src/components/ui/NumeralToggle.tsx` to render a non-crushing two-row compact mobile sticky header below `sm` (Row 1: exit + audio toggle + numeral toggle; Row 2: full-width step counter, offline badge, and progress bar) with `shrink-0 whitespace-nowrap` toggles and bottom safe-area spacing; verify all header controls remain visible with zero overlap and zero horizontal overflow at `360x800` when toggling audio and numerals in Playwright.
+- [x] 3.2 Update `src/lib/audio/khmerSpeech.ts` and `src/lib/audio/chimes.ts` to synchronously unlock/prime a reusable `HTMLAudioElement` inside the click handler before awaiting `/api/tts` fetch, ensure `onEnd` always fires on error/abort so `AudioReadButton` never sticks in speaking state, and schedule `AudioContext` tones after `resume()` resolves when suspended; add Vitest unit tests verifying gesture-safe priming and abort cleanup (`npm run test:unit`).
+
+## 4. End-to-End Mobile Regression Suite & Device QA Verification
+
+- [x] 4.1 Expand `e2e/mvp-lesson-engine.spec.ts` with mobile touch UX assertions at `360x800` covering: zero horizontal page overflow (`scrollWidth <= innerWidth`) across `/`, `/learn`, `/play`, `/garden`, `/daily`, `/review`, `/parent`, `/admin`, and active lessons; non-crushing `LessonPlayer` header with audio/numeral toggles; tap-with-wobble and `pointercancel` on `CountingStage`; single-finger drag painting on `GeometryDraw`; non-overlapping targets on `PlaceValueBlocks` and `FractionBarShape`; and zero axe-core `wcag22aa` violations.
+- [x] 4.2 Run full project verification suite (`npm run validate:content`, `npm run test:unit`, `npm run build`, and `npm run test:e2e`) and confirm every check passes with zero errors.
+
+## Workflow follow-up
+
+- Run manual spot-check on a physical Android Chrome and/or iOS Safari phone (scroll-over-buttons, number-line horizontal swipe, symmetry finger-drag painting, first-tap Khmer audio, and iPhone home-indicator nav clearance).
+- Archive the change with `/openspec-archive-change` once implementation and device QA are approved.

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l08-tens-and-ones-99",
+  "pathId": "early-foundations",
+  "order": 8,
+  "moeysGradeRef": "G1",
+  "topicSlug": "number-sense",
+  "titleKm": "ខ្ទង់ដប់ និងខ្ទង់រាយ ដល់ ៩៩",
+  "subtitleKm": "ផ្ដុំខ្មៅដៃជាបាច់ដប់ និងប្រៀបធៀបចំនួនពីរខ្ទង់ដោយយល់តម្លៃតាមខ្ទង់",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "បង្កើត និងប្រៀបធៀបចំនួនពីរខ្ទង់ដល់ ៩៩ ដោយប្រើដំបងខ្ទង់ដប់ និងដុំខ្ទង់រាយ",
+  "steps": [
+    {
+      "id": "l08-s1-build-37",
+      "type": "place-value-blocks",
+      "stage": "concrete",
+      "promptKm": "បង្កើតចំនួន ៣៧ ដោយប្រើដំបងខ្ទង់ដប់ និងដុំខ្ទង់រាយ!",
+      "config": {
+        "initialHundreds": 0,
+        "initialTens": 0,
+        "initialOnes": 0,
+        "allowHundreds": false,
+        "allowBundle": true,
+        "allowUnbundle": true,
+        "showLiveTotal": true
+      },
+      "solution": {
+        "expectedTotal": 37,
+        "requireCanonical": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលលេខ ៣៧៖ លេខ ៣ នៅខ្ទង់ដប់ និងលេខ ៧ នៅខ្ទង់រាយ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៣៧ ស្មើ ៣ ដប់ (៣០) បូក ៧ រាយ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច «+១០» ចំនួន ៣ ដង និងចុច «+១» ចំនួន ៧ ដង ដើម្បីបាន ៣៧!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៣ ដំបងដប់ និង ៧ ដុំរាយ ស្មើ ៣០ + ៧ = ៣៧!",
+      "audioUrl": "/audio/steps/l08-s1-build-37.mp3"
+    },
+    {
+      "id": "l08-s2-regroup-50",
+      "type": "place-value-blocks",
+      "stage": "iconic",
+      "promptKm": "មាន ៤ ដំបងដប់ និង ១០ ដុំរាយ។ ចុច «ផ្ដុំ ១០» ដើម្បីបង្ហាញចំនួន ៥០!",
+      "config": {
+        "initialHundreds": 0,
+        "initialTens": 4,
+        "initialOnes": 10,
+        "allowHundreds": false,
+        "allowBundle": true,
+        "allowUnbundle": true,
+        "showLiveTotal": true
+      },
+      "solution": {
+        "expectedTotal": 50,
+        "requireCanonical": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលខ្ទង់រាយ! មានដុំរាយ ១០ ដុំពេញហើយ ដែលអាចផ្ដុំជាដំបងដប់បាន។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពេលផ្ដុំ ១០ រាយជា ១ ដប់ នោះ ៤ ដប់ បូក ១ ដប់ ស្មើ ៥ ដប់ (៥០)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុចប៊ូតុង «ផ្ដុំ ១០» ម្ដង នោះនឹងបាន ៥ ដប់ និង ០ រាយ = ៥០!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៤ ដប់ និង ១០ រាយ ផ្ដុំបានជា ៥ ដប់ និង ០ រាយ ស្មើ ៥០!",
+      "audioUrl": "/audio/steps/l08-s2-regroup-50.mp3"
+    },
+    {
+      "id": "l08-s3-compare-42-24",
+      "type": "comparison-balance",
+      "stage": "symbolic",
+      "promptKm": "ប្រៀបធៀបចំនួនពីរខ្ទង់៖ តើ ៤២ ធំជាង តូចជាង ឬស្មើ ២៤?",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "symbolic",
+        "leftValue": 42,
+        "rightValue": 24
+      },
+      "solution": {
+        "expectedOperator": ">"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រៀបធៀបលេខខ្ទង់ដប់មុនគេ៖ ៤ ដប់ និង ២ ដប់!",
+          "highlightTargetId": "op->"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៤២ មាន ៤ ដប់ ចំណែក ២៤ មានតែ ២ ដប់ទេ ដូច្នេះ ៤២ ធំជាង ២៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «> (ធំជាង)» ដើម្បីបង្ហាញថា ៤២ > ២៤!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលប្រៀបធៀបចំនួនពីរខ្ទង់ យើងមើលខ្ទង់ដប់មុន៖ ៤ ដប់ ធំជាង ២ ដប់ ដូច្នេះ ៤២ > ២៤!",
+      "audioUrl": "/audio/steps/l08-s3-compare-42-24.mp3"
+    }
+  ]
+}

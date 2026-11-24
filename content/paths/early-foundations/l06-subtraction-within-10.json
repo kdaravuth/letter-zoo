@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l06-subtraction-within-10",
+  "pathId": "early-foundations",
+  "order": 6,
+  "moeysGradeRef": "G1",
+  "topicSlug": "addition-subtraction",
+  "titleKm": "វិធីដកចំនួនត្រឹម ១០",
+  "subtitleKm": "ដកផ្លែឈើចេញពីថាស និងលោតថយក្រោយលើបន្ទាត់ចំនួន",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "យល់វិធីដកជាការយកចេញ និងការលោតថយក្រោយលើបន្ទាត់ចំនួនត្រឹម ១០",
+  "steps": [
+    {
+      "id": "l06-s1-take-away",
+      "type": "counting-stage",
+      "stage": "concrete",
+      "promptKm": "ក្នុងថាសមានស្វាយ ៨ ផ្លែ។ យកស្វាយ ៣ ផ្លែចេញមកខាងក្រៅ ដើម្បីរក ៨ − ៣!",
+      "config": {
+        "frameSize": 10,
+        "tokenTheme": "mango",
+        "initialInFrame": 8,
+        "initialOutside": 0,
+        "allowFreeExplore": true,
+        "showLiveCount": true,
+        "requireFullTenBundle": false
+      },
+      "solution": {
+        "expectedInFrame": 5,
+        "expectedTotal": 8
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប៉ះស្វាយក្នុងប្រអប់ រួចប៉ះថាស «ខាងក្រៅប្រអប់» ដើម្បីយកចេញ!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "យើងមាន ៨ ផ្លែ ហើយយកចេញ ៣ ផ្លែ។ រាប់ថយក្រោយពី ៨៖ ៧, ៦, ៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ដកស្វាយ ៣ ផ្លែចេញមកខាងក្រៅ នោះក្នុងប្រអប់នឹងសល់ ៥ ផ្លែ!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ស្វាយ ៨ ផ្លែ យកចេញ ៣ ផ្លែ សល់ ៥ ផ្លែ (៨ − ៣ = ៥)។",
+      "audioUrl": "/audio/steps/l06-s1-take-away.mp3"
+    },
+    {
+      "id": "l06-s2-line-sub",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "គណនា ១០ − ៦ លើបន្ទាត់ចំនួន ដោយលោតថយក្រោយ ៦ ជំហានពី ១០!",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 10,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 4,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ១០ ហើយលោតទៅខាងឆ្វេង ៦ ជំហាន!",
+          "highlightTargetId": "tick-4"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់ថយក្រោយ ៦ ដងពី ១០៖ ៩, ៨, ៧, ៦, ៥, ៤។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ៤ លើបន្ទាត់ចំនួន ព្រោះ ១០ − ៦ = ៤!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ១០ − ៦ = ៤ (ព្រោះ ៤ + ៦ = ១០)។",
+      "audioUrl": "/audio/steps/l06-s2-line-sub.mp3"
+    },
+    {
+      "id": "l06-s3-sub-to-zero",
+      "type": "number-line",
+      "stage": "symbolic",
+      "promptKm": "មានចេក ៧ ផ្លែ ហើយលក់អស់ ៧ ផ្លែ។ គណនា ៧ − ៧ លើបន្ទាត់ចំនួន!",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 7,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 0,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "បើលក់អស់ទាំង ៧ ផ្លែ តើនៅសល់ប៉ុន្មានផ្លែ?",
+          "highlightTargetId": "tick-0"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ចំនួនណាមួយដកនឹងខ្លួនឯងតែងតែស្មើសូន្យ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ០ លើបន្ទាត់ចំនួន ដើម្បីបង្ហាញថា ៧ − ៧ = ០!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ៧ − ៧ = ០។ ពេលដកចេញអស់ស្មើនឹងចំនួនដើម លទ្ធផលគឺ ០!",
+      "audioUrl": "/audio/steps/l06-s3-sub-to-zero.mp3"
+    }
+  ]
+}

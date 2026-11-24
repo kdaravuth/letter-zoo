@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0",
+  "id": "f03-comparing-decimals",
+  "pathId": "fractions-and-decimals",
+  "order": 3,
+  "moeysGradeRef": "G5",
+  "topicSlug": "decimals",
+  "titleKm": "ប្រៀបធៀបចំនួនទសភាគ (០.៥ > ០.៣៥)",
+  "subtitleKm": "យល់ច្បាស់ហេតុអ្វី ០.៥ ធំជាង ០.៣៥ ដោយប្រៀបធៀបខ្ទង់ភាគដប់ និងភាគរយ",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "ប្រៀបធៀបចំនួនទសភាគដែលមានចំនួនខ្ទង់ខុសគ្នា និងបញ្ជាក់ហេតុផលតាមតម្លៃខ្ទង់",
+  "steps": [
+    {
+      "id": "f03-s1-compare-hundredths",
+      "type": "comparison-balance",
+      "stage": "concrete",
+      "promptKm": "០.៥ ស្មើ ៥០ ភាគរយ (០.៥០) និង ០.៣៥ ស្មើ ៣៥ ភាគរយ។ ប្រៀបធៀប ៥០ និង ៣៥!",
+      "config": {
+        "mode": "compare-operator",
+        "visualStyle": "bars",
+        "leftValue": 50,
+        "rightValue": 35,
+        "leftLabelKm": "០.៥ = ០.៥០ (៥០ ភាគរយ)",
+        "rightLabelKm": "០.៣៥ (៣៥ ភាគរយ)"
+      },
+      "solution": {
+        "expectedOperator": ">"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រៀបធៀបប្រវែងរបារ ៥០ ភាគរយ និង ៣៥ ភាគរយ!",
+          "highlightTargetId": "op->"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "៥០ ភាគរយ វែងជាង ៣៥ ភាគរយ ដូច្នេះ ០.៥ > ០.៣៥។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះសញ្ញា «> (ធំជាង)» ដើម្បីបង្ហាញ ០.៥ > ០.៣៥!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ០.៥ ស្មើ ០.៥០ (៥០ ភាគរយ) ដែលធំជាង ០.៣៥ (៣៥ ភាគរយ)!",
+      "audioUrl": "/audio/steps/f03-s1-compare-hundredths.mp3"
+    },
+    {
+      "id": "f03-s2-number-line-0-8",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "នៅលើបន្ទាត់ចំនួន ០ ដល់ ១ ប៉ះចំណុច ០.៨ ដែលធំជាង ០.៥ ចំនួន ០.៣!",
+      "config": {
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "startValue": 0.5,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 0.8,
+        "tolerance": 0.001
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ០.៥ ហើយលោតទៅស្ដាំ ៣ ជំហាន (០.៣)!",
+          "highlightTargetId": "tick-0.8"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "០.៥ + ០.៣ = ០.៨។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ០.៨ លើបន្ទាត់ចំនួន!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ០.៨ នៅខាងស្ដាំ ០.៥ លើបន្ទាត់ចំនួន ដូច្នេះ ០.៨ > ០.៥!",
+      "audioUrl": "/audio/steps/f03-s2-number-line-0-8.mp3"
+    },
+    {
+      "id": "f03-s3-spot-decimal-misconception",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "វិចិត្រនិយាយថា «០.៣៥ > ០.៥ ព្រោះ ៣៥ ធំជាង ៥»។ តើហេតុផលណាជួយកែតម្រូវវិចិត្រ?",
+      "config": {
+        "variant": "worked-error-check",
+        "workedExampleKm": "វិចិត្រគិតថា ០.៣៥ ធំជាង ០.៥ ដោយសារ ៣៥ មានខ្ទង់ច្រើនជាង ៥។",
+        "options": [
+          {
+            "id": "opt-a",
+            "labelKm": "ត្រូវមើលខ្ទង់ភាគដប់មុន៖ ០.៥ មាន ៥ ភាគដប់ (០.៥០) ធំជាង ៣ ភាគដប់នៃ ០.៣៥",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៥ ភាគដប់ ធំជាង ៣ ភាគដប់ ដូច្នេះ ០.៥ > ០.៣៥!"
+          },
+          {
+            "id": "opt-b",
+            "labelKm": "វិចិត្រនិយាយត្រូវហើយ លេខមានខ្ទង់ច្រើនតែងតែធំជាង",
+            "diagnosticFeedbackKm": "ប្រយ័ត្នណា៎! ក្នុងចំនួនទសភាគ ០.៥ = ០.៥០ ធំជាង ០.៣៥!"
+          },
+          {
+            "id": "opt-c",
+            "labelKm": "០.៥ និង ០.៣៥ ស្មើគ្នា",
+            "diagnosticFeedbackKm": "មិនស្មើគ្នាទេ! ០.៥០ ធំជាង ០.៣៥ ចំនួន ០.១៥!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-a"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "សាកសរសេរ ០.៥ ជា ២ ខ្ទង់ក្រោយចុច៖ ០.៥០!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ប្រៀបធៀបខ្ទង់ភាគដប់៖ ៥ ភាគដប់ ធំជាង ៣ ភាគដប់។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយដំបូងដែលពន្យល់ពី ៥ ភាគដប់ (០.៥០) > ៣ ភាគដប់!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលប្រៀបធៀបទសភាគ យើងប្រៀបធៀបតាមតម្លៃខ្ទង់ពីឆ្វេងទៅស្ដាំ៖ ០.៥០ > ០.៣៥!",
+      "audioUrl": "/audio/steps/f03-s3-spot-decimal-misconception.mp3"
+    }
+  ]
+}

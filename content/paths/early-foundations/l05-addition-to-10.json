@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l05-addition-to-10",
+  "pathId": "early-foundations",
+  "order": 5,
+  "moeysGradeRef": "G1",
+  "topicSlug": "addition-subtraction",
+  "titleKm": "វិធីបូកចំនួនដល់ ១០",
+  "subtitleKm": "ផ្គុំចំនួននំលើថាស និងលោតបូកលើបន្ទាត់ចំនួនរហូតដល់ ១០",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "គណនាផលបូកចំនួនក្នុងរង្វង់ ១០ និងយល់លក្ខណៈត្រឡប់នៃវិធីបូក",
+  "steps": [
+    {
+      "id": "l05-s1-combine-cakes",
+      "type": "counting-stage",
+      "stage": "concrete",
+      "promptKm": "ក្នុងថាសមានក្រូច ៣ ផ្លែ និងខាងក្រៅមាន ៤ ផ្លែ។ ដាក់ចូលថាសទាំងអស់ដើម្បីរក ៣ + ៤!",
+      "config": {
+        "frameSize": 10,
+        "tokenTheme": "orange",
+        "initialInFrame": 3,
+        "initialOutside": 4,
+        "allowFreeExplore": true,
+        "showLiveCount": true,
+        "requireFullTenBundle": false
+      },
+      "solution": {
+        "expectedInFrame": 7,
+        "expectedTotal": 7
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "បញ្ចូលក្រូចទាំង ៤ ផ្លែនៅខាងក្រៅចូលទៅក្នុងថាសប្រអប់ ១០!",
+          "highlightTargetId": "empty-slots"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៣៖ ៤, ៥, ៦, ៧។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះក្រូចខាងក្រៅទាំង ៤ ផ្លែដាក់ចូលប្រឡោះទំនេរ រហូតដល់ក្នុងប្រអប់មាន ៧ ផ្លែ!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៣ ផ្លែ បូក ៤ ផ្លែ ស្មើ ៧ ផ្លែ។",
+      "audioUrl": "/audio/steps/l05-s1-combine-cakes.mp3"
+    },
+    {
+      "id": "l05-s2-line-to-ten",
+      "type": "number-line",
+      "stage": "iconic",
+      "promptKm": "គណនា ៦ + ៤ លើបន្ទាត់ចំនួន ដោយលោតទៅមុខ ៤ ជំហានពីលេខ ៦!",
+      "config": {
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "startValue": 6,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 10,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពី ៦ ហើយលោតទៅខាងស្ដាំ ៤ ជំហាន!",
+          "highlightTargetId": "tick-10"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៦៖ ៧, ៨, ៩, ១០។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ១០ លើបន្ទាត់ចំនួន ដើម្បីបង្ហាញថា ៦ + ៤ = ១០!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ៦ + ៤ = ១០។ លេខ ៦ និង ៤ ជាគូមិត្តភក្ដិបង្គ្រប់ ១០!",
+      "audioUrl": "/audio/steps/l05-s2-line-to-ten.mp3"
+    },
+    {
+      "id": "l05-s3-commutativity",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "បើ ៣ + ៤ = ៧ តើ ៤ + ៣ ស្មើប៉ុន្មាន?",
+      "config": {
+        "variant": "single-choice",
+        "visualCue": "cakes-3-plus-4",
+        "options": [
+          {
+            "id": "opt-7",
+            "labelKm": "៧ (ដូចគ្នា ព្រោះប្ដូរទីតាំងផលបូកនៅដដែល)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ៣ + ៤ និង ៤ + ៣ សុទ្ធតែស្មើ ៧!"
+          },
+          {
+            "id": "opt-6",
+            "labelKm": "៦",
+            "diagnosticFeedbackKm": "ពិនិត្យរូបនំខាងលើម្ដងទៀតណា៎! ចំនួននំសរុបមិនបានថយចុះទេ។"
+          },
+          {
+            "id": "opt-8",
+            "labelKm": "៨",
+            "diagnosticFeedbackKm": "លើស ១ ហើយ! ៤ បូក ៣ ស្មើ ៧ ដូច ៣ បូក ៤ ដែរ។"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-7"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចានទាំងពីរខាងលើ! បើប្ដូរចានឆ្វេងនិងស្ដាំ តើចំនួនសរុបផ្លាស់ប្ដូរទេ?",
+          "highlightTargetId": "visual-cue"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "រាប់បន្តពី ៤ ទៅមុខ ៣៖ ៥, ៦, ៧។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "៤ + ៣ = ៧ ដូច ៣ + ៤ = ៧ ដែរ។ ជ្រើសរើសចម្លើយ «៧»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ក្នុងវិធីបូក ទោះប្ដូរលំដាប់លេខក៏ផលបូកនៅតែស្មើគ្នា៖ ៣ + ៤ = ៤ + ៣ = ៧!",
+      "audioUrl": "/audio/steps/l05-s3-commutativity.mp3"
+    }
+  ]
+}

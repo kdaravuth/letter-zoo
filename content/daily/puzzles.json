@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "1.0",
+  "puzzles": [
+    {
+      "id": "daily-01-mango-ten",
+      "titleKm": "បង្គ្រប់ថាសស្វាយ ១០",
+      "subtitleKm": "ប្រើប្រអប់ ១០ ដើម្បីរៀបស្វាយឱ្យពេញថាស",
+      "topicSlug": "addition-subtraction",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-01-step",
+        "type": "counting-stage",
+        "stage": "concrete",
+        "promptKm": "ក្នុងថាសមានស្វាយ ៧ ផ្លែ និងខាងក្រៅមាន ៤ ផ្លែ។ រំកិលស្វាយចូលថាសឱ្យពេញ ១០!",
+        "config": {
+          "frameSize": 10,
+          "tokenTheme": "mango",
+          "initialInFrame": 7,
+          "initialOutside": 4,
+          "allowFreeExplore": true,
+          "showLiveCount": true,
+          "requireFullTenBundle": true
+        },
+        "solution": {
+          "expectedInFrame": 10,
+          "expectedTotal": 11
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "រាប់ប្រឡោះទំនេរក្នុងថាស ១០!",
+            "highlightTargetId": "empty-slots"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "៧ ត្រូវការ ៣ ទៀតដើម្បីបង្គ្រប់ ១០។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះស្វាយ ៣ ផ្លែនៅខាងក្រៅដាក់ចូលថាស នោះខាងក្រៅនៅសល់ ១ ផ្លែ (១០ + ១ = ១១)!"
+          }
+        ],
+        "explanationKm": "ពូកែណាស់! ៧ + ៤ = ៧ + ៣ + ១ = ១០ + ១ = ១១!",
+        "audioUrl": "/audio/steps/daily-01-step.mp3"
+      }
+    },
+    {
+      "id": "daily-02-market-scale",
+      "titleKm": "ជញ្ជីងក្រូចនៅផ្សារ",
+      "subtitleKm": "ធ្វើឱ្យជញ្ជីងទាំងពីរខាងមានតុល្យភាពស្មើគ្នា",
+      "topicSlug": "number-sense",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-02-step",
+        "type": "comparison-balance",
+        "stage": "concrete",
+        "promptKm": "ខាងឆ្វេងមានក្រូច ៨ ផ្លែ និងខាងស្ដាំមាន ៥ ផ្លែ។ បន្ថែមក្រូចខាងស្ដាំឱ្យស្មើគ្នា!",
+        "config": {
+          "mode": "balance-equation",
+          "visualStyle": "scale-oranges",
+          "leftValue": 8,
+          "rightValue": 5,
+          "availableTiles": [
+            1,
+            2,
+            3
+          ]
+        },
+        "solution": {
+          "expectedRightTotal": 8
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "ប្រៀបធៀបខាងឆ្វេង (៨) និងខាងស្ដាំ (៥)!"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "រាប់បន្តពី ៥ ដល់ ៨៖ ៦, ៧, ៨ ដូច្នេះត្រូវបន្ថែម ៣!"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះប៊ូតុង «+៣» ដើម្បីឱ្យខាងស្ដាំបាន ៥ + ៣ = ៨!"
+          }
+        ],
+        "explanationKm": "ល្អណាស់! ៥ + ៣ = ៨ ធ្វើឱ្យជញ្ជីងទាំងពីរខាងស្មើគ្នា!",
+        "audioUrl": "/audio/steps/daily-02-step.mp3"
+      }
+    },
+    {
+      "id": "daily-03-frog-hop",
+      "titleKm": "កង្កែបលោតលើស្លឹកឈូក",
+      "subtitleKm": "លោតបូក ៣ ជំហានលើបន្ទាត់ចំនួន",
+      "topicSlug": "addition-subtraction",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-03-step",
+        "type": "number-line",
+        "stage": "iconic",
+        "promptKm": "កង្កែបនៅលើស្លឹកឈូកលេខ ៥។ លោតទៅមុខ ៣ ជំហាន តើដល់លេខប៉ុន្មាន?",
+        "config": {
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "startValue": 5,
+          "showJumps": true,
+          "hiddenTickValues": [],
+          "theme": "frog-lotus"
+        },
+        "solution": {
+          "expectedValue": 8,
+          "tolerance": 0
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "ចាប់ផ្ដើមពី ៥ ហើយលោតទៅស្ដាំ ៣ ស្លឹកឈូក!",
+            "highlightTargetId": "tick-8"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "រាប់បន្តពី ៥៖ ៦, ៧, ៨។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះលេខ ៨ លើបន្ទាត់ចំនួន ព្រោះ ៥ + ៣ = ៨!"
+          }
+        ],
+        "explanationKm": "អស្ចារ្យ! ៥ លោតទៅស្ដាំ ៣ ជំហានបាន ៨ (៥ + ៣ = ៨)!",
+        "audioUrl": "/audio/steps/daily-03-step.mp3"
+      }
+    },
+    {
+      "id": "daily-04-krama-weave",
+      "titleKm": "លំនាំក្រមាប្រចាំថ្ងៃ",
+      "subtitleKm": "បំពេញផ្ទាំងក្រមាដែលបាត់តាមលំនាំ",
+      "topicSlug": "patterns-geometry",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-04-step",
+        "type": "pattern-sequence",
+        "stage": "concrete",
+        "promptKm": "បំពេញផ្ទាំងក្រមាដែលបាត់៖ ក្រហម, លឿង, ក្រហម, លឿង, ...",
+        "config": {
+          "variant": "krama-tiles",
+          "sequence": [
+            "red",
+            "gold",
+            "red",
+            "gold",
+            null
+          ],
+          "palette": [
+            {
+              "id": "red",
+              "labelKm": "ក្រហម",
+              "glyph": "stripe-red"
+            },
+            {
+              "id": "gold",
+              "labelKm": "លឿង",
+              "glyph": "stripe-gold"
+            },
+            {
+              "id": "blue",
+              "labelKm": "ខៀវ",
+              "glyph": "stripe-blue"
+            }
+          ]
+        },
+        "solution": {
+          "expectedSlotValues": [
+            "red"
+          ]
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "មើលពណ៌ឆ្លាស់គ្នា៖ ក្រហម → លឿង → ក្រហម → លឿង!"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "បន្ទាប់ពីពណ៌លឿង ត្រូវត្រឡប់មកពណ៌ក្រហមវិញ។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះផ្ទាំង «ក្រហម» រួចប៉ះប្រឡោះ «?»!"
+          }
+        ],
+        "explanationKm": "ល្អណាស់! ក្រមានេះឆ្លាស់គ្នារវាងក្រហម និងលឿង!",
+        "audioUrl": "/audio/steps/daily-04-step.mp3"
+      }
+    },
+    {
+      "id": "daily-05-riel-snack",
+      "titleKm": "ទិញនំដោយប្រាក់រៀល",
+      "subtitleKm": "រៀបចំប្រាក់រៀលឱ្យគ្រប់តម្លៃនំ",
+      "topicSlug": "measurement-fractions",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-05-step",
+        "type": "scenario-choice",
+        "stage": "concrete",
+        "promptKm": "នំបញ្ចុកមួយចានថ្លៃ ១,៥០០៛។ ប៉ះក្រដាសប្រាក់ដាក់លើថាសឱ្យគ្រប់ ១,៥០០៛!",
+        "config": {
+          "variant": "banknote-builder",
+          "availableNotesKhr": [
+            100,
+            500,
+            1000,
+            2000
+          ]
+        },
+        "solution": {
+          "expectedSumKhr": 1500
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "យើងត្រូវការ ១,០០០៛ និង ៥០០៛ បញ្ចូលគ្នា!"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "១,០០០៛ + ៥០០៛ = ១,៥០០៛។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះ «+១,០០០៛» ម្ដង និង «+៥០០៛» ម្ដង!"
+          }
+        ],
+        "explanationKm": "ពូកែណាស់! ១,០០០៛ + ៥០០៛ = ១,៥០០៛ គ្រប់ត្រឹមត្រូវ!",
+        "audioUrl": "/audio/steps/daily-05-step.mp3"
+      }
+    },
+    {
+      "id": "daily-06-half-cake",
+      "titleKm": "ចែកនំពាក់កណ្តាល",
+      "subtitleKm": "លាបពណ៌ចំណែកស្មើពាក់កណ្តាល (១/២)",
+      "topicSlug": "measurement-fractions",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-06-step",
+        "type": "fraction-bar-shape",
+        "stage": "iconic",
+        "promptKm": "លាបពណ៌នំឱ្យស្មើពាក់កណ្តាល (២/៤ = ១/២)!",
+        "config": {
+          "mode": "shade-fraction",
+          "visualShape": "bar",
+          "denominator": 4,
+          "initialShaded": 0,
+          "allowPartitionChange": true,
+          "availableDenominators": [
+            2,
+            4
+          ],
+          "showNumberLine": true
+        },
+        "solution": {
+          "expectedNumerator": 2,
+          "expectedDenominator": 4,
+          "acceptEquivalent": true
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "មើលចំណុចកណ្ដាលលើបន្ទាត់ចំនួន ០ ដល់ ១!"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "ក្នុង ៤ ផ្នែកស្មើគ្នា ពាក់កណ្តាលគឺ ២ ផ្នែក (២/៤)។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ប៉ះ ២ ផ្នែកនៃរបារ ៤ ផ្នែក ដើម្បីបាន ២/៤ = ១/២!"
+          }
+        ],
+        "explanationKm": "អស្ចារ្យ! ២/៤ ស្មើនឹង ១/២!",
+        "audioUrl": "/audio/steps/daily-06-step.mp3"
+      }
+    },
+    {
+      "id": "daily-07-equal-baskets",
+      "titleKm": "រៀបចំផ្លែក្រូចជាជួរ",
+      "subtitleKm": "បង្កើតក្រុមស្មើៗគ្នា ៣ × ២ = ៦",
+      "topicSlug": "patterns-geometry",
+      "estimatedMinutes": 2,
+      "step": {
+        "id": "daily-07-step",
+        "type": "array-groups",
+        "stage": "iconic",
+        "promptKm": "រៀបចំផ្លែក្រូចជា ៣ ជួរ ក្នុងមួយជួរមាន ២ ផ្លែ (សរុប ៦ ផ្លែ)!",
+        "config": {
+          "mode": "equal-groups",
+          "itemTheme": "orange",
+          "maxRows": 4,
+          "maxCols": 4,
+          "initialRows": 1,
+          "initialCols": 2,
+          "showProduct": true
+        },
+        "solution": {
+          "expectedRows": 3,
+          "expectedCols": 2,
+          "expectedProduct": 6,
+          "allowCommutative": true
+        },
+        "hints": [
+          {
+            "tier": 1,
+            "kind": "visual-cue",
+            "textKm": "ប្រើប៊ូតុង + លើ «ចំនួនជួរ» ដើម្បីបង្កើនដល់ ៣ ជួរ!"
+          },
+          {
+            "tier": 2,
+            "kind": "strategy-nudge",
+            "textKm": "៣ ជួរ ក្នុង ១ ជួរមាន ២ ផ្លែ៖ ២ + ២ + ២ = ៦។"
+          },
+          {
+            "tier": 3,
+            "kind": "worked-step",
+            "textKm": "ចុច + លើ «ចំនួនជួរ» ២ ដង ដើម្បីបាន ៣ × ២ = ៦!"
+          }
+        ],
+        "explanationKm": "ល្អណាស់! ៣ ជួរ × ២ ផ្លែ = ៦ ផ្លែ!",
+        "audioUrl": "/audio/steps/daily-07-step.mp3"
+      }
+    }
+  ]
+}

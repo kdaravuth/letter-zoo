@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0",
+  "id": "t04-measuring-length-and-data",
+  "pathId": "time-measurement-data",
+  "order": 4,
+  "moeysGradeRef": "G4",
+  "topicSlug": "measurement-data",
+  "titleKm": "រង្វាស់ប្រវែង (cm / m) និងទិន្នន័យសួន",
+  "subtitleKm": "វាស់ប្រវែងខ្មៅដៃលើបន្ទាត់រង្វាស់ ប្ដូរឯកតា ម៉ែត្រ និងសង់ដ្យាក្រាម",
+  "estimatedMinutes": 7,
+  "learningObjectiveKm": "សិស្សអាចវាស់ប្រវែងជាសង់ទីម៉ែត្រ ប្ដូរឯកតា ១ ម៉ែត្រ = ១០០ សង់ទីម៉ែត្រ និងបង្ហាញទិន្នន័យលើដ្យាក្រាម។",
+  "steps": [
+    {
+      "id": "t04-s1-ruler-pencil-14",
+      "type": "number-line",
+      "stage": "concrete",
+      "promptKm": "ខ្មៅដៃចាប់ផ្ដើមពី ២ cm ដល់ ១៦ cm — តើបូកថែម ១៤ cm ដល់ចំណុចលេខប៉ុន្មានលើបន្ទាត់?",
+      "config": {
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "startValue": 2,
+        "showJumps": true,
+        "hiddenTickValues": [],
+        "theme": "default"
+      },
+      "solution": {
+        "expectedValue": 16,
+        "tolerance": 0
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាប់ផ្ដើមពីគំនូស ២ cm ហើយរំកិលទៅស្ដាំ ១៤ cm។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "២ + ១៤ = ១៦ cm!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះលេខ ១៦ លើបន្ទាត់រង្វាស់!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ពី ២ cm ដល់ ១៦ cm មានប្រវែង ១៦ − ២ = ១៤ cm!",
+      "audioUrl": "/audio/steps/t04-s1-ruler-pencil-14.mp3"
+    },
+    {
+      "id": "t04-s2-meters-to-cm",
+      "type": "scenario-choice",
+      "stage": "iconic",
+      "promptKm": "ក្រមាមួយមានប្រវែង ២ ម៉ែត្រ (២ m) — តើស្មើនឹងប៉ុន្មានសង់ទីម៉ែត្រ (cm)?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-200",
+            "labelKm": "២០០ cm (ព្រោះ ១ m = ១០០ cm)",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវ! ១ m = ១០០ cm ដូច្នេះ ២ m = ២០០ cm!"
+          },
+          {
+            "id": "opt-20",
+            "labelKm": "២០ cm",
+            "diagnosticFeedbackKm": "២០ cm ខ្លីណាស់ (ប្រវែងប្រហែលខ្មៅដៃ ១ ដើមទេ) — ១ m = ១០០ cm!"
+          },
+          {
+            "id": "opt-120",
+            "labelKm": "១២០ cm",
+            "diagnosticFeedbackKm": "១២០ cm ស្មើ ១ m និង ២០ cm មិនមែន ២ m ពេញទេណា៎!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-200"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ចាំថា ១ ម៉ែត្រ ស្មើនឹង ១០០ សង់ទីម៉ែត្រ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "២ ម៉ែត្រ = ១០០ + ១០០ សង់ទីម៉ែត្រ!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើស «២០០ cm»!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ១ m = ១០០ cm ដូច្នេះ ២ m = ២០០ cm!",
+      "audioUrl": "/audio/steps/t04-s2-meters-to-cm.mp3"
+    },
+    {
+      "id": "t04-s3-measure-bar-chart",
+      "type": "data-chart",
+      "stage": "iconic",
+      "promptKm": "វាស់ប្រវែងខ្សែបូ៖ ក្រហម ៧ cm និង ខៀវ ៥ cm — សង់ដ្យាក្រាមប្រៀបធៀបប្រវែង!",
+      "config": {
+        "mode": "build-bars",
+        "maxValue": 10,
+        "unitLabelKm": "cm",
+        "bars": [
+          {
+            "id": "ribbon-red",
+            "labelKm": "ខ្សែក្រហម",
+            "color": "#dc2626",
+            "initialValue": 2
+          },
+          {
+            "id": "ribbon-blue",
+            "labelKm": "ខ្សែខៀវ",
+            "color": "#2563eb",
+            "initialValue": 2
+          }
+        ]
+      },
+      "solution": {
+        "expectedBarValues": {
+          "ribbon-red": 7,
+          "ribbon-blue": 5
+        }
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "សសរខ្សែក្រហមត្រូវមានកម្ពស់ ៧ និងខ្សែខៀវកម្ពស់ ៥។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ខ្សែក្រហមវែងជាងខ្សែខៀវ ២ cm (៧ − ៥ = ២)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ចុច +១ ខ្សែក្រហមដល់ ៧ និងខ្សែខៀវដល់ ៥!"
+        }
+      ],
+      "explanationKm": "ត្រឹមត្រូវ! ដ្យាក្រាមបង្ហាញច្បាស់ថាខ្សែក្រហម (៧ cm) វែងជាងខ្សែខៀវ (៥ cm)!",
+      "audioUrl": "/audio/steps/t04-s3-measure-bar-chart.mp3"
+    },
+    {
+      "id": "t04-s4-paint-measured-plot",
+      "type": "geometry-draw",
+      "stage": "symbolic",
+      "promptKm": "គូរផែនទីសួនផ្កាទំហំ ១០ ឯកតាការ៉េ ដោយលាបពណ៌ ១០ ប្រឡោះ!",
+      "config": {
+        "mode": "area-paint",
+        "gridRows": 4,
+        "gridCols": 4,
+        "templateLeftCells": [],
+        "inkColor": "#15803d"
+      },
+      "solution": {
+        "expectedArea": 10,
+        "requireSymmetryMirror": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "ប្រឡោះការ៉េនីមួយៗមានផ្ទៃ ១ ឯកតាការ៉េ។"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "សាកលាប ២ ជួរពេញ (៨ ប្រឡោះ) រួចបន្ថែម ២ ប្រឡោះទៀត!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "លាបពណ៌សរុប ១០ ប្រឡោះ រហូតដល់លេខរាប់បង្ហាញ ១០!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ១០ ប្រឡោះស្មើនឹងផ្ទៃក្រឡា ១០ ឯកតាការ៉េ!",
+      "audioUrl": "/audio/steps/t04-s4-paint-measured-plot.mp3"
+    }
+  ]
+}

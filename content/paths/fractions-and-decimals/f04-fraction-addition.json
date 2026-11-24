@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0",
+  "id": "f04-fraction-addition",
+  "pathId": "fractions-and-decimals",
+  "order": 4,
+  "moeysGradeRef": "G5",
+  "topicSlug": "fractions",
+  "titleKm": "បូកប្រភាគមានភាគបែងដូចគ្នា",
+  "subtitleKm": "ផ្គុំចំណែកនំ ១/៤ + ២/៤ និង ១/២ + ១/២ លើរបារ និងបន្ទាត់ចំនួន",
+  "estimatedMinutes": 8,
+  "learningObjectiveKm": "បូកប្រភាគដែលមានភាគបែងដូចគ្នា និងយល់ហេតុអ្វីភាគបែងរក្សាដដែល",
+  "steps": [
+    {
+      "id": "f04-s1-add-quarters",
+      "type": "fraction-bar-shape",
+      "stage": "concrete",
+      "promptKm": "ដារ៉ាញ៉ាំនំ ១/៤ ហើយសុខាញ៉ាំថែម ២/៤ ទៀត។ លាបពណ៌ផលបូក ១/៤ + ២/៤!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 1,
+        "allowPartitionChange": false,
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 3,
+        "expectedDenominator": 4,
+        "acceptEquivalent": false
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មានលាបពណ៌ ១/៤ រួចហើយ — លាបពណ៌បន្ថែម ២ ផ្នែក (២/៤) ទៀត!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១ ភាគបួន + ២ ភាគបួន = ៣ ភាគបួន (៣/៤)។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះបន្ថែម ២ ផ្នែកទៀត ដើម្បីបានសរុប ៣/៤!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ១/៤ + ២/៤ = ៣/៤។ យើងបូកតែភាគយក (១ + ២ = ៣) ចំណែកទំហំផ្នែក (ភាគបែង ៤) នៅដដែល!",
+      "audioUrl": "/audio/steps/f04-s1-add-quarters.mp3"
+    },
+    {
+      "id": "f04-s2-add-to-one",
+      "type": "fraction-bar-shape",
+      "stage": "iconic",
+      "promptKm": "គណនា ១/២ + ១/២ ដោយលាបពណ៌របារឱ្យពេញ ១ (២/២)!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 2,
+        "initialShaded": 1,
+        "allowPartitionChange": false,
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 2,
+        "expectedDenominator": 2,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មានពាក់កណ្តាល (១/២) ហើយ! បូកពាក់កណ្តាលទៀតបានប៉ុន្មាន?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១/២ + ១/២ = ២/២ = ១ ពេញ!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះផ្នែកទី ២ ដើម្បីលាបពណ៌ពេញរបារ (២/២ = ១)!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ១/២ + ១/២ = ២/២ = ១ ពេញ!",
+      "audioUrl": "/audio/steps/f04-s2-add-to-one.mp3"
+    },
+    {
+      "id": "f04-s3-spot-fraction-error",
+      "type": "scenario-choice",
+      "stage": "symbolic",
+      "promptKm": "មិត្តម្នាក់គណនា «១/៤ + ២/៤ = ៣/៨»។ តើហេតុអ្វីចម្លើយនេះមិនត្រឹមត្រូវ?",
+      "config": {
+        "variant": "worked-error-check",
+        "workedExampleKm": "មិត្តសរសេរ៖ ១/៤ + ២/៤ = (១+២)/(៤+៤) = ៣/៨។",
+        "options": [
+          {
+            "id": "opt-a",
+            "labelKm": "មិនត្រូវបូកភាគបែងទេ! ទំហំចំណែកនៅតែជាភាគបួន ដូច្នេះស្មើ ៣/៤",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ១ ភាគបួន + ២ ភាគបួន = ៣ ភាគបួន (៣/៤) មិនមែន ៣/៨ ទេ!"
+          },
+          {
+            "id": "opt-b",
+            "labelKm": "មិត្តធ្វើត្រូវហើយ ព្រោះ ៤ + ៤ = ៨",
+            "diagnosticFeedbackKm": "ប្រយ័ត្នណា៎! ៣/៨ តូចជាងពាក់កណ្តាលទៀត ចំណែក ១/៤ + ២/៤ ធំជាងពាក់កណ្តាល (៣/៤)!"
+          },
+          {
+            "id": "opt-c",
+            "labelKm": "ចម្លើយត្រូវគឺ ២/៨",
+            "diagnosticFeedbackKm": "ពេលភាគបែងដូចគ្នា យើងរក្សាភាគបែង ៤ ដដែល ហើយបូកភាគយក ១ + ២ = ៣ → ៣/៤!"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-a"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "គិតពីចំណែកនំ ១ ចំណែក + ២ ចំណែក នៃនំកាត់ជា ៤!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ភាគបែងប្រាប់ពីទំហំចំណែក — ពេលបូកភាគបែងដូចគ្នា ទំហំចំណែកមិនផ្លាស់ប្ដូរទេ។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ជ្រើសរើសចម្លើយទី ១ ថា «មិនត្រូវបូកភាគបែងទេ!... ស្មើ ៣/៤»!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ពេលបូកប្រភាគភាគបែងដូចគ្នា យើងបូកតែភាគយក ហើយរក្សាភាគបែងដដែល៖ ១/៤ + ២/៤ = ៣/៤!",
+      "audioUrl": "/audio/steps/f04-s3-spot-fraction-error.mp3"
+    }
+  ]
+}

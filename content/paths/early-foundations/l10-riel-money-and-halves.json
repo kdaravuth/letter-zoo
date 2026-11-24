@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0",
+  "id": "l10-riel-money-and-halves",
+  "pathId": "early-foundations",
+  "order": 10,
+  "moeysGradeRef": "G1",
+  "topicSlug": "measurement-fractions",
+  "titleKm": "រូបិយវត្ថុរៀល និងចំណែកពាក់កណ្តាល",
+  "subtitleKm": "រៀបចំក្រដាសប្រាក់រៀលទិញនំ និងស្គាល់ប្រភាគ ១/២ និង ២/៤",
+  "estimatedMinutes": 9,
+  "learningObjectiveKm": "បូកដកក្រដាសប្រាក់រៀលសាមញ្ញ និងស្គាល់ចំណែកស្មើគ្នា ១/២ ស្មើ ២/៤",
+  "steps": [
+    {
+      "id": "l10-s1-build-1000-riel",
+      "type": "scenario-choice",
+      "stage": "concrete",
+      "promptKm": "នំមួយដុំថ្លៃ ១,០០០៛។ ប៉ះក្រដាសប្រាក់រៀលដាក់លើថាសឱ្យគ្រប់ ១,០០០៛!",
+      "config": {
+        "variant": "banknote-builder",
+        "availableNotesKhr": [
+          100,
+          500,
+          1000,
+          2000
+        ]
+      },
+      "solution": {
+        "expectedSumKhr": 1000
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលតម្លៃប្រាក់លើថាសខាងលើ ដើម្បីឱ្យដល់ ១,០០០៛!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "អ្នកអាចប្រើក្រដាស ៥០០៛ ចំនួន ២ សន្លឹក ឬក្រដាស ១,០០០៛ ចំនួន ១ សន្លឹក។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ «+៥០០៛» ២ ដង (៥០០ + ៥០០ = ១,០០០៛) ឬប៉ះ «+១,០០០៛» ១ ដង!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ៥០០៛ + ៥០០៛ = ១,០០០៛ ស្មើនឹងក្រដាសប្រាក់ ១,០០០៛ មួយសន្លឹក!",
+      "audioUrl": "/audio/steps/l10-s1-build-1000-riel.mp3"
+    },
+    {
+      "id": "l10-s2-riel-change",
+      "type": "scenario-choice",
+      "stage": "iconic",
+      "promptKm": "ដារ៉ាឱ្យប្រាក់ ២,០០០៛ ដើម្បីទិញផ្លែឈើថ្លៃ ១,៥០០៛។ តើអ្នកលក់ត្រូវអាប់ប្រាក់ប៉ុន្មានរៀល?",
+      "config": {
+        "variant": "single-choice",
+        "options": [
+          {
+            "id": "opt-500",
+            "labelKm": "៥០០៛",
+            "diagnosticFeedbackKm": "ត្រឹមត្រូវហើយ! ២,០០០៛ − ១,៥០០៛ = ៥០០៛។"
+          },
+          {
+            "id": "opt-1000",
+            "labelKm": "១,០០០៛",
+            "diagnosticFeedbackKm": "ពិនិត្យម្ដងទៀតណា៎! ១,៥០០៛ + ១,០០០៛ ស្មើ ២,៥០០៛ លើសពី ២,០០០៛ ហើយ។"
+          },
+          {
+            "id": "opt-100",
+            "labelKm": "១០០៛",
+            "diagnosticFeedbackKm": "តិចពេកហើយ! ១,៥០០៛ + ១០០៛ ស្មើតែ ១,៦០០៛ ប៉ុណ្ណោះ។"
+          }
+        ]
+      },
+      "solution": {
+        "correctOptionId": "opt-500"
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "គិតថា ១,៥០០៛ បូកថែមប៉ុន្មានទៀតទើបគ្រប់ ២,០០០៛?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "ពី ១,៥០០៛ ដល់ ២,០០០៛ ខ្វះ ៥០០៛។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "២,០០០៛ − ១,៥០០៛ = ៥០០៛ ដូច្នេះសូមជ្រើសរើស «៥០០៛»!"
+        }
+      ],
+      "explanationKm": "ពូកែណាស់! ២,០០០៛ − ១,៥០០៛ = ៥០០៛ ព្រោះ ១,៥០០៛ + ៥០០៛ = ២,០០០៛។",
+      "audioUrl": "/audio/steps/l10-s2-riel-change.mp3"
+    },
+    {
+      "id": "l10-s3-half-cake",
+      "type": "fraction-bar-shape",
+      "stage": "iconic",
+      "promptKm": "នំមួយដុំចែកជា ២ ចំណែកស្មើគ្នា។ លាបពណ៌ពាក់កណ្តាល (១/២) នៃនំ!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 2,
+        "initialShaded": 0,
+        "allowPartitionChange": false,
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 1,
+        "expectedDenominator": 2,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "របារនំមាន ២ ចំណែកស្មើគ្នា — ពាក់កណ្តាលគឺប៉ុន្មានចំណែក?"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១/២ មានន័យថា ១ ចំណែកក្នុងចំណោម ២ ចំណែកស្មើគ្នា។"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ ១ ផ្នែកនៃរបារនំ ដើម្បីលាបពណ៌ ១/២!"
+        }
+      ],
+      "explanationKm": "ល្អណាស់! ១ ចំណែកក្នុងចំណោម ២ ចំណែកស្មើគ្នា ហៅថាពាក់កណ្តាល ឬ ១/២។",
+      "audioUrl": "/audio/steps/l10-s3-half-cake.mp3"
+    },
+    {
+      "id": "l10-s4-equivalent-half",
+      "type": "fraction-bar-shape",
+      "stage": "symbolic",
+      "promptKm": "ឥឡូវនំចែកជា ៤ ចំណែកស្មើគ្នា។ លាបពណ៌ឱ្យស្មើពាក់កណ្តាល (២/៤ = ១/២)!",
+      "config": {
+        "mode": "shade-fraction",
+        "visualShape": "bar",
+        "denominator": 4,
+        "initialShaded": 0,
+        "allowPartitionChange": true,
+        "availableDenominators": [
+          2,
+          4
+        ],
+        "showNumberLine": true
+      },
+      "solution": {
+        "expectedNumerator": 2,
+        "expectedDenominator": 4,
+        "acceptEquivalent": true
+      },
+      "hints": [
+        {
+          "tier": 1,
+          "kind": "visual-cue",
+          "textKm": "មើលចំណុចកណ្ដាលលើបន្ទាត់ចំនួន ០ ដល់ ១ ខាងក្រោម!"
+        },
+        {
+          "tier": 2,
+          "kind": "strategy-nudge",
+          "textKm": "១/៤ + ១/៤ = ២/៤ ដែលស្មើនឹងពាក់កណ្តាល (១/២)!"
+        },
+        {
+          "tier": 3,
+          "kind": "worked-step",
+          "textKm": "ប៉ះ ២ ផ្នែកនៃរបារ ៤ ចំណែក ដើម្បីបង្ហាញថា ២/៤ = ១/២!"
+        }
+      ],
+      "explanationKm": "អស្ចារ្យ! ២/៤ ស្មើនឹង ១/២ ព្រោះចំណែកនំ និងទីតាំងលើបន្ទាត់ចំនួន ០ ដល់ ១ ស្ថិតនៅកណ្ដាលដូចគ្នា!",
+      "audioUrl": "/audio/steps/l10-s4-equivalent-half.mp3"
+    }
+  ]
+}
